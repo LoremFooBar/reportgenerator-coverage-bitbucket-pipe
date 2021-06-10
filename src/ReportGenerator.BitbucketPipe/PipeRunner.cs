@@ -55,7 +55,13 @@ namespace ReportGenerator.BitbucketPipe
                 .Configure<ReportGeneratorOptions>(options =>
                     ReportGeneratorOptions.Configure(options, _environmentVariableProvider))
                 .Configure<BitbucketOptions>(options =>
-                    BitbucketOptions.Configure(options, _environmentVariableProvider));
+                    BitbucketOptions.Configure(options, _environmentVariableProvider))
+                .Configure<PipeOptions>(options => PipeOptions.Configure(options, _environmentVariableProvider))
+                .Configure<BitbucketAuthenticationOptions>(options =>
+                {
+                    options.Username = authOptions.Username;
+                    options.AppPassword = authOptions.AppPassword;
+                });
 
             return services;
         }

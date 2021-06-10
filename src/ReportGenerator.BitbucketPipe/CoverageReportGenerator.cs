@@ -62,7 +62,7 @@ namespace ReportGenerator.BitbucketPipe
                 $"-verbosity:{verbosityLevel}"
             };
             string[] allArguments;
-            if (_options.ExtraArguments != null && _options.ExtraArguments.Length > 0) {
+            if (_options.ExtraArguments is {Length: > 0}) {
                 ValidatePluginsArgument(_options.ExtraArguments);
                 allArguments = basicArguments.Concat(_options.ExtraArguments).ToArray();
             }
