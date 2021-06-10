@@ -1,6 +1,6 @@
 ﻿using ReportGenerator.BitbucketPipe.Utils;
 
-namespace ReportGenerator.BitbucketPipe.Tests
+namespace ReportGenerator.BitbucketPipe.Tests.Helpers
 {
     public static class TestEnvironment
     {

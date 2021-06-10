@@ -1,10 +1,9 @@
 ﻿using System.Net.Http;
-using System.Threading;
 using System.Threading.Tasks;
 using Moq;
-using Moq.Protected;
 using ReportGenerator.BitbucketPipe.Model;
 using ReportGenerator.BitbucketPipe.Tests.BDD;
+using ReportGenerator.BitbucketPipe.Tests.Helpers;
 
 namespace ReportGenerator.BitbucketPipe.Tests.BitbucketClientTests
 {
@@ -21,11 +20,9 @@ namespace ReportGenerator.BitbucketPipe.Tests.BitbucketClientTests
         [Then]
         public void It_Should_Make_One_Post_Call_To_Create_Build_Status()
         {
-            HttpMessageHandlerMock.Protected().Verify("SendAsync", Times.Once(),
-                ItExpr.Is<HttpRequestMessage>(message =>
-                    message.Method == HttpMethod.Post &&
-                    message.RequestUri.PathAndQuery.EndsWith("workspace/repo-slug/commit/222be690/statuses/build")),
-                ItExpr.IsAny<CancellationToken>());
+            HttpMessageHandlerMock.VerifySendAsyncCall(Times.Once(), request =>
+                request.Method == HttpMethod.Post &&
+                request.RequestUri.PathAndQuery.EndsWith("workspace/repo-slug/commit/222be690/statuses/build"));
         }
     }
 }

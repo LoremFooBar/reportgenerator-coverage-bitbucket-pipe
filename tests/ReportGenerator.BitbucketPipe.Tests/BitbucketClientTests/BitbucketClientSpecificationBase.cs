@@ -1,47 +1,30 @@
-﻿using System.Net;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging.Abstractions;
-using Microsoft.Extensions.Options;
+﻿using System.Net.Http;
 using Moq;
-using Moq.Protected;
 using ReportGenerator.BitbucketPipe.Options;
 using ReportGenerator.BitbucketPipe.Tests.BDD;
+using ReportGenerator.BitbucketPipe.Tests.Helpers;
 
 namespace ReportGenerator.BitbucketPipe.Tests.BitbucketClientTests
 {
     public class BitbucketClientSpecificationBase : SpecificationBase
     {
-        protected Mock<HttpMessageHandler> HttpMessageHandlerMock { get; private set; }
-        protected BitbucketClient BitbucketClient { get; private set; }
+        private BitbucketClientMock _bitbucketClientMock;
+        protected Mock<HttpMessageHandler> HttpMessageHandlerMock => _bitbucketClientMock.HttpMessageHandlerMock;
+        protected BitbucketClient BitbucketClient => _bitbucketClientMock.BitbucketClient;
 
         protected override void Given()
         {
             base.Given();
 
-            HttpMessageHandlerMock = new Mock<HttpMessageHandler>();
-            HttpMessageHandlerMock
-                .Protected()
-                .Setup<Task<HttpResponseMessage>>("SendAsync",
-                    ItExpr.IsAny<HttpRequestMessage>(), ItExpr.IsAny<CancellationToken>())
-                .Returns(Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK)));
+            var requirementsOptions = new CoverageRequirementsOptions
+                {BranchCoveragePercentageMinimum = 80, LineCoveragePercentageMinimum = 80};
+            var bitbucketOptions = new BitbucketOptions
+                {ReportTitle = "Code Coverage", BuildStatusName = "Code Coverage"};
+            var pipeOptions = new PipeOptions {CreateBuildStatus = true};
+            var authOptions = new BitbucketAuthenticationOptions {Username = "user", AppPassword = "pass"};
 
-            var httpClient = new HttpClient(HttpMessageHandlerMock.Object);
-
-            var publishReportOptions =
-                Mock.Of<IOptions<PublishReportOptions>>(options => options.Value == new PublishReportOptions());
-
-            var requirementsOptions = Mock.Of<IOptions<CoverageRequirementsOptions>>(options => options.Value ==
-                new CoverageRequirementsOptions
-                    {BranchCoveragePercentageMinimum = 80, LineCoveragePercentageMinimum = 80});
-
-            var bitbucketOptions = Mock.Of<IOptions<BitbucketOptions>>(options => options.Value ==
-                new BitbucketOptions
-                {ReportTitle = "Code Coverage", BuildStatusName = "Code Coverage"});
-
-            BitbucketClient = new BitbucketClient(httpClient, NullLogger<BitbucketClient>.Instance,
-                publishReportOptions, requirementsOptions, bitbucketOptions, TestEnvironment.EnvironmentInfo);
+            _bitbucketClientMock =
+                new BitbucketClientMock(requirementsOptions, bitbucketOptions, pipeOptions, authOptions);
         }
     }
 }

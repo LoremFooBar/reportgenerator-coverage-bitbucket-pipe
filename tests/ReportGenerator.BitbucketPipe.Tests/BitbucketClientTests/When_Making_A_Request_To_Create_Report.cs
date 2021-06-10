@@ -1,10 +1,9 @@
 ﻿using System.Net.Http;
-using System.Threading;
 using System.Threading.Tasks;
 using Moq;
-using Moq.Protected;
 using ReportGenerator.BitbucketPipe.Model;
 using ReportGenerator.BitbucketPipe.Tests.BDD;
+using ReportGenerator.BitbucketPipe.Tests.Helpers;
 
 namespace ReportGenerator.BitbucketPipe.Tests.BitbucketClientTests
 {
@@ -21,12 +20,17 @@ namespace ReportGenerator.BitbucketPipe.Tests.BitbucketClientTests
         [Then]
         public void It_Should_Make_One_Put_Call_To_Create_Report()
         {
-            HttpMessageHandlerMock.Protected().Verify("SendAsync", Times.Once(),
-                ItExpr.Is<HttpRequestMessage>(message =>
-                    message.Method == HttpMethod.Put &&
-                    message.RequestUri.PathAndQuery.EndsWith(
-                        $"workspace/repo-slug/commit/222be690/reports/code-coverage")),
-                ItExpr.IsAny<CancellationToken>());
+            HttpMessageHandlerMock.VerifySendAsyncCall(Times.Once(), request =>
+                request.Method == HttpMethod.Put &&
+                request.RequestUri.PathAndQuery.EndsWith(
+                    "workspace/repo-slug/commit/222be690/reports/code-coverage"));
+        }
+
+        [Then]
+        public void It_Should_Serialize_Report_Using_Snake_Case()
+        {
+            HttpMessageHandlerMock.VerifySendAsyncCall(Times.AtLeastOnce(),
+                request => request.Content.ReadAsStringAsync().Result.Contains("\"report_type\":"));
         }
     }
 }
