@@ -1,4 +1,4 @@
-﻿using System;
+﻿using ReportGenerator.BitbucketPipe.Utils;
 
 namespace ReportGenerator.BitbucketPipe.Options
 {
@@ -7,10 +7,10 @@ namespace ReportGenerator.BitbucketPipe.Options
         public string ReportTitle { get; set; } = null!;
         public string BuildStatusName { get; set; } = null!;
 
-        public static void Configure(BitbucketOptions options)
+        public static void Configure(BitbucketOptions options, IEnvironmentVariableProvider environmentVariableProvider)
         {
-            string? reportTitle = Environment.GetEnvironmentVariable("PIPELINE_REPORT_TITLE");
-            string? buildStatusName = Environment.GetEnvironmentVariable("BUILD_STATUS_NAME");
+            string? reportTitle = environmentVariableProvider.GetEnvironmentVariable("PIPELINE_REPORT_TITLE");
+            string? buildStatusName = environmentVariableProvider.GetEnvironmentVariable("BUILD_STATUS_NAME");
 
             if (string.IsNullOrWhiteSpace(reportTitle) && !string.IsNullOrWhiteSpace(buildStatusName)) {
                 reportTitle = buildStatusName;

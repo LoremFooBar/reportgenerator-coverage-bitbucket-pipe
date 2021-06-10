@@ -3,7 +3,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using ReportGenerator.BitbucketPipe.Utils;
 using Serilog;
-using static ReportGenerator.BitbucketPipe.Utils.EnvironmentUtils;
 
 namespace ReportGenerator.BitbucketPipe
 {
@@ -13,9 +12,9 @@ namespace ReportGenerator.BitbucketPipe
         // ReSharper disable once InconsistentNaming
         private static async Task Main()
         {
-            Log.Logger = LoggerInitializer.CreateLogger(IsDebugMode);
-
-            Log.Debug("DEBUG={IsDebug}", IsDebugMode);
+            bool isDebugMode = new PipeEnvironment(new EnvironmentVariableProvider()).IsDebugMode;
+            Log.Logger = LoggerInitializer.CreateLogger(isDebugMode);
+            Log.Debug("DEBUG={IsDebug}", isDebugMode);
             Log.Debug("Workdir={Workdir}", Environment.CurrentDirectory);
 
             await new PipeRunner(new EnvironmentVariableProvider()).RunPipeAsync();

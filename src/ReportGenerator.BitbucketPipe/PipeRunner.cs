@@ -1,7 +1,6 @@
-﻿using System.Net.Http;
-using System.Net.Http.Headers;
+﻿using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
-using IdentityModel;
 using IdentityModel.Client;
 using Microsoft.Extensions.DependencyInjection;
 using ReportGenerator.BitbucketPipe.Options;
@@ -13,13 +12,18 @@ namespace ReportGenerator.BitbucketPipe
     public class PipeRunner
     {
         private readonly IEnvironmentVariableProvider _environmentVariableProvider;
+        private readonly PipeEnvironment _pipeEnvironment;
 
-        public PipeRunner(IEnvironmentVariableProvider environmentVariableProvider) =>
+        public PipeRunner(IEnvironmentVariableProvider environmentVariableProvider)
+        {
             _environmentVariableProvider = environmentVariableProvider;
+            _pipeEnvironment = new PipeEnvironment(_environmentVariableProvider);
+        }
 
         public async Task RunPipeAsync()
         {
-            var serviceProvider = await ConfigureServicesAsync();
+            var services = ConfigureServices();
+            var serviceProvider = services.BuildServiceProvider();
 
             var coverageReportGenerator = serviceProvider.GetRequiredService<CoverageReportGenerator>();
             var coverageSummary = await coverageReportGenerator.GenerateCoverageReportAsync();
@@ -29,62 +33,54 @@ namespace ReportGenerator.BitbucketPipe
             await bitbucketClient.CreateReportAsync(coverageSummary);
         }
 
-        protected virtual async Task<ServiceProvider> ConfigureServicesAsync()
+        protected virtual IServiceCollection ConfigureServices()
         {
-            string accessToken = await GetAccessTokenAsync();
+            IServiceCollection services = new ServiceCollection();
 
-            var serviceCollection =
-                new ServiceCollection()
-                    .AddSingleton<CoverageReportGenerator>()
-                    .AddHttpClient<BitbucketClient>(client =>
-                        client.DefaultRequestHeaders.Authorization =
-                            new AuthenticationHeaderValue(
-                                OidcConstants.AuthenticationSchemes.AuthorizationHeaderBearer,
-                                accessToken)).Services
-                    .AddLogging(builder => builder.AddSerilog())
-                    .Configure<CoverageRequirementsOptions>(CoverageRequirementsOptions.Configure)
-                    .Configure<PublishReportOptions>(PublishReportOptions.Configure)
-                    .Configure<ReportGeneratorOptions>(options =>
-                        ReportGeneratorOptions.Configure(options, _environmentVariableProvider))
-                    .Configure<BitbucketOptions>(BitbucketOptions.Configure);
+            var authOptions = new BitbucketAuthenticationOptions
+            {
+                Username = _environmentVariableProvider.GetEnvironmentVariable("BITBUCKET_USERNAME"),
+                AppPassword = _environmentVariableProvider.GetEnvironmentVariable("BITBUCKET_APP_PASSWORD")
+            };
 
-            return serviceCollection.BuildServiceProvider();
+            SetupBitbucketClient(services, authOptions);
+
+            services
+                .AddSingleton<CoverageReportGenerator>()
+                .AddLogging(builder => builder.AddSerilog())
+                .Configure<CoverageRequirementsOptions>(options =>
+                    CoverageRequirementsOptions.Configure(options, _environmentVariableProvider))
+                .Configure<PublishReportOptions>(options =>
+                    PublishReportOptions.Configure(options, _environmentVariableProvider))
+                .Configure<ReportGeneratorOptions>(options =>
+                    ReportGeneratorOptions.Configure(options, _environmentVariableProvider))
+                .Configure<BitbucketOptions>(options =>
+                    BitbucketOptions.Configure(options, _environmentVariableProvider));
+
+            return services;
         }
 
-        private async Task<string> GetAccessTokenAsync()
+        private void SetupBitbucketClient(IServiceCollection services, BitbucketAuthenticationOptions authOptions)
         {
-            var authenticationOptions = new BitbucketAuthenticationOptions
-            {
-                Key = _environmentVariableProvider.GetRequiredEnvironmentVariable("BITBUCKET_OAUTH_KEY"),
-                Secret = _environmentVariableProvider.GetRequiredEnvironmentVariable("BITBUCKET_OAUTH_SECRET")
-            };
+            var httpClientBuilder = services.AddHttpClient<BitbucketClient>();
 
-            Log.Debug("Getting access token...");
-
-            using var httpClient = new HttpClient();
-            var tokenRequest = new ClientCredentialsTokenRequest
-            {
-                ClientId = authenticationOptions.Key,
-                ClientSecret = authenticationOptions.Secret,
-                Scope = "repository:write",
-                Address = "https://bitbucket.org/site/oauth2/access_token"
-            };
-
-            var tokenResponse = await httpClient.RequestClientCredentialsTokenAsync(tokenRequest);
-
-            if (!tokenResponse.IsError) {
-                Log.Debug("Got access token");
-                return tokenResponse.AccessToken;
+            if (authOptions.UseAuthentication) {
+                Log.Debug("Authenticating using app password");
+                httpClientBuilder.ConfigureHttpClient(client =>
+                    client.SetBasicAuthentication(authOptions.Username, authOptions.AppPassword));
             }
+            else if (!_pipeEnvironment.IsDevelopment) {
+                // set proxy for pipe when running in pipelines
+                const string proxyUrl = "http://host.docker.internal:29418";
 
-            Log.Error("Error getting access token: {@Error}",
-                new
-                {
-                    tokenResponse.Error, tokenResponse.ErrorDescription, tokenResponse.ErrorType,
-                    tokenResponse.HttpStatusCode
-                });
-
-            throw new OAuthException(tokenResponse);
+                Log.Debug("Using proxy {Proxy}", proxyUrl);
+                Log.Information("Not using authentication - can't create build status");
+                httpClientBuilder.ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+                    {Proxy = new WebProxy(proxyUrl)});
+            }
+            else {
+                Log.Error("Could not authenticate to Bitbucket!");
+            }
         }
     }
 }

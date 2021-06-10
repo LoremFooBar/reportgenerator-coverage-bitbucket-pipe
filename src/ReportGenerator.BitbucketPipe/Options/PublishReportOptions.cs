@@ -1,4 +1,5 @@
 ﻿using System;
+using ReportGenerator.BitbucketPipe.Utils;
 
 namespace ReportGenerator.BitbucketPipe.Options
 {
@@ -6,9 +7,9 @@ namespace ReportGenerator.BitbucketPipe.Options
     {
         public Uri? ReportUrl { get; set; }
 
-        public static void Configure(PublishReportOptions options)
+        public static void Configure(PublishReportOptions options, IEnvironmentVariableProvider envVariableProvider)
         {
-            string? reportUrlStr = Environment.GetEnvironmentVariable("PUBLISHED_REPORT_URL");
+            string? reportUrlStr = envVariableProvider.GetEnvironmentVariable("PUBLISHED_REPORT_URL");
             Uri.TryCreate(reportUrlStr, UriKind.Absolute, out var reportUrl);
             options.ReportUrl = reportUrl;
         }

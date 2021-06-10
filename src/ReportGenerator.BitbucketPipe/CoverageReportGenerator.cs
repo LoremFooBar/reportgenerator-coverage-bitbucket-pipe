@@ -16,13 +16,15 @@ namespace ReportGenerator.BitbucketPipe
     public class CoverageReportGenerator
     {
         private readonly ILogger<CoverageReportGenerator> _logger;
+        private readonly PipeEnvironment _pipeEnvironment;
         private readonly ReportGeneratorOptions _options;
         private readonly string _coverageReportPath;
 
         public CoverageReportGenerator(ILogger<CoverageReportGenerator> logger,
-            IOptions<ReportGeneratorOptions> options)
+            IOptions<ReportGeneratorOptions> options, PipeEnvironment pipeEnvironment)
         {
             _logger = logger;
+            _pipeEnvironment = pipeEnvironment;
             _options = options.Value;
             _coverageReportPath = "coverage-report";
         }
@@ -51,7 +53,7 @@ namespace ReportGenerator.BitbucketPipe
 
         private string PrepareCommandArguments()
         {
-            string verbosityLevel = EnvironmentUtils.IsDebugMode ? "Verbose" : "Warning";
+            string verbosityLevel = _pipeEnvironment.IsDebugMode ? "Verbose" : "Warning";
             string[] basicArguments =
             {
                 $"\"-reports:{_options.Reports}\"",

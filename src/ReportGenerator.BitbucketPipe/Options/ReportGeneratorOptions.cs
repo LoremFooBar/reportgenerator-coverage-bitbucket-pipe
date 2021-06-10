@@ -1,5 +1,4 @@
-﻿using System;
-using ReportGenerator.BitbucketPipe.Utils;
+﻿using ReportGenerator.BitbucketPipe.Utils;
 
 namespace ReportGenerator.BitbucketPipe.Options
 {
@@ -12,13 +11,13 @@ namespace ReportGenerator.BitbucketPipe.Options
         public static void Configure(ReportGeneratorOptions options,
             IEnvironmentVariableProvider environmentVariableProvider)
         {
-            string? reportTypes = Environment.GetEnvironmentVariable("REPORT_TYPES");
+            string? reportTypes = environmentVariableProvider.GetEnvironmentVariable("REPORT_TYPES");
             options.ReportTypes = reportTypes ?? "JsonSummary;Html";
 
-            string? reports = Environment.GetEnvironmentVariable("REPORTS");
+            string? reports = environmentVariableProvider.GetEnvironmentVariable("REPORTS");
             options.Reports = reports ?? "**/coverage*.xml";
 
-            string? extraArgsCountString = Environment.GetEnvironmentVariable("EXTRA_ARGS_COUNT");
+            string? extraArgsCountString = environmentVariableProvider.GetEnvironmentVariable("EXTRA_ARGS_COUNT");
             bool parsedExtraArgsCount = int.TryParse(extraArgsCountString, out int extraArgsCount);
             if (!parsedExtraArgsCount || extraArgsCount <= 0) {
                 return;
