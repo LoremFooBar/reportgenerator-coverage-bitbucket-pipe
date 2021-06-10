@@ -21,6 +21,7 @@ services:
       - 'bitbucket:api.bitbucket.org'
     volumes:
       - ./TestResults:/app/TestResults:ro
+
   bitbucket:
     build: 'DummyBitbucketServer/'
     ports:

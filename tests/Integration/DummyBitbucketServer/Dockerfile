@@ -18,6 +18,4 @@ WORKDIR /app
 
 COPY --from=build /app .
 
-RUN ls
-
 ENTRYPOINT ["dotnet", "/app/DummyBitbucketServer.dll"]

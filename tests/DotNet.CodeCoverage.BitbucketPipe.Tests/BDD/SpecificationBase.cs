@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using NUnit.Framework;
+// ReSharper disable InconsistentNaming
 
 namespace DotNet.CodeCoverage.BitbucketPipe.Tests.BDD
 {

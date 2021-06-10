@@ -15,6 +15,7 @@ namespace DotNet.CodeCoverage.BitbucketPipe
 {
     internal static class Program
     {
+        // ReSharper disable once InconsistentNaming
         private static async Task Main()
         {
             Log.Logger = LoggerInitializer.CreateLogger(IsDebugMode);
@@ -57,7 +58,7 @@ namespace DotNet.CodeCoverage.BitbucketPipe
         private static HttpMessageHandler ConfigureHttpMessageHandlerForTests() => new HttpClientHandler
         {
             // ignore SSL errors in tests
-            ServerCertificateCustomValidationCallback = (request, x509Certificate2, x509Chain, sslPolicyErrors) =>
+            ServerCertificateCustomValidationCallback = (_, _, _, sslPolicyErrors) =>
                 EnvironmentName.Equals("Test", StringComparison.OrdinalIgnoreCase) ||
                 sslPolicyErrors == SslPolicyErrors.None
         };

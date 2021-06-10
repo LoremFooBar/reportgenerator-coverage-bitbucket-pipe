@@ -1,4 +1,4 @@
-﻿FROM mcr.microsoft.com/dotnet/sdk:3.1-bionic as build
+﻿FROM mcr.microsoft.com/dotnet/sdk:5.0 as build
 
 ENV PRROJECT_NAME "DotNet.CodeCoverage.BitbucketPipe"
 
@@ -13,9 +13,9 @@ COPY src/$PRROJECT_NAME/. ./
 RUN dotnet publish -c release -o /app
 
 
-FROM mcr.microsoft.com/dotnet/sdk:3.1-bionic
+FROM mcr.microsoft.com/dotnet/sdk:5.0
 
-LABEL maintainer="@lazyboy1"
+LABEL maintainer="@amit_e"
 
 WORKDIR /app
 
