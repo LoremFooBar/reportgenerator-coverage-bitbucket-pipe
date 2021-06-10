@@ -2,7 +2,7 @@ using NUnit.Framework;
 
 // ReSharper disable All
 
-namespace DotNet.CodeCoverage.BitbucketPipe.Tests
+namespace ReportGenerator.BitbucketPipe.Tests
 {
     public class Dummy
     {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 // ReSharper disable InconsistentNaming
 
-namespace DotNet.CodeCoverage.BitbucketPipe.Tests.BDD
+namespace ReportGenerator.BitbucketPipe.Tests.BDD
 {
     [SuppressMessage("ReSharper", "MethodHasAsyncOverload")]
     public abstract class SpecificationBase

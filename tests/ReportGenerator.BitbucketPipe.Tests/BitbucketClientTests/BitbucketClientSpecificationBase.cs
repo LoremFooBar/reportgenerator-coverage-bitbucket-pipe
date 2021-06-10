@@ -2,14 +2,14 @@
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using DotNet.CodeCoverage.BitbucketPipe.Options;
-using DotNet.CodeCoverage.BitbucketPipe.Tests.BDD;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
 using Moq;
 using Moq.Protected;
+using ReportGenerator.BitbucketPipe.Options;
+using ReportGenerator.BitbucketPipe.Tests.BDD;
 
-namespace DotNet.CodeCoverage.BitbucketPipe.Tests.BitbucketClientTests
+namespace ReportGenerator.BitbucketPipe.Tests.BitbucketClientTests
 {
     public class BitbucketClientSpecificationBase : SpecificationBase
     {
@@ -19,8 +19,6 @@ namespace DotNet.CodeCoverage.BitbucketPipe.Tests.BitbucketClientTests
         protected override void Given()
         {
             base.Given();
-
-            TestEnvironmentSetup.SetupEnvironment();
 
             HttpMessageHandlerMock = new Mock<HttpMessageHandler>();
             HttpMessageHandlerMock
@@ -43,7 +41,7 @@ namespace DotNet.CodeCoverage.BitbucketPipe.Tests.BitbucketClientTests
                 {ReportTitle = "Code Coverage", BuildStatusName = "Code Coverage"});
 
             BitbucketClient = new BitbucketClient(httpClient, NullLogger<BitbucketClient>.Instance,
-                publishReportOptions, requirementsOptions, bitbucketOptions);
+                publishReportOptions, requirementsOptions, bitbucketOptions, TestEnvironment.EnvironmentInfo);
         }
     }
 }

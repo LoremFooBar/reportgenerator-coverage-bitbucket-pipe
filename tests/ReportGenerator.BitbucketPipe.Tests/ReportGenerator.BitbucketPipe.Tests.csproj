@@ -18,7 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\DotNet.CodeCoverage.BitbucketPipe\DotNet.CodeCoverage.BitbucketPipe.csproj" />
+      <ProjectReference Include="..\..\src\ReportGenerator.BitbucketPipe\ReportGenerator.BitbucketPipe.csproj" />
     </ItemGroup>
 
 </Project>

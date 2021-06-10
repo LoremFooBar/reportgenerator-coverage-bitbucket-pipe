@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{159AB7B9-379
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C3DBC274-CBD2-4CBA-8D12-1C9F974C8ADB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet.CodeCoverage.BitbucketPipe.Tests", "tests\DotNet.CodeCoverage.BitbucketPipe.Tests\DotNet.CodeCoverage.BitbucketPipe.Tests.csproj", "{8643BE55-B74B-489F-9050-BB36CF4A5AB8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportGenerator.BitbucketPipe.Tests", "tests\ReportGenerator.BitbucketPipe.Tests\ReportGenerator.BitbucketPipe.Tests.csproj", "{8643BE55-B74B-489F-9050-BB36CF4A5AB8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit", "Unit", "{145F0A3B-574F-4BE3-8ACC-D2E441849D1B}"
 EndProject

@@ -807,7 +807,7 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "dotnet.codecoverage.bitbucketpipe": {
+      "reportgenerator.bitbucketpipe": {
         "type": "Project",
         "dependencies": {
           "IdentityModel": "5.1.0",
