@@ -1,16 +1,17 @@
 ﻿FROM mcr.microsoft.com/dotnet/sdk:5.0 as build
 
-ENV PRROJECT_NAME "DotNet.CodeCoverage.BitbucketPipe"
+ENV PRROJECT_NAME "ReportGenerator.BitbucketPipe"
 
 WORKDIR /source
 
 COPY src/$PRROJECT_NAME/$PRROJECT_NAME.csproj .
+COPY src/$PRROJECT_NAME/packages.lock.json .
 
-RUN dotnet restore
+RUN dotnet restore --locked-mode --verbosity n
 
 COPY src/$PRROJECT_NAME/. ./
 
-RUN dotnet publish -c release -o /app
+RUN dotnet publish --no-restore -c release -o /app
 
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0
@@ -21,9 +22,4 @@ WORKDIR /app
 
 COPY --from=build /app .
 
-# add dotnet global tools to PATH
-ENV PATH="$PATH:/root/.dotnet/tools"
-
-RUN dotnet tool install -g dotnet-reportgenerator-globaltool
-
-ENTRYPOINT ["dotnet", "/app/DotNet.CodeCoverage.BitbucketPipe.dll"]
+ENTRYPOINT ["dotnet", "/app/ReportGenerator.BitbucketPipe.dll"]

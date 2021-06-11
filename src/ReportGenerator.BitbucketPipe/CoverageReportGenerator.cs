@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Palmmedia.ReportGenerator.Core;
 using ReportGenerator.BitbucketPipe.Model;
 using ReportGenerator.BitbucketPipe.Options;
 using ReportGenerator.BitbucketPipe.Utils;
@@ -18,7 +19,6 @@ namespace ReportGenerator.BitbucketPipe
         private readonly ILogger<CoverageReportGenerator> _logger;
         private readonly PipeEnvironment _pipeEnvironment;
         private readonly ReportGeneratorOptions _options;
-        private readonly string _coverageReportPath;
 
         public CoverageReportGenerator(ILogger<CoverageReportGenerator> logger,
             IOptions<ReportGeneratorOptions> options, PipeEnvironment pipeEnvironment)
@@ -26,52 +26,65 @@ namespace ReportGenerator.BitbucketPipe
             _logger = logger;
             _pipeEnvironment = pipeEnvironment;
             _options = options.Value;
-            _coverageReportPath = "coverage-report";
         }
 
         public async Task<CoverageSummary> GenerateCoverageReportAsync()
         {
-            RunCoverageReportGenerator();
-            try {
-                return await ParseCoverageSummaryAsync();
+            var cliArguments = PrepareCliArguments();
+            var reportConfiguration = new ReportConfigurationBuilder().Create(cliArguments);
+            bool reportGenerated = new Generator().GenerateReport(reportConfiguration);
+            if (!reportGenerated) {
+                throw new ReportGenerationFailedException();
             }
-            catch (Exception ex) {
-                _logger.LogError(ex, "Error parsing summary report");
-                return new CoverageSummary();
-            }
+
+            return await ParseCoverageSummaryAsync();
         }
 
-        private void RunCoverageReportGenerator()
-        {
-            string argumentsString = PrepareCommandArguments();
-
-            var cancellationTokenSource = new CancellationTokenSource(TimeSpan.FromMinutes(1));
-            var cancellationToken = cancellationTokenSource.Token;
-            ProcessUtils.RunProcessUntilFinishedOrCanceled("reportgenerator", argumentsString,
-                _logger, cancellationToken);
-        }
-
-        private string PrepareCommandArguments()
+        private Dictionary<string, string> PrepareCliArguments()
         {
             string verbosityLevel = _pipeEnvironment.IsDebugMode ? "Verbose" : "Warning";
-            string[] basicArguments =
+            Dictionary<string, string> basicArguments = new(StringComparer.OrdinalIgnoreCase)
             {
-                $"\"-reports:{_options.Reports}\"",
-                $"-targetdir:{_coverageReportPath}",
-                $"-reporttypes:{_options.ReportTypes}",
-                $"-verbosity:{verbosityLevel}"
+                ["reports"] = _options.Reports,
+                ["targetdir"] = _options.DestinationPath,
+                ["reporttypes"] = _options.ReportTypes,
+                ["verbosity"] = verbosityLevel
             };
-            string[] allArguments;
+
+            Dictionary<string, string> allArguments;
             if (_options.ExtraArguments is {Length: > 0}) {
                 ValidatePluginsArgument(_options.ExtraArguments);
-                allArguments = basicArguments.Concat(_options.ExtraArguments).ToArray();
+                var extraArguments = CreateArgumentsDictionary(_options.ExtraArguments);
+                allArguments = basicArguments.Concat(extraArguments.Where(kv => !basicArguments.ContainsKey(kv.Key)))
+                    .ToDictionary(kv => kv.Key, kv => kv.Value, StringComparer.OrdinalIgnoreCase);
             }
             else {
                 allArguments = basicArguments;
             }
 
-            string argumentsString = string.Join(' ', allArguments);
-            return argumentsString;
+            return allArguments;
+        }
+
+        private static Dictionary<string, string> CreateArgumentsDictionary(IEnumerable<string>? args)
+        {
+            if (args is null) {
+                return new Dictionary<string, string>();
+            }
+
+            var res = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            foreach (string extraArgument in args) {
+                string[] splits = extraArgument.Split(':',
+                    StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
+                if (splits.Length != 2) {
+                    continue;
+                }
+
+                string key = splits[0].TrimStart('"').TrimStart('-');
+                string value = splits[1].TrimEnd('"');
+                res.Add(key, value);
+            }
+
+            return res;
         }
 
         private void ValidatePluginsArgument(IEnumerable<string> optionsExtraArguments)
@@ -103,7 +116,7 @@ namespace ReportGenerator.BitbucketPipe
 
         private async Task<CoverageSummary> ParseCoverageSummaryAsync()
         {
-            await using var fileStream = File.OpenRead(Path.Combine(_coverageReportPath, "Summary.json"));
+            await using var fileStream = File.OpenRead(Path.Combine(_options.DestinationPath, "Summary.json"));
 
             var cancellationTokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(10));
             var cancellationToken = cancellationTokenSource.Token;

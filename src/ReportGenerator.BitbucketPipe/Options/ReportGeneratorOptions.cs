@@ -1,4 +1,5 @@
-﻿using ReportGenerator.BitbucketPipe.Utils;
+﻿using System.IO;
+using ReportGenerator.BitbucketPipe.Utils;
 
 namespace ReportGenerator.BitbucketPipe.Options
 {
@@ -6,6 +7,7 @@ namespace ReportGenerator.BitbucketPipe.Options
     {
         public string Reports { get; set; } = null!;
         public string ReportTypes { get; set; } = null!;
+        public string DestinationPath { get; set; } = "coverage-report";
         public string[]? ExtraArguments { get; set; }
 
         public static void Configure(ReportGeneratorOptions options,
@@ -15,7 +17,7 @@ namespace ReportGenerator.BitbucketPipe.Options
             options.ReportTypes = reportTypes ?? "JsonSummary;Html";
 
             string? reports = environmentVariableProvider.GetEnvironmentVariable("REPORTS");
-            options.Reports = reports ?? "**/coverage*.xml";
+            options.Reports = reports ?? $"**{Path.DirectorySeparatorChar}coverage*.xml";
 
             string? extraArgsCountString = environmentVariableProvider.GetEnvironmentVariable("EXTRA_ARGS_COUNT");
             bool parsedExtraArgsCount = int.TryParse(extraArgsCountString, out int extraArgsCount);
