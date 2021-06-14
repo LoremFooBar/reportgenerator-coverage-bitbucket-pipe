@@ -1,0 +1,69 @@
+definitions:
+  steps:
+    - step: &build-and-test
+        name: Build and test
+        image: mcr.microsoft.com/dotnet/sdk:5.0
+        caches:
+          - dotnetcore
+        script:
+          - dotnet tool restore
+          - dotnet restore --locked-mode
+          - dotnet build --no-restore
+          - dotnet jb inspectcode --config=inspectcode.config
+
+          # create resharper inspections report
+          - pipe: docker://lazyboy1/resharper-inspections-bitbucket-pipe:0.3
+            variables:
+              INSPECTIONS_XML_PATH: "inspect.xml"
+              BITBUCKET_OAUTH_KEY: $CAMILYO_DEV_BB_USERNAME
+              BITBUCKET_OAUTH_SECRET: $CAMILYO_DEV_BB_APP_PASSWORD
+              DEBUG: "true"
+
+          - |-
+            dotnet test \
+              --no-build \
+              "--logger:junit;LogFilePath=./test-reports/results.xml" \
+              --collect:"XPlat Code Coverage"
+
+          # download and extract history storage plugin
+          - apt-get update && apt-get install -y unzip jq
+          - |-
+            export access_token=$(curl -s -X POST -u "${COVERAGE_PIPE_OAUTH_KEY}:${COVERAGE_PIPE_OAUTH_SECRET}" \
+              https://bitbucket.org/site/oauth2/access_token \
+              -d grant_type=client_credentials -d scopes="repository" | jq --raw-output '.access_token')
+          - |-
+            curl -O -L \
+              --header "Authorization: Bearer ${access_token}" \
+              $COVERGAE_HISTORY_STORAGE_PLUGIN_LATEST_ZIP_FILE_URL
+          - unzip latest.zip -d $BITBUCKET_CLONE_DIR/history-storage-plugin
+
+          # generate coverage report
+          - pipe: docker://lazyboy1/dotnet-coverage-report-bitbucket-pipe:0.5
+            variables:
+              BITBUCKET_OAUTH_KEY: $COVERAGE_PIPE_OAUTH_KEY
+              BITBUCKET_OAUTH_SECRET: $COVERAGE_PIPE_OAUTH_SECRET
+              LINE_COVERAGE_MINIMUM: "90"
+              BRANCH_COVERAGE_MINIMUM: "70"
+              PUBLISHED_REPORT_URL: "$COVERAGE_REPORT_BLOB_URL/$BITBUCKET_REPO_SLUG/$BITBUCKET_COMMIT/index.htm$COVERAGE_AZURE_STORAGE_READ_SAS_TOKEN"
+              EXTRA_ARGS: ['-plugins:$BITBUCKET_CLONE_DIR/history-storage-plugin/Camilyo.CoverageHistoryStorage.dll',
+                           '"-tag:Build #$BITBUCKET_BUILD_NUMBER | Commit ${BITBUCKET_COMMIT:0:8}"',
+                           '"-title:${BITBUCKET_REPO_SLUG^} | Build #$BITBUCKET_BUILD_NUMBER | Commit ${BITBUCKET_COMMIT:0:8}"',
+                           '"--historycontainerurl:$COVERAGE_HISTORY_BLOB_URL"',
+                           '"--writesastoken:$COVERAGE_AZURE_STORAGE_WRITE_SAS_TOKEN"']
+              DEBUG: "true"
+
+          # upload coverage report
+          - pipe: atlassian/azure-storage-deploy:1.0.0
+            variables:
+              SOURCE: "coverage-report/*"
+              DESTINATION: "$COVERAGE_REPORT_BLOB_URL/$BITBUCKET_REPO_SLUG/$BITBUCKET_COMMIT"
+              DESTINATION_SAS_TOKEN: $COVERAGE_AZURE_STORAGE_WRITE_SAS_TOKEN
+              DEBUG: "true"
+
+pipelines:
+  pull-requests:
+    "**":
+      - step: *build-and-test
+  branches:
+    main:
+      - step: *build-and-test

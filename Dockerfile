@@ -7,7 +7,7 @@ WORKDIR /source
 COPY src/$PRROJECT_NAME/$PRROJECT_NAME.csproj .
 COPY src/$PRROJECT_NAME/packages.lock.json .
 
-RUN dotnet restore --locked-mode --verbosity n
+RUN dotnet restore --locked-mode
 
 COPY src/$PRROJECT_NAME/. ./
 
