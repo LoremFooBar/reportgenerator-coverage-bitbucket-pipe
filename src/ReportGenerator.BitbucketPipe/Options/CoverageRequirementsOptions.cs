@@ -10,8 +10,8 @@ namespace ReportGenerator.BitbucketPipe.Options
         public static void Configure(CoverageRequirementsOptions options, IEnvironmentVariableProvider
             environmentVariableProvider)
         {
-            string? lineCoverageString = environmentVariableProvider.GetEnvironmentVariable("LINE_COVERAGE_MINIMUM");
-            string? branchCoverageString = environmentVariableProvider.GetEnvironmentVariable("BRANCH_COVERAGE_MINIMUM");
+            string? lineCoverageString = environmentVariableProvider.GetEnvironmentVariable(EnvironmentVariable.LineCoverageMinimum);
+            string? branchCoverageString = environmentVariableProvider.GetEnvironmentVariable(EnvironmentVariable.BranchCoverageMinimum);
 
             _ = int.TryParse(lineCoverageString, out int lineCoverageMinimum);
             _ = int.TryParse(branchCoverageString, out int branchCoverageMinimum);

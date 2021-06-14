@@ -1,4 +1,6 @@
 ﻿using System.Net.Http;
+using Microsoft.Extensions.Logging.Abstractions;
+using Microsoft.Extensions.Options;
 using Moq;
 using ReportGenerator.BitbucketPipe.Options;
 using ReportGenerator.BitbucketPipe.Tests.BDD;
@@ -10,7 +12,7 @@ namespace ReportGenerator.BitbucketPipe.Tests.BitbucketClientTests
     {
         private BitbucketClientMock _bitbucketClientMock;
         protected Mock<HttpMessageHandler> HttpMessageHandlerMock => _bitbucketClientMock.HttpMessageHandlerMock;
-        protected BitbucketClient BitbucketClient => _bitbucketClientMock.BitbucketClient;
+        protected BitbucketClient BitbucketClient { get; set; }
 
         protected override void Given()
         {
@@ -24,7 +26,17 @@ namespace ReportGenerator.BitbucketPipe.Tests.BitbucketClientTests
             var authOptions = new BitbucketAuthenticationOptions {Username = "user", AppPassword = "pass"};
 
             _bitbucketClientMock =
-                new BitbucketClientMock(requirementsOptions, bitbucketOptions, pipeOptions, authOptions);
+                new BitbucketClientMock();
+
+            BitbucketClient = new BitbucketClient(
+                new HttpClient(_bitbucketClientMock.HttpMessageHandlerMock.Object),
+                NullLogger<BitbucketClient>.Instance,
+                Mock.Of<IOptions<PublishReportOptions>>(_ => _.Value == new PublishReportOptions()),
+                Mock.Of<IOptions<CoverageRequirementsOptions>>(_ => _.Value == requirementsOptions),
+                Mock.Of<IOptions<BitbucketOptions>>(_ => _.Value == bitbucketOptions),
+                Mock.Of<IOptions<PipeOptions>>(_ => _.Value == pipeOptions),
+                Mock.Of<IOptions<BitbucketAuthenticationOptions>>(_ => _.Value == authOptions),
+                TestEnvironment.EnvironmentInfo);
         }
     }
 }

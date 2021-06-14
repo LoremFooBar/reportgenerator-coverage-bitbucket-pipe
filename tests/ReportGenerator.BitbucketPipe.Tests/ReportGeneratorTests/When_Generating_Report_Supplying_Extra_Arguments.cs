@@ -11,7 +11,7 @@ using ReportGenerator.BitbucketPipe.Utils;
 
 namespace ReportGenerator.BitbucketPipe.Tests.ReportGeneratorTests
 {
-    public class When_Generating_Report : SpecificationBase
+    public class When_Generating_Report_Supplying_Extra_Arguments : SpecificationBase
     {
         private CoverageReportGenerator _coverageReportGenerator;
         private CoverageSummary _coverageSummary;
@@ -23,7 +23,8 @@ namespace ReportGenerator.BitbucketPipe.Tests.ReportGeneratorTests
             _reportGeneratorOptions = new ReportGeneratorOptions
             {
                 Reports = $"**{Path.DirectorySeparatorChar}coverage*.xml",
-                ReportTypes = "JsonSummary;Html"
+                ReportTypes = "JsonSummary;Html",
+                ExtraArguments = new []{$"-fileFilters:+*{Path.DirectorySeparatorChar}BitbucketClient.cs"}
             };
             var reportGeneratorOptions =
                 Mock.Of<IOptions<ReportGeneratorOptions>>(options => options.Value == _reportGeneratorOptions);
@@ -44,17 +45,12 @@ namespace ReportGenerator.BitbucketPipe.Tests.ReportGeneratorTests
         }
 
         [Then]
-        public void It_Should_Correctly_Parse_Coverage_Summary()
+        public void It_Should_Correctly_Parse_Coverage_Summary_Taking_In_Account_Extra_Arguments()
         {
             _coverageSummary.Should().NotBeNull();
-            _coverageSummary.BranchCoveragePercentage.Should().BeGreaterOrEqualTo(75);
-            _coverageSummary.LineCoveragePercentage.Should().BeGreaterOrEqualTo(92.7);
+            _coverageSummary.BranchCoveragePercentage.Should().BeGreaterOrEqualTo(92.7);
+            _coverageSummary.LineCoveragePercentage.Should().BeGreaterThan(96.2);
         }
 
-        protected override void CleanUp()
-        {
-            base.CleanUp();
-            Directory.Delete(_reportGeneratorOptions.DestinationPath, true);
-        }
     }
 }

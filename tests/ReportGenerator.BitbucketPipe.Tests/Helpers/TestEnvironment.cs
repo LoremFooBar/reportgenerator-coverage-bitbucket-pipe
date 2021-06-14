@@ -1,4 +1,6 @@
-﻿using ReportGenerator.BitbucketPipe.Utils;
+﻿using System.Collections.Generic;
+using Moq;
+using ReportGenerator.BitbucketPipe.Utils;
 
 namespace ReportGenerator.BitbucketPipe.Tests.Helpers
 {
@@ -11,16 +13,19 @@ namespace ReportGenerator.BitbucketPipe.Tests.Helpers
             CommitHash = "222be690"
         };
 
-        // public static void SetupEnvironment()
-        // {
-        //     SetEnvironmentVariable("BITBUCKET_WORKSPACE", "Workspace");
-        //     SetEnvironmentVariable("BITBUCKET_REPO_SLUG", "repo-slug");
-        //     SetEnvironmentVariable("BITBUCKET_COMMIT", "222be690");
-        //     SetEnvironmentVariable("BITBUCKET_OAUTH_KEY", "oauth-key");
-        //     SetEnvironmentVariable("BITBUCKET_OAUTH_SECRET", "oauth-secret");
-        //     SetEnvironmentVariable("LINE_COVERAGE_MINIMUM", "80");
-        //     SetEnvironmentVariable("BRANCH_COVERAGE_MINIMUM", "80");
-        //     SetEnvironmentVariable("PUBLISHED_REPORT_URL", "");
-        // }
+        public static IEnvironmentVariableProvider CreateMockEnvironment(
+            Dictionary<EnvironmentVariable, string> environment, bool addBitbucketEnvironmentVariables = true)
+        {
+            if (addBitbucketEnvironmentVariables) {
+                environment.TryAdd(EnvironmentVariable.BitbucketCommit, "222be690");
+                environment.TryAdd(EnvironmentVariable.BitbucketWorkspace, "workspace");
+                environment.TryAdd(EnvironmentVariable.BitbucketRepoSlug, "repo-slug");
+            }
+
+            var envVarMock = new Mock<IEnvironmentVariableProvider> {CallBase = true};
+            envVarMock.Setup(provider => provider.GetEnvironmentVariable(It.IsAny<string>()))
+                .Returns((string varName) => environment.GetValueOrDefault(varName));
+            return envVarMock.Object;
+        }
     }
 }

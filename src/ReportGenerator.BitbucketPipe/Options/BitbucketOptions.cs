@@ -9,8 +9,8 @@ namespace ReportGenerator.BitbucketPipe.Options
 
         public static void Configure(BitbucketOptions options, IEnvironmentVariableProvider environmentVariableProvider)
         {
-            string? reportTitle = environmentVariableProvider.GetEnvironmentVariable("PIPELINE_REPORT_TITLE");
-            string? buildStatusName = environmentVariableProvider.GetEnvironmentVariable("BUILD_STATUS_NAME");
+            string? reportTitle = environmentVariableProvider.GetEnvironmentVariable(EnvironmentVariable.PipelineReportTitle);
+            string? buildStatusName = environmentVariableProvider.GetEnvironmentVariable(EnvironmentVariable.BuildStatusName);
 
             if (string.IsNullOrWhiteSpace(reportTitle) && !string.IsNullOrWhiteSpace(buildStatusName)) {
                 reportTitle = buildStatusName;

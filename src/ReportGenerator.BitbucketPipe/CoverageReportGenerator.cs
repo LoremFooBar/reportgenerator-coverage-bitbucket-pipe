@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
@@ -65,12 +67,8 @@ namespace ReportGenerator.BitbucketPipe
             return allArguments;
         }
 
-        private static Dictionary<string, string> CreateArgumentsDictionary(IEnumerable<string>? args)
+        private static Dictionary<string, string> CreateArgumentsDictionary(IEnumerable<string> args)
         {
-            if (args is null) {
-                return new Dictionary<string, string>();
-            }
-
             var res = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
             foreach (string extraArgument in args) {
                 string[] splits = extraArgument.Split(':',
@@ -87,6 +85,7 @@ namespace ReportGenerator.BitbucketPipe
             return res;
         }
 
+        [ExcludeFromCodeCoverage]
         private void ValidatePluginsArgument(IEnumerable<string> optionsExtraArguments)
         {
             string? pluginsArg = optionsExtraArguments.FirstOrDefault(a => a.StartsWith("-plugins:"));
@@ -123,14 +122,31 @@ namespace ReportGenerator.BitbucketPipe
 
             using var jsonDocument = await JsonDocument.ParseAsync(fileStream, cancellationToken: cancellationToken);
             var summaryElement = jsonDocument.RootElement.GetProperty("summary");
-            var summaryEnumerator = summaryElement.EnumerateObject();
+            var summaryEnumerator = summaryElement.EnumerateObject().ToImmutableList();
+
+            // ReSharper disable  StringLiteralTypo
+            var lineCoverageJsonProperty = summaryEnumerator.FirstOrDefault(_ => _.NameEquals("linecoverage"));
+            var branchCoverageJsonProperty = summaryEnumerator.FirstOrDefault(_ => _.NameEquals("branchcoverage"));
+            // ReSharper restore  StringLiteralTypo
+
+            double lineCoverage;
+            if (lineCoverageJsonProperty.Value.ValueKind != JsonValueKind.Number) {
+                lineCoverage = 0;
+            } else {
+                lineCoverageJsonProperty.Value.TryGetDouble(out lineCoverage);
+            }
+
+            double branchCoverage;
+            if (branchCoverageJsonProperty.Value.ValueKind != JsonValueKind.Number) {
+                branchCoverage = 0;
+            } else {
+                branchCoverageJsonProperty.Value.TryGetDouble(out branchCoverage);
+            }
+
             var coverageSummary = new CoverageSummary
             {
-                // ReSharper disable  StringLiteralTypo
-                LineCoveragePercentage = summaryEnumerator.First(_ => _.NameEquals("linecoverage")).Value.GetDouble(),
-                BranchCoveragePercentage =
-                    summaryEnumerator.First(_ => _.NameEquals("branchcoverage")).Value.GetDouble()
-                // ReSharper restore  StringLiteralTypo
+                LineCoveragePercentage = lineCoverage,
+                BranchCoveragePercentage = branchCoverage
             };
 
             return coverageSummary;

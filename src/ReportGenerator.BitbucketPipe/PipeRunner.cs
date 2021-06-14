@@ -39,8 +39,8 @@ namespace ReportGenerator.BitbucketPipe
 
             var authOptions = new BitbucketAuthenticationOptions
             {
-                Username = _environmentVariableProvider.GetEnvironmentVariable("BITBUCKET_USERNAME"),
-                AppPassword = _environmentVariableProvider.GetEnvironmentVariable("BITBUCKET_APP_PASSWORD")
+                Username = _environmentVariableProvider.GetEnvironmentVariable(EnvironmentVariable.BitbucketUsername),
+                AppPassword = _environmentVariableProvider.GetEnvironmentVariable(EnvironmentVariable.BitbucketAppPassword)
             };
 
             SetupBitbucketClient(services, authOptions);
@@ -61,7 +61,9 @@ namespace ReportGenerator.BitbucketPipe
                 {
                     options.Username = authOptions.Username;
                     options.AppPassword = authOptions.AppPassword;
-                });
+                })
+                .AddSingleton(_pipeEnvironment)
+                .AddSingleton<BitbucketEnvironmentInfo>();
 
             return services;
         }

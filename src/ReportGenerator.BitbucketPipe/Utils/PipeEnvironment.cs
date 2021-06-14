@@ -6,10 +6,12 @@ namespace ReportGenerator.BitbucketPipe.Utils
     {
         public PipeEnvironment(IEnvironmentVariableProvider environmentVariableProvider)
         {
-            IsDebugMode = environmentVariableProvider.GetEnvironmentVariableOrDefault("DEBUG", "false")
+            IsDebugMode = environmentVariableProvider
+                .GetEnvironmentVariableOrDefault(EnvironmentVariable.Debug, "false")
                 .Equals("true", StringComparison.OrdinalIgnoreCase);
             EnvironmentName =
-                environmentVariableProvider.GetEnvironmentVariableOrDefault("NETCORE_ENVIRONMENT", "Production");
+                environmentVariableProvider.GetEnvironmentVariableOrDefault(EnvironmentVariable.NetCoreEnvironment,
+                    "Production");
             IsDevelopment = EnvironmentName.Equals("Development", StringComparison.OrdinalIgnoreCase);
         }
 

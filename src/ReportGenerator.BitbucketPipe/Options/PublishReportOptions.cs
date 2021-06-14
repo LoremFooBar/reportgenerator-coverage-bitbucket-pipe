@@ -9,7 +9,7 @@ namespace ReportGenerator.BitbucketPipe.Options
 
         public static void Configure(PublishReportOptions options, IEnvironmentVariableProvider envVariableProvider)
         {
-            string? reportUrlStr = envVariableProvider.GetEnvironmentVariable("PUBLISHED_REPORT_URL");
+            string? reportUrlStr = envVariableProvider.GetEnvironmentVariable(EnvironmentVariable.PublishedReportUrl);
             Uri.TryCreate(reportUrlStr, UriKind.Absolute, out var reportUrl);
             options.ReportUrl = reportUrl;
         }

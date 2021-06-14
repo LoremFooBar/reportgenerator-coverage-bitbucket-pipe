@@ -2,7 +2,7 @@
 {
     public class CoverageSummary
     {
-        public double LineCoveragePercentage { get; set; }
-        public double BranchCoveragePercentage { get; set; }
+        public double LineCoveragePercentage { get; init; }
+        public double BranchCoveragePercentage { get; init; }
     }
 }
