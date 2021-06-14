@@ -1,5 +1,5 @@
-name: .NET Coverage Report
-image: lazyboy1/dotnet-coverage-report-bitbucket-pipe:0.5
+name: ReportGenerator Coverage Report
+image: lazyboy1/reportgenerator-coverage-bitbucket-pipe:0.5
 description: Generate coverage report and a build status based on coverage requirements
 category: Testing
 repository: https://github.com/lazyboy1/dotnet-coverage-report-bitbucket-pipe
@@ -12,5 +12,3 @@ tags:
   - test
   - code-coverage
   - test-coverage
-  - dotnet
-  - .net

@@ -11,7 +11,7 @@ your `bitbucket-pipelines.yml` file:
 
 ```yaml
 script:
-  - pipe: docker://lazyboy1/dotnet-coverage-report-bitbucket-pipe:0.5
+  - pipe: docker://lazyboy1/reportgenerator-coverage-bitbucket-pipe:0.5
     variables:
       # BITBUCKET_USERNAME: "<string>" # Optional
       # BITBUCKET_APP_PASSWORD: "<string>" # Optional
@@ -77,7 +77,7 @@ Basic example using secure variables for username and app password:
 
 ```yaml
 script:
-  - pipe: docker://lazyboy1/dotnet-coverage-report-bitbucket-pipe:0.5
+  - pipe: docker://lazyboy1/reportgenerator-coverage-bitbucket-pipe:0.5
     variables:
       BITBUCKET_USERNAME: $USERNAME
       BITBUCKET_APP_PASSWORD: $APP_PASSWORD
@@ -89,7 +89,7 @@ Example with published report URL:
 
 ```yaml
 script:
-  - pipe: docker://lazyboy1/dotnet-coverage-report-bitbucket-pipe:0.5
+  - pipe: docker://lazyboy1/reportgenerator-coverage-bitbucket-pipe:0.5
     variables:
       BITBUCKET_USERNAME: $USERNAME
       BITBUCKET_APP_PASSWORD: $APP_PASSWORD
@@ -102,7 +102,7 @@ Example with extra arguments:
 
 ```yaml
 script:
-  - pipe: docker://lazyboy1/dotnet-coverage-report-bitbucket-pipe:0.5
+  - pipe: docker://lazyboy1/reportgenerator-coverage-bitbucket-pipe:0.5
     variables:
       BITBUCKET_USERNAME: $USERNAME
       BITBUCKET_APP_PASSWORD: $APP_PASSWORD
@@ -118,7 +118,7 @@ Example with build status creation temporarily disabled:
 
 ```yaml
 script:
-  - pipe: docker://lazyboy1/dotnet-coverage-report-bitbucket-pipe:0.5
+  - pipe: docker://lazyboy1/reportgenerator-coverage-bitbucket-pipe:0.5
     variables:
       BITBUCKET_USERNAME: $USERNAME
       BITBUCKET_APP_PASSWORD: $APP_PASSWORD
