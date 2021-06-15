@@ -15,8 +15,8 @@ definitions:
           - pipe: docker://lazyboy1/resharper-inspections-bitbucket-pipe:0.3
             variables:
               INSPECTIONS_XML_PATH: "inspect.xml"
-              BITBUCKET_OAUTH_KEY: $CAMILYO_DEV_BB_USERNAME
-              BITBUCKET_OAUTH_SECRET: $CAMILYO_DEV_BB_APP_PASSWORD
+              BITBUCKET_USERNAME: $CAMILYO_DEV_BB_USERNAME
+              BITBUCKET_APP_PASSWORD: $CAMILYO_DEV_BB_APP_PASSWORD
               DEBUG: "true"
 
           - |-
