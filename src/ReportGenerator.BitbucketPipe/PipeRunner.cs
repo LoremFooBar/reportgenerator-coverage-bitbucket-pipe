@@ -48,6 +48,7 @@ namespace ReportGenerator.BitbucketPipe
             services
                 .AddSingleton<CoverageReportGenerator>()
                 .AddLogging(builder => builder.AddSerilog())
+                .AddSingleton<IEnvironmentVariableProvider, EnvironmentVariableProvider>()
                 .Configure<CoverageRequirementsOptions>(options =>
                     CoverageRequirementsOptions.Configure(options, _environmentVariableProvider))
                 .Configure<PublishReportOptions>(options =>
