@@ -22,9 +22,10 @@ namespace ReportGenerator.BitbucketPipe.Tests.ReportGeneratorTests
             base.Given();
             _reportGeneratorOptions = new ReportGeneratorOptions
             {
-                Reports = $"**{Path.DirectorySeparatorChar}coverage*.xml",
+                Reports =
+                    $"ExampleCoverageTestResults{Path.DirectorySeparatorChar}*{Path.DirectorySeparatorChar}example.cobertura.xml",
                 ReportTypes = "JsonSummary;Html",
-                ExtraArguments = new []{$"-fileFilters:+*{Path.DirectorySeparatorChar}BitbucketClient.cs"}
+                ExtraArguments = new[] {$"-fileFilters:+*{Path.DirectorySeparatorChar}BitbucketClient.cs"}
             };
             var reportGeneratorOptions =
                 Mock.Of<IOptions<ReportGeneratorOptions>>(options => options.Value == _reportGeneratorOptions);
@@ -51,6 +52,5 @@ namespace ReportGenerator.BitbucketPipe.Tests.ReportGeneratorTests
             _coverageSummary.BranchCoveragePercentage.Should().BeGreaterOrEqualTo(92.7);
             _coverageSummary.LineCoveragePercentage.Should().BeGreaterThan(96.2);
         }
-
     }
 }

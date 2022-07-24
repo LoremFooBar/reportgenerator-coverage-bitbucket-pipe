@@ -12,8 +12,8 @@ namespace ReportGenerator.BitbucketPipe.Tests.PipeRunnerTests
 {
     public class When_Running_Pipe_With_Coverage_Requirements_That_Are_Not_Met : SpecificationBase
     {
-        private TestPipeRunner _pipeRunner;
         private Mock<HttpMessageHandler> _messageHandlerMock;
+        private TestPipeRunner _pipeRunner;
 
         protected override void Given()
         {
@@ -25,7 +25,9 @@ namespace ReportGenerator.BitbucketPipe.Tests.PipeRunnerTests
                 [EnvironmentVariable.LineCoverageMinimum] = "95",
 
                 [EnvironmentVariable.BitbucketUsername] = "user",
-                [EnvironmentVariable.BitbucketAppPassword] = "pass"
+                [EnvironmentVariable.BitbucketAppPassword] = "pass",
+
+                [EnvironmentVariable.Reports] = "**/example.cobertura.xml"
             });
 
             var bitbucketClientMock = new BitbucketClientMock();

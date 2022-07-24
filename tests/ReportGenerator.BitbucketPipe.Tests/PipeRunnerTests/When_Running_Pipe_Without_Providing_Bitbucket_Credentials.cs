@@ -12,8 +12,8 @@ namespace ReportGenerator.BitbucketPipe.Tests.PipeRunnerTests
 {
     public class When_Running_Pipe_Without_Providing_Bitbucket_Credentials : SpecificationBase
     {
-        private TestPipeRunner _pipeRunner;
         private Mock<HttpMessageHandler> _messageHandlerMock;
+        private TestPipeRunner _pipeRunner;
 
         protected override void Given()
         {
@@ -21,7 +21,8 @@ namespace ReportGenerator.BitbucketPipe.Tests.PipeRunnerTests
 
             var environment = TestEnvironment.CreateMockEnvironment(new Dictionary<EnvironmentVariable, string>
             {
-                [EnvironmentVariable.CreateBuildStatus] = "true"
+                [EnvironmentVariable.CreateBuildStatus] = "true",
+                [EnvironmentVariable.Reports] = "**/example.cobertura.xml"
             });
 
             var bitbucketClientMock = new BitbucketClientMock();

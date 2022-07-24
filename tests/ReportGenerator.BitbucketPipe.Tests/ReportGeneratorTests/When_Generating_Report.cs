@@ -22,7 +22,8 @@ namespace ReportGenerator.BitbucketPipe.Tests.ReportGeneratorTests
             base.Given();
             _reportGeneratorOptions = new ReportGeneratorOptions
             {
-                Reports = $"**{Path.DirectorySeparatorChar}coverage*.xml",
+                Reports =
+                    $"ExampleCoverageTestResults{Path.DirectorySeparatorChar}*{Path.DirectorySeparatorChar}example.cobertura.xml",
                 ReportTypes = "JsonSummary;Html"
             };
             var reportGeneratorOptions =
