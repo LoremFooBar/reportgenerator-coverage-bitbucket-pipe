@@ -26,7 +26,7 @@ definitions:
               --collect:"XPlat Code Coverage"
 
           # download and extract history storage plugin
-          - export $ZIP_FILE_NAME=history-storage-plugin.zip $PLUGIN_TARGET_DIR=$BITBUCKET_CLONE_DIR/history-storage-plugin
+          - export ZIP_FILE_NAME=history-storage-plugin.zip PLUGIN_TARGET_DIR=$BITBUCKET_CLONE_DIR/history-storage-plugin
           - apt-get update && apt-get install -y unzip
           - |-
             curl -o $ZIP_FILE_NAME -L \
