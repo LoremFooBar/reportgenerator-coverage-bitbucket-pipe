@@ -4,6 +4,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -17,12 +18,12 @@ namespace ReportGenerator.BitbucketPipe
 {
     public class BitbucketClient
     {
+        private readonly BitbucketAuthenticationOptions _authOptions;
+        private readonly BitbucketOptions _bitbucketOptions;
+        private readonly BitbucketEnvironmentInfo _environmentInfo;
         private readonly HttpClient _httpClient;
         private readonly ILogger<BitbucketClient> _logger;
-        private readonly BitbucketAuthenticationOptions _authOptions;
         private readonly PipeOptions _pipeOptions;
-        private readonly BitbucketEnvironmentInfo _environmentInfo;
-        private readonly BitbucketOptions _bitbucketOptions;
         private readonly PublishReportOptions _publishOptions;
         private readonly CoverageRequirementsOptions _requirementsOptions;
 
@@ -130,7 +131,7 @@ namespace ReportGenerator.BitbucketPipe
             var jsonSerializerOptions = new JsonSerializerOptions
             {
                 PropertyNamingPolicy = new JsonSnakeCaseNamingPolicy(),
-                IgnoreNullValues = true,
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
                 Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
             };
 
