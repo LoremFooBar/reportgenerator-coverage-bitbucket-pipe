@@ -41,16 +41,16 @@ definitions:
               LINE_COVERAGE_MINIMUM: "90"
               BRANCH_COVERAGE_MINIMUM: "78"
               PUBLISHED_REPORT_URL: "$COVERAGE_REPORTS_BLOB_CONTAINER_URL/$BITBUCKET_REPO_SLUG/$BITBUCKET_COMMIT/index.htm"
-              EXTRA_ARGS: ['-plugins:$PLUGIN_TARGET_DIR/ReportGenerator.AzureBlobHistoryStorage.dll',
-                           '"-tag:Build #$BITBUCKET_BUILD_NUMBER | Commit ${BITBUCKET_COMMIT:0:8}"',
-                           '"-title:${BITBUCKET_REPO_SLUG^} | Build #$BITBUCKET_BUILD_NUMBER | Commit ${BITBUCKET_COMMIT:0:8}"',
-                           '"-historycontainerurl:$COVERAGE_HISTORY_BLOB_CONTAINER_URL"',
-                           '"-writesastoken:$COVERAGE_HISTORY_BLOB_WRITE_SAS"',
-                           '"-repositoryname:$BITBUCKET_REPO_SLUG"']
+              EXTRA_ARGS: [ '-plugins:$PLUGIN_TARGET_DIR/ReportGenerator.AzureBlobHistoryStorage.dll',
+                            '"-tag:Build #$BITBUCKET_BUILD_NUMBER | Commit ${BITBUCKET_COMMIT:0:8}"',
+                            '"-title:${BITBUCKET_REPO_SLUG^} | Build #$BITBUCKET_BUILD_NUMBER | Commit ${BITBUCKET_COMMIT:0:8}"',
+                            '"--historycontainerurl:$COVERAGE_HISTORY_BLOB_CONTAINER_URL"',
+                            '"--writesastoken:$COVERAGE_HISTORY_BLOB_WRITE_SAS"',
+                            '"--repositoryname:$BITBUCKET_REPO_SLUG"' ]
               DEBUG: "true"
 
           # upload coverage report
-          - pipe: atlassian/azure-storage-deploy:1.0.0
+          - pipe: atlassian/azure-storage-deploy:1.0.2
             variables:
               SOURCE: "coverage-report/*"
               DESTINATION: "$COVERAGE_REPORTS_BLOB_CONTAINER_URL/$BITBUCKET_REPO_SLUG/$BITBUCKET_COMMIT"
