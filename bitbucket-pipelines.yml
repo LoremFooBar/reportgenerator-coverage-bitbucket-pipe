@@ -34,7 +34,7 @@ definitions:
           - unzip $ZIP_FILE_NAME -d $PLUGIN_TARGET_DIR
 
           # generate coverage report
-          - pipe: docker://lazyboy1/reportgenerator-coverage-bitbucket-pipe:0.6
+          - pipe: docker://lazyboy1/reportgenerator-coverage-bitbucket-pipe:0.7-dev001
             variables:
               BITBUCKET_USERNAME: $LFB_BB_USERNAME
               BITBUCKET_APP_PASSWORD: $LFB_READ_BB_APP_PASSWORD
@@ -44,9 +44,9 @@ definitions:
               EXTRA_ARGS: [ '-plugins:$PLUGIN_TARGET_DIR/ReportGenerator.AzureBlobHistoryStorage.dll',
                             '"-tag:Build #$BITBUCKET_BUILD_NUMBER | Commit ${BITBUCKET_COMMIT:0:8}"',
                             '"-title:${BITBUCKET_REPO_SLUG^} | Build #$BITBUCKET_BUILD_NUMBER | Commit ${BITBUCKET_COMMIT:0:8}"',
-                            '"--historycontainerurl:$COVERAGE_HISTORY_BLOB_CONTAINER_URL"',
-                            '"--writesastoken:$COVERAGE_HISTORY_BLOB_WRITE_SAS"',
-                            '"--repositoryname:$BITBUCKET_REPO_SLUG"' ]
+                            '"-historycontainerurl:$COVERAGE_HISTORY_BLOB_CONTAINER_URL"',
+                            '"-writesastoken:$COVERAGE_HISTORY_BLOB_WRITE_SAS"',
+                            '"-repositoryname:$BITBUCKET_REPO_SLUG"' ]
               DEBUG: "true"
 
           # upload coverage report
