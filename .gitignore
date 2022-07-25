@@ -42,7 +42,6 @@ launchSettings.json
 msbuild.ProjectImports.zip
 StyleCop.Cache
 UpgradeLog.htm
-.idea
 
 # results file of `jb inspectcode`
 inspect.xml
