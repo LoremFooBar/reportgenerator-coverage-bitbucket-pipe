@@ -9,15 +9,15 @@ definitions:
           - dotnet tool restore
           - dotnet restore --locked-mode
           - dotnet build --no-restore
-          #          - dotnet jb inspectcode --config=inspectcode.config
-          #
-          #          # create resharper inspections report
-          #          - pipe: docker://lazyboy1/resharper-inspections-bitbucket-pipe:0.3
-          #            variables:
-          #              INSPECTIONS_XML_PATH: "inspect.xml"
-          #              BITBUCKET_USERNAME: $LFB_BB_USERNAME
-          #              BITBUCKET_APP_PASSWORD: $LFB_READ_BB_APP_PASSWORD
-          #              DEBUG: "true"
+          - dotnet jb inspectcode --config=inspectcode.config
+
+          # create resharper inspections report
+          - pipe: docker://lazyboy1/resharper-inspections-bitbucket-pipe:0.3
+            variables:
+              INSPECTIONS_XML_PATH: "inspect.xml"
+              BITBUCKET_USERNAME: $LFB_BB_USERNAME
+              BITBUCKET_APP_PASSWORD: $LFB_READ_BB_APP_PASSWORD
+              DEBUG: "true"
 
           - |-
             dotnet test \
