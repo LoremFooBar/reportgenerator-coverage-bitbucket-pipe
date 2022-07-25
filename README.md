@@ -11,7 +11,7 @@ your `bitbucket-pipelines.yml` file:
 
 ```yaml
 script:
-  - pipe: docker://lazyboy1/reportgenerator-coverage-bitbucket-pipe:0.6
+  - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:0.7.0
     variables:
       # BITBUCKET_USERNAME: "<string>" # Optional
       # BITBUCKET_APP_PASSWORD: "<string>" # Optional
@@ -50,16 +50,19 @@ _(\*) = required variable._
 
 ### Code Coverage Files
 
-Code coverage files need to be present when the pipe runs. Different coverage tools exist
-for different languages/technologies. Whichever tool you use to create the coverage data,
-it needs to be in one of the formats supported by ReportGenerator, see
-[ReportGenerator Supported File Formats](https://github.com/danielpalme/ReportGenerator#supported-input-and-output-file-formats).
+Code coverage files need to be present when the pipe runs. Different coverage
+tools exist for different languages/technologies. Whichever tool you use to
+create the coverage data, it needs to be in one of the formats supported by
+ReportGenerator, see
+[ReportGenerator Supported File Formats](https://github.com/danielpalme/ReportGenerator#supported-input-and-output-file-formats)
+.
 
 ### App Password Required for Build Status
 
 Build status will be created only if username and app password are provided.
 To have this pipe create build status, you need to
-[generate an app password](https://confluence.atlassian.com/bitbucket/app-passwords-828781300.html).
+[generate an app password](https://confluence.atlassian.com/bitbucket/app-passwords-828781300.html)
+.
 Only the Repositories Read permission is required.
 
 ## Uploading The Report
@@ -77,7 +80,7 @@ Basic example using secure variables for username and app password:
 
 ```yaml
 script:
-  - pipe: docker://lazyboy1/reportgenerator-coverage-bitbucket-pipe:0.6
+  - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:0.7.0
     variables:
       BITBUCKET_USERNAME: $USERNAME
       BITBUCKET_APP_PASSWORD: $APP_PASSWORD
@@ -89,7 +92,7 @@ Example with published report URL:
 
 ```yaml
 script:
-  - pipe: docker://lazyboy1/reportgenerator-coverage-bitbucket-pipe:0.6
+  - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:0.7.0
     variables:
       BITBUCKET_USERNAME: $USERNAME
       BITBUCKET_APP_PASSWORD: $APP_PASSWORD
@@ -102,7 +105,7 @@ Example with extra arguments:
 
 ```yaml
 script:
-  - pipe: docker://lazyboy1/reportgenerator-coverage-bitbucket-pipe:0.6
+  - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:0.7.0
     variables:
       BITBUCKET_USERNAME: $USERNAME
       BITBUCKET_APP_PASSWORD: $APP_PASSWORD
@@ -118,7 +121,7 @@ Example with build status creation temporarily disabled:
 
 ```yaml
 script:
-  - pipe: docker://lazyboy1/reportgenerator-coverage-bitbucket-pipe:0.6
+  - pipe: docker://loremfoobar~~~~/reportgenerator-coverage-bitbucket-pipe:0.7.0
     variables:
       BITBUCKET_USERNAME: $USERNAME
       BITBUCKET_APP_PASSWORD: $APP_PASSWORD
@@ -126,7 +129,6 @@ script:
       BRANCH_COVERAGE_MINIMUM: "80"
       CREATE_BUILD_STATUS: "false"
 ```
-
 
 ## Support
 

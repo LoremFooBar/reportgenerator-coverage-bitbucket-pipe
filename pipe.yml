@@ -1,10 +1,10 @@
 name: ReportGenerator Coverage Report
-image: lazyboy1/reportgenerator-coverage-bitbucket-pipe:0.6
+image: loremfoobar/reportgenerator-coverage-bitbucket-pipe:0.7.0
 description: Generate coverage report and a build status based on coverage requirements
 category: Testing
 maintainer:
-  name: Amit Edelshtein
-  website: "https://github.com/lazyboy1"
+  name: Amit E
+  website: "https://github.com/LoremFooBar"
 tags:
   - bitbucket-pipelines
   - coverage
