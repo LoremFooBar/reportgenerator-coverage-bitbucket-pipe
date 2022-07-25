@@ -1,572 +1,597 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<coverage line-rate="0.9287000000000001" branch-rate="0.75" version="1.9" timestamp="1623370937" lines-covered="300" lines-valid="323" branches-covered="48" branches-valid="64">
+<coverage line-rate="0.9287000000000001" branch-rate="0.75" version="1.9" timestamp="1623370937" lines-covered="300"
+          lines-valid="323" branches-covered="48" branches-valid="64">
   <sources>
     <source>D:\projects\resharper-inspections-bitbucket-pipe\src\Resharper.CodeInspections.BitbucketPipe\</source>
   </sources>
   <packages>
-    <package name="Resharper.CodeInspections.BitbucketPipe" line-rate="0.9287000000000001" branch-rate="0.75" complexity="139">
+    <package name="Resharper.CodeInspections.BitbucketPipe" line-rate="0.9287000000000001" branch-rate="0.75"
+             complexity="139">
       <classes>
-        <class name="Resharper.CodeInspections.BitbucketPipe.BitbucketClient" filename="BitbucketClient.cs" line-rate="1" branch-rate="1" complexity="7">
+        <class name="Resharper.CodeInspections.BitbucketPipe.BitbucketClient" filename="BitbucketClient.cs"
+               line-rate="1" branch-rate="1" complexity="7">
           <methods>
             <method name="ConfigureHttpClient" signature="()" line-rate="1" branch-rate="1" complexity="4">
               <lines>
-                <line number="46" hits="12" branch="False" />
+                <line number="46" hits="12" branch="False"/>
                 <line number="47" hits="12" branch="True" condition-coverage="100% (2/2)">
                   <conditions>
-                    <condition number="12" type="jump" coverage="100%" />
+                    <condition number="12" type="jump" coverage="100%"/>
                   </conditions>
                 </line>
-                <line number="48" hits="12" branch="False" />
-                <line number="49" hits="12" branch="False" />
-                <line number="50" hits="12" branch="False" />
-                <line number="51" hits="12" branch="False" />
-                <line number="52" hits="12" branch="False" />
-                <line number="53" hits="12" branch="False" />
+                <line number="48" hits="12" branch="False"/>
+                <line number="49" hits="12" branch="False"/>
+                <line number="50" hits="12" branch="False"/>
+                <line number="51" hits="12" branch="False"/>
+                <line number="52" hits="12" branch="False"/>
+                <line number="53" hits="12" branch="False"/>
                 <line number="54" hits="22" branch="True" condition-coverage="100% (2/2)">
                   <conditions>
-                    <condition number="178" type="jump" coverage="100%" />
+                    <condition number="178" type="jump" coverage="100%"/>
                   </conditions>
                 </line>
-                <line number="55" hits="10" branch="False" />
-                <line number="56" hits="10" branch="False" />
-                <line number="57" hits="10" branch="False" />
-                <line number="58" hits="12" branch="False" />
+                <line number="55" hits="10" branch="False"/>
+                <line number="56" hits="10" branch="False"/>
+                <line number="57" hits="10" branch="False"/>
+                <line number="58" hits="12" branch="False"/>
               </lines>
             </method>
             <method name="Serialize" signature="(System.Object)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="128" hits="24" branch="False" />
-                <line number="129" hits="24" branch="False" />
-                <line number="130" hits="24" branch="False" />
-                <line number="131" hits="24" branch="False" />
-                <line number="132" hits="24" branch="False" />
-                <line number="133" hits="24" branch="False" />
-                <line number="134" hits="24" branch="False" />
-                <line number="135" hits="24" branch="False" />
-                <line number="136" hits="24" branch="False" />
+                <line number="128" hits="24" branch="False"/>
+                <line number="129" hits="24" branch="False"/>
+                <line number="130" hits="24" branch="False"/>
+                <line number="131" hits="24" branch="False"/>
+                <line number="132" hits="24" branch="False"/>
+                <line number="133" hits="24" branch="False"/>
+                <line number="134" hits="24" branch="False"/>
+                <line number="135" hits="24" branch="False"/>
+                <line number="136" hits="24" branch="False"/>
               </lines>
             </method>
             <method name="CreateStringContent" signature="(System.String)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="139" hits="24" branch="False" />
+                <line number="139" hits="24" branch="False"/>
               </lines>
             </method>
-            <method name=".ctor" signature="(System.Net.Http.HttpClient,Microsoft.Extensions.Options.IOptions`1&lt;Resharper.CodeInspections.BitbucketPipe.Options.BitbucketAuthenticationOptions&gt;,Microsoft.Extensions.Options.IOptions`1&lt;Resharper.CodeInspections.BitbucketPipe.Options.PipeOptions&gt;,Resharper.CodeInspections.BitbucketPipe.Utils.BitbucketEnvironmentInfo,Microsoft.Extensions.Logging.ILogger`1&lt;Resharper.CodeInspections.BitbucketPipe.BitbucketClient&gt;)" line-rate="1" branch-rate="1" complexity="1">
+            <method name=".ctor"
+                    signature="(System.Net.Http.HttpClient,Microsoft.Extensions.Options.IOptions`1&lt;Resharper.CodeInspections.BitbucketPipe.Options.BitbucketAuthenticationOptions&gt;,Microsoft.Extensions.Options.IOptions`1&lt;Resharper.CodeInspections.BitbucketPipe.Options.PipeOptions&gt;,Resharper.CodeInspections.BitbucketPipe.Utils.BitbucketEnvironmentInfo,Microsoft.Extensions.Logging.ILogger`1&lt;Resharper.CodeInspections.BitbucketPipe.BitbucketClient&gt;)"
+                    line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="30" hits="12" branch="False" />
-                <line number="31" hits="12" branch="False" />
-                <line number="32" hits="12" branch="False" />
-                <line number="33" hits="12" branch="False" />
-                <line number="34" hits="12" branch="False" />
-                <line number="35" hits="12" branch="False" />
-                <line number="36" hits="12" branch="False" />
-                <line number="37" hits="12" branch="False" />
-                <line number="38" hits="12" branch="False" />
-                <line number="40" hits="12" branch="False" />
-                <line number="42" hits="12" branch="False" />
-                <line number="43" hits="12" branch="False" />
+                <line number="30" hits="12" branch="False"/>
+                <line number="31" hits="12" branch="False"/>
+                <line number="32" hits="12" branch="False"/>
+                <line number="33" hits="12" branch="False"/>
+                <line number="34" hits="12" branch="False"/>
+                <line number="35" hits="12" branch="False"/>
+                <line number="36" hits="12" branch="False"/>
+                <line number="37" hits="12" branch="False"/>
+                <line number="38" hits="12" branch="False"/>
+                <line number="40" hits="12" branch="False"/>
+                <line number="42" hits="12" branch="False"/>
+                <line number="43" hits="12" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="46" hits="12" branch="False" />
+            <line number="46" hits="12" branch="False"/>
             <line number="47" hits="12" branch="True" condition-coverage="100% (2/2)">
               <conditions>
-                <condition number="12" type="jump" coverage="100%" />
+                <condition number="12" type="jump" coverage="100%"/>
               </conditions>
             </line>
-            <line number="48" hits="12" branch="False" />
-            <line number="49" hits="12" branch="False" />
-            <line number="50" hits="12" branch="False" />
-            <line number="51" hits="12" branch="False" />
-            <line number="52" hits="12" branch="False" />
-            <line number="53" hits="12" branch="False" />
+            <line number="48" hits="12" branch="False"/>
+            <line number="49" hits="12" branch="False"/>
+            <line number="50" hits="12" branch="False"/>
+            <line number="51" hits="12" branch="False"/>
+            <line number="52" hits="12" branch="False"/>
+            <line number="53" hits="12" branch="False"/>
             <line number="54" hits="22" branch="True" condition-coverage="100% (2/2)">
               <conditions>
-                <condition number="178" type="jump" coverage="100%" />
+                <condition number="178" type="jump" coverage="100%"/>
               </conditions>
             </line>
-            <line number="55" hits="10" branch="False" />
-            <line number="56" hits="10" branch="False" />
-            <line number="57" hits="10" branch="False" />
-            <line number="58" hits="12" branch="False" />
-            <line number="128" hits="24" branch="False" />
-            <line number="129" hits="24" branch="False" />
-            <line number="130" hits="24" branch="False" />
-            <line number="131" hits="24" branch="False" />
-            <line number="132" hits="24" branch="False" />
-            <line number="133" hits="24" branch="False" />
-            <line number="134" hits="24" branch="False" />
-            <line number="135" hits="24" branch="False" />
-            <line number="136" hits="24" branch="False" />
-            <line number="139" hits="24" branch="False" />
-            <line number="30" hits="12" branch="False" />
-            <line number="31" hits="12" branch="False" />
-            <line number="32" hits="12" branch="False" />
-            <line number="33" hits="12" branch="False" />
-            <line number="34" hits="12" branch="False" />
-            <line number="35" hits="12" branch="False" />
-            <line number="36" hits="12" branch="False" />
-            <line number="37" hits="12" branch="False" />
-            <line number="38" hits="12" branch="False" />
-            <line number="40" hits="12" branch="False" />
-            <line number="42" hits="12" branch="False" />
-            <line number="43" hits="12" branch="False" />
+            <line number="55" hits="10" branch="False"/>
+            <line number="56" hits="10" branch="False"/>
+            <line number="57" hits="10" branch="False"/>
+            <line number="58" hits="12" branch="False"/>
+            <line number="128" hits="24" branch="False"/>
+            <line number="129" hits="24" branch="False"/>
+            <line number="130" hits="24" branch="False"/>
+            <line number="131" hits="24" branch="False"/>
+            <line number="132" hits="24" branch="False"/>
+            <line number="133" hits="24" branch="False"/>
+            <line number="134" hits="24" branch="False"/>
+            <line number="135" hits="24" branch="False"/>
+            <line number="136" hits="24" branch="False"/>
+            <line number="139" hits="24" branch="False"/>
+            <line number="30" hits="12" branch="False"/>
+            <line number="31" hits="12" branch="False"/>
+            <line number="32" hits="12" branch="False"/>
+            <line number="33" hits="12" branch="False"/>
+            <line number="34" hits="12" branch="False"/>
+            <line number="35" hits="12" branch="False"/>
+            <line number="36" hits="12" branch="False"/>
+            <line number="37" hits="12" branch="False"/>
+            <line number="38" hits="12" branch="False"/>
+            <line number="40" hits="12" branch="False"/>
+            <line number="42" hits="12" branch="False"/>
+            <line number="43" hits="12" branch="False"/>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.BitbucketClient/&lt;CreateReportAsync&gt;d__7" filename="BitbucketClient.cs" line-rate="1" branch-rate="1" complexity="1">
+        <class name="Resharper.CodeInspections.BitbucketPipe.BitbucketClient/&lt;CreateReportAsync&gt;d__7"
+               filename="BitbucketClient.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
             <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="61" hits="10" branch="False" />
-                <line number="62" hits="10" branch="False" />
-                <line number="64" hits="10" branch="False" />
-                <line number="65" hits="10" branch="False" />
-                <line number="67" hits="10" branch="False" />
-                <line number="68" hits="10" branch="False" />
-                <line number="70" hits="10" branch="False" />
-                <line number="72" hits="10" branch="False" />
-                <line number="73" hits="10" branch="False" />
+                <line number="61" hits="10" branch="False"/>
+                <line number="62" hits="10" branch="False"/>
+                <line number="64" hits="10" branch="False"/>
+                <line number="65" hits="10" branch="False"/>
+                <line number="67" hits="10" branch="False"/>
+                <line number="68" hits="10" branch="False"/>
+                <line number="70" hits="10" branch="False"/>
+                <line number="72" hits="10" branch="False"/>
+                <line number="73" hits="10" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="61" hits="10" branch="False" />
-            <line number="62" hits="10" branch="False" />
-            <line number="64" hits="10" branch="False" />
-            <line number="65" hits="10" branch="False" />
-            <line number="67" hits="10" branch="False" />
-            <line number="68" hits="10" branch="False" />
-            <line number="70" hits="10" branch="False" />
-            <line number="72" hits="10" branch="False" />
-            <line number="73" hits="10" branch="False" />
+            <line number="61" hits="10" branch="False"/>
+            <line number="62" hits="10" branch="False"/>
+            <line number="64" hits="10" branch="False"/>
+            <line number="65" hits="10" branch="False"/>
+            <line number="67" hits="10" branch="False"/>
+            <line number="68" hits="10" branch="False"/>
+            <line number="70" hits="10" branch="False"/>
+            <line number="72" hits="10" branch="False"/>
+            <line number="73" hits="10" branch="False"/>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.BitbucketClient/&lt;CreateReportAnnotationsAsync&gt;d__8" filename="BitbucketClient.cs" line-rate="1" branch-rate="1" complexity="4">
+        <class name="Resharper.CodeInspections.BitbucketPipe.BitbucketClient/&lt;CreateReportAnnotationsAsync&gt;d__8"
+               filename="BitbucketClient.cs" line-rate="1" branch-rate="1" complexity="4">
           <methods>
             <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="4">
               <lines>
-                <line number="76" hits="10" branch="False" />
-                <line number="79" hits="10" branch="False" />
-                <line number="80" hits="10" branch="False" />
-                <line number="82" hits="10" branch="False" />
+                <line number="76" hits="10" branch="False"/>
+                <line number="79" hits="10" branch="False"/>
+                <line number="80" hits="10" branch="False"/>
+                <line number="82" hits="10" branch="False"/>
                 <line number="84" hits="17" branch="True" condition-coverage="100% (4/4)">
                   <conditions>
-                    <condition number="632" type="jump" coverage="100%" />
-                    <condition number="604" type="jump" coverage="100%" />
+                    <condition number="632" type="jump" coverage="100%"/>
+                    <condition number="604" type="jump" coverage="100%"/>
                   </conditions>
                 </line>
-                <line number="85" hits="24" branch="False" />
-                <line number="86" hits="7" branch="False" />
-                <line number="87" hits="7" branch="False" />
-                <line number="89" hits="7" branch="False" />
-                <line number="91" hits="7" branch="False" />
-                <line number="92" hits="7" branch="False" />
-                <line number="93" hits="7" branch="False" />
-                <line number="95" hits="7" branch="False" />
-                <line number="96" hits="7" branch="False" />
-                <line number="97" hits="7" branch="False" />
-                <line number="99" hits="7" branch="False" />
-                <line number="101" hits="7" branch="False" />
-                <line number="102" hits="7" branch="False" />
-                <line number="103" hits="10" branch="False" />
+                <line number="85" hits="24" branch="False"/>
+                <line number="86" hits="7" branch="False"/>
+                <line number="87" hits="7" branch="False"/>
+                <line number="89" hits="7" branch="False"/>
+                <line number="91" hits="7" branch="False"/>
+                <line number="92" hits="7" branch="False"/>
+                <line number="93" hits="7" branch="False"/>
+                <line number="95" hits="7" branch="False"/>
+                <line number="96" hits="7" branch="False"/>
+                <line number="97" hits="7" branch="False"/>
+                <line number="99" hits="7" branch="False"/>
+                <line number="101" hits="7" branch="False"/>
+                <line number="102" hits="7" branch="False"/>
+                <line number="103" hits="10" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="76" hits="10" branch="False" />
-            <line number="79" hits="10" branch="False" />
-            <line number="80" hits="10" branch="False" />
-            <line number="82" hits="10" branch="False" />
+            <line number="76" hits="10" branch="False"/>
+            <line number="79" hits="10" branch="False"/>
+            <line number="80" hits="10" branch="False"/>
+            <line number="82" hits="10" branch="False"/>
             <line number="84" hits="17" branch="True" condition-coverage="100% (4/4)">
               <conditions>
-                <condition number="632" type="jump" coverage="100%" />
-                <condition number="604" type="jump" coverage="100%" />
+                <condition number="632" type="jump" coverage="100%"/>
+                <condition number="604" type="jump" coverage="100%"/>
               </conditions>
             </line>
-            <line number="85" hits="24" branch="False" />
-            <line number="86" hits="7" branch="False" />
-            <line number="87" hits="7" branch="False" />
-            <line number="89" hits="7" branch="False" />
-            <line number="91" hits="7" branch="False" />
-            <line number="92" hits="7" branch="False" />
-            <line number="93" hits="7" branch="False" />
-            <line number="95" hits="7" branch="False" />
-            <line number="96" hits="7" branch="False" />
-            <line number="97" hits="7" branch="False" />
-            <line number="99" hits="7" branch="False" />
-            <line number="101" hits="7" branch="False" />
-            <line number="102" hits="7" branch="False" />
-            <line number="103" hits="10" branch="False" />
+            <line number="85" hits="24" branch="False"/>
+            <line number="86" hits="7" branch="False"/>
+            <line number="87" hits="7" branch="False"/>
+            <line number="89" hits="7" branch="False"/>
+            <line number="91" hits="7" branch="False"/>
+            <line number="92" hits="7" branch="False"/>
+            <line number="93" hits="7" branch="False"/>
+            <line number="95" hits="7" branch="False"/>
+            <line number="96" hits="7" branch="False"/>
+            <line number="97" hits="7" branch="False"/>
+            <line number="99" hits="7" branch="False"/>
+            <line number="101" hits="7" branch="False"/>
+            <line number="102" hits="7" branch="False"/>
+            <line number="103" hits="10" branch="False"/>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.BitbucketClient/&lt;CreateBuildStatusAsync&gt;d__9" filename="BitbucketClient.cs" line-rate="1" branch-rate="1" complexity="4">
+        <class name="Resharper.CodeInspections.BitbucketPipe.BitbucketClient/&lt;CreateBuildStatusAsync&gt;d__9"
+               filename="BitbucketClient.cs" line-rate="1" branch-rate="1" complexity="4">
           <methods>
             <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="4">
               <lines>
-                <line number="106" hits="10" branch="False" />
+                <line number="106" hits="10" branch="False"/>
                 <line number="107" hits="11" branch="True" condition-coverage="100% (2/2)">
                   <conditions>
-                    <condition number="50" type="jump" coverage="100%" />
+                    <condition number="50" type="jump" coverage="100%"/>
                   </conditions>
                 </line>
-                <line number="108" hits="1" branch="False" />
+                <line number="108" hits="1" branch="False"/>
                 <line number="111" hits="11" branch="True" condition-coverage="100% (2/2)">
                   <conditions>
-                    <condition number="79" type="jump" coverage="100%" />
+                    <condition number="79" type="jump" coverage="100%"/>
                   </conditions>
                 </line>
-                <line number="112" hits="2" branch="False" />
-                <line number="113" hits="2" branch="False" />
-                <line number="116" hits="7" branch="False" />
-                <line number="117" hits="7" branch="False" />
-                <line number="118" hits="7" branch="False" />
-                <line number="120" hits="7" branch="False" />
-                <line number="122" hits="7" branch="False" />
-                <line number="124" hits="7" branch="False" />
-                <line number="125" hits="10" branch="False" />
+                <line number="112" hits="2" branch="False"/>
+                <line number="113" hits="2" branch="False"/>
+                <line number="116" hits="7" branch="False"/>
+                <line number="117" hits="7" branch="False"/>
+                <line number="118" hits="7" branch="False"/>
+                <line number="120" hits="7" branch="False"/>
+                <line number="122" hits="7" branch="False"/>
+                <line number="124" hits="7" branch="False"/>
+                <line number="125" hits="10" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="106" hits="10" branch="False" />
+            <line number="106" hits="10" branch="False"/>
             <line number="107" hits="11" branch="True" condition-coverage="100% (2/2)">
               <conditions>
-                <condition number="50" type="jump" coverage="100%" />
+                <condition number="50" type="jump" coverage="100%"/>
               </conditions>
             </line>
-            <line number="108" hits="1" branch="False" />
+            <line number="108" hits="1" branch="False"/>
             <line number="111" hits="11" branch="True" condition-coverage="100% (2/2)">
               <conditions>
-                <condition number="79" type="jump" coverage="100%" />
+                <condition number="79" type="jump" coverage="100%"/>
               </conditions>
             </line>
-            <line number="112" hits="2" branch="False" />
-            <line number="113" hits="2" branch="False" />
-            <line number="116" hits="7" branch="False" />
-            <line number="117" hits="7" branch="False" />
-            <line number="118" hits="7" branch="False" />
-            <line number="120" hits="7" branch="False" />
-            <line number="122" hits="7" branch="False" />
-            <line number="124" hits="7" branch="False" />
-            <line number="125" hits="10" branch="False" />
+            <line number="112" hits="2" branch="False"/>
+            <line number="113" hits="2" branch="False"/>
+            <line number="116" hits="7" branch="False"/>
+            <line number="117" hits="7" branch="False"/>
+            <line number="118" hits="7" branch="False"/>
+            <line number="120" hits="7" branch="False"/>
+            <line number="122" hits="7" branch="False"/>
+            <line number="124" hits="7" branch="False"/>
+            <line number="125" hits="10" branch="False"/>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.BitbucketClient/&lt;VerifyResponseAsync&gt;d__12" filename="BitbucketClient.cs" line-rate="0.5714" branch-rate="0.5" complexity="2">
+        <class name="Resharper.CodeInspections.BitbucketPipe.BitbucketClient/&lt;VerifyResponseAsync&gt;d__12"
+               filename="BitbucketClient.cs" line-rate="0.5714" branch-rate="0.5" complexity="2">
           <methods>
             <method name="MoveNext" signature="()" line-rate="0.5714" branch-rate="0.5" complexity="2">
               <lines>
-                <line number="142" hits="24" branch="False" />
+                <line number="142" hits="24" branch="False"/>
                 <line number="143" hits="24" branch="True" condition-coverage="50% (1/2)">
                   <conditions>
-                    <condition number="31" type="jump" coverage="50%" />
+                    <condition number="31" type="jump" coverage="50%"/>
                   </conditions>
                 </line>
-                <line number="144" hits="0" branch="False" />
-                <line number="145" hits="0" branch="False" />
-                <line number="146" hits="0" branch="False" />
-                <line number="148" hits="24" branch="False" />
-                <line number="149" hits="24" branch="False" />
+                <line number="144" hits="0" branch="False"/>
+                <line number="145" hits="0" branch="False"/>
+                <line number="146" hits="0" branch="False"/>
+                <line number="148" hits="24" branch="False"/>
+                <line number="149" hits="24" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="142" hits="24" branch="False" />
+            <line number="142" hits="24" branch="False"/>
             <line number="143" hits="24" branch="True" condition-coverage="50% (1/2)">
               <conditions>
-                <condition number="31" type="jump" coverage="50%" />
+                <condition number="31" type="jump" coverage="50%"/>
               </conditions>
             </line>
-            <line number="144" hits="0" branch="False" />
-            <line number="145" hits="0" branch="False" />
-            <line number="146" hits="0" branch="False" />
-            <line number="148" hits="24" branch="False" />
-            <line number="149" hits="24" branch="False" />
+            <line number="144" hits="0" branch="False"/>
+            <line number="145" hits="0" branch="False"/>
+            <line number="146" hits="0" branch="False"/>
+            <line number="148" hits="24" branch="False"/>
+            <line number="149" hits="24" branch="False"/>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.PipeRunner" filename="PipeRunner.cs" line-rate="0.7962" branch-rate="0.5" complexity="6">
+        <class name="Resharper.CodeInspections.BitbucketPipe.PipeRunner" filename="PipeRunner.cs" line-rate="0.7962"
+               branch-rate="0.5" complexity="6">
           <methods>
-            <method name="ConfigureServices" signature="(Microsoft.Extensions.DependencyInjection.IServiceCollection)" line-rate="0.875" branch-rate="1" complexity="1">
+            <method name="ConfigureServices" signature="(Microsoft.Extensions.DependencyInjection.IServiceCollection)"
+                    line-rate="0.875" branch-rate="1" complexity="1">
               <lines>
-                <line number="46" hits="8" branch="False" />
-                <line number="47" hits="8" branch="False" />
-                <line number="48" hits="8" branch="False" />
-                <line number="49" hits="8" branch="False" />
-                <line number="50" hits="8" branch="False" />
-                <line number="51" hits="8" branch="False" />
-                <line number="53" hits="8" branch="False" />
-                <line number="54" hits="8" branch="False" />
-                <line number="55" hits="8" branch="False" />
-                <line number="57" hits="8" branch="False" />
-                <line number="58" hits="8" branch="False" />
-                <line number="59" hits="8" branch="False" />
-                <line number="61" hits="8" branch="False" />
-                <line number="62" hits="8" branch="False" />
-                <line number="64" hits="8" branch="False" />
-                <line number="66" hits="8" branch="False" />
-                <line number="67" hits="8" branch="False" />
-                <line number="68" hits="8" branch="False" />
-                <line number="69" hits="8" branch="False" />
-                <line number="70" hits="0" branch="False" />
-                <line number="71" hits="0" branch="False" />
-                <line number="72" hits="0" branch="False" />
-                <line number="73" hits="0" branch="False" />
-                <line number="74" hits="8" branch="False" />
-                <line number="75" hits="8" branch="False" />
-                <line number="76" hits="8" branch="False" />
-                <line number="77" hits="8" branch="False" />
-                <line number="78" hits="8" branch="False" />
-                <line number="79" hits="8" branch="False" />
-                <line number="80" hits="8" branch="False" />
-                <line number="81" hits="8" branch="False" />
-                <line number="82" hits="8" branch="False" />
+                <line number="46" hits="8" branch="False"/>
+                <line number="47" hits="8" branch="False"/>
+                <line number="48" hits="8" branch="False"/>
+                <line number="49" hits="8" branch="False"/>
+                <line number="50" hits="8" branch="False"/>
+                <line number="51" hits="8" branch="False"/>
+                <line number="53" hits="8" branch="False"/>
+                <line number="54" hits="8" branch="False"/>
+                <line number="55" hits="8" branch="False"/>
+                <line number="57" hits="8" branch="False"/>
+                <line number="58" hits="8" branch="False"/>
+                <line number="59" hits="8" branch="False"/>
+                <line number="61" hits="8" branch="False"/>
+                <line number="62" hits="8" branch="False"/>
+                <line number="64" hits="8" branch="False"/>
+                <line number="66" hits="8" branch="False"/>
+                <line number="67" hits="8" branch="False"/>
+                <line number="68" hits="8" branch="False"/>
+                <line number="69" hits="8" branch="False"/>
+                <line number="70" hits="0" branch="False"/>
+                <line number="71" hits="0" branch="False"/>
+                <line number="72" hits="0" branch="False"/>
+                <line number="73" hits="0" branch="False"/>
+                <line number="74" hits="8" branch="False"/>
+                <line number="75" hits="8" branch="False"/>
+                <line number="76" hits="8" branch="False"/>
+                <line number="77" hits="8" branch="False"/>
+                <line number="78" hits="8" branch="False"/>
+                <line number="79" hits="8" branch="False"/>
+                <line number="80" hits="8" branch="False"/>
+                <line number="81" hits="8" branch="False"/>
+                <line number="82" hits="8" branch="False"/>
               </lines>
             </method>
-            <method name="SetupBitbucketClient" signature="(Microsoft.Extensions.DependencyInjection.IServiceCollection,Resharper.CodeInspections.BitbucketPipe.Options.BitbucketAuthenticationOptions)" line-rate="0.5882000000000001" branch-rate="0.5" complexity="4">
+            <method name="SetupBitbucketClient"
+                    signature="(Microsoft.Extensions.DependencyInjection.IServiceCollection,Resharper.CodeInspections.BitbucketPipe.Options.BitbucketAuthenticationOptions)"
+                    line-rate="0.5882000000000001" branch-rate="0.5" complexity="4">
               <lines>
-                <line number="85" hits="8" branch="False" />
-                <line number="86" hits="8" branch="False" />
+                <line number="85" hits="8" branch="False"/>
+                <line number="86" hits="8" branch="False"/>
                 <line number="88" hits="8" branch="True" condition-coverage="50% (1/2)">
                   <conditions>
-                    <condition number="34" type="jump" coverage="50%" />
+                    <condition number="34" type="jump" coverage="50%"/>
                   </conditions>
                 </line>
-                <line number="89" hits="0" branch="False" />
-                <line number="90" hits="0" branch="False" />
-                <line number="91" hits="0" branch="False" />
-                <line number="92" hits="0" branch="False" />
+                <line number="89" hits="0" branch="False"/>
+                <line number="90" hits="0" branch="False"/>
+                <line number="91" hits="0" branch="False"/>
+                <line number="92" hits="0" branch="False"/>
                 <line number="93" hits="16" branch="True" condition-coverage="50% (1/2)">
                   <conditions>
-                    <condition number="86" type="jump" coverage="50%" />
+                    <condition number="86" type="jump" coverage="50%"/>
                   </conditions>
                 </line>
-                <line number="97" hits="8" branch="False" />
-                <line number="98" hits="8" branch="False" />
-                <line number="99" hits="8" branch="False" />
-                <line number="100" hits="8" branch="False" />
-                <line number="101" hits="8" branch="False" />
-                <line number="102" hits="0" branch="False" />
-                <line number="103" hits="0" branch="False" />
-                <line number="104" hits="0" branch="False" />
-                <line number="105" hits="8" branch="False" />
+                <line number="97" hits="8" branch="False"/>
+                <line number="98" hits="8" branch="False"/>
+                <line number="99" hits="8" branch="False"/>
+                <line number="100" hits="8" branch="False"/>
+                <line number="101" hits="8" branch="False"/>
+                <line number="102" hits="0" branch="False"/>
+                <line number="103" hits="0" branch="False"/>
+                <line number="104" hits="0" branch="False"/>
+                <line number="105" hits="8" branch="False"/>
               </lines>
             </method>
-            <method name=".ctor" signature="(Resharper.CodeInspections.BitbucketPipe.Utils.IEnvironmentVariableProvider)" line-rate="1" branch-rate="1" complexity="1">
+            <method name=".ctor"
+                    signature="(Resharper.CodeInspections.BitbucketPipe.Utils.IEnvironmentVariableProvider)"
+                    line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="22" hits="8" branch="False" />
-                <line number="23" hits="8" branch="False" />
-                <line number="24" hits="8" branch="False" />
-                <line number="25" hits="8" branch="False" />
-                <line number="26" hits="8" branch="False" />
+                <line number="22" hits="8" branch="False"/>
+                <line number="23" hits="8" branch="False"/>
+                <line number="24" hits="8" branch="False"/>
+                <line number="25" hits="8" branch="False"/>
+                <line number="26" hits="8" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="46" hits="8" branch="False" />
-            <line number="47" hits="8" branch="False" />
-            <line number="48" hits="8" branch="False" />
-            <line number="49" hits="8" branch="False" />
-            <line number="50" hits="8" branch="False" />
-            <line number="51" hits="8" branch="False" />
-            <line number="53" hits="8" branch="False" />
-            <line number="54" hits="8" branch="False" />
-            <line number="55" hits="8" branch="False" />
-            <line number="57" hits="8" branch="False" />
-            <line number="58" hits="8" branch="False" />
-            <line number="59" hits="8" branch="False" />
-            <line number="61" hits="8" branch="False" />
-            <line number="62" hits="8" branch="False" />
-            <line number="64" hits="8" branch="False" />
-            <line number="66" hits="8" branch="False" />
-            <line number="67" hits="8" branch="False" />
-            <line number="68" hits="8" branch="False" />
-            <line number="69" hits="8" branch="False" />
-            <line number="70" hits="0" branch="False" />
-            <line number="71" hits="0" branch="False" />
-            <line number="72" hits="0" branch="False" />
-            <line number="73" hits="0" branch="False" />
-            <line number="74" hits="8" branch="False" />
-            <line number="75" hits="8" branch="False" />
-            <line number="76" hits="8" branch="False" />
-            <line number="77" hits="8" branch="False" />
-            <line number="78" hits="8" branch="False" />
-            <line number="79" hits="8" branch="False" />
-            <line number="80" hits="8" branch="False" />
-            <line number="81" hits="8" branch="False" />
-            <line number="82" hits="8" branch="False" />
-            <line number="85" hits="8" branch="False" />
-            <line number="86" hits="8" branch="False" />
+            <line number="46" hits="8" branch="False"/>
+            <line number="47" hits="8" branch="False"/>
+            <line number="48" hits="8" branch="False"/>
+            <line number="49" hits="8" branch="False"/>
+            <line number="50" hits="8" branch="False"/>
+            <line number="51" hits="8" branch="False"/>
+            <line number="53" hits="8" branch="False"/>
+            <line number="54" hits="8" branch="False"/>
+            <line number="55" hits="8" branch="False"/>
+            <line number="57" hits="8" branch="False"/>
+            <line number="58" hits="8" branch="False"/>
+            <line number="59" hits="8" branch="False"/>
+            <line number="61" hits="8" branch="False"/>
+            <line number="62" hits="8" branch="False"/>
+            <line number="64" hits="8" branch="False"/>
+            <line number="66" hits="8" branch="False"/>
+            <line number="67" hits="8" branch="False"/>
+            <line number="68" hits="8" branch="False"/>
+            <line number="69" hits="8" branch="False"/>
+            <line number="70" hits="0" branch="False"/>
+            <line number="71" hits="0" branch="False"/>
+            <line number="72" hits="0" branch="False"/>
+            <line number="73" hits="0" branch="False"/>
+            <line number="74" hits="8" branch="False"/>
+            <line number="75" hits="8" branch="False"/>
+            <line number="76" hits="8" branch="False"/>
+            <line number="77" hits="8" branch="False"/>
+            <line number="78" hits="8" branch="False"/>
+            <line number="79" hits="8" branch="False"/>
+            <line number="80" hits="8" branch="False"/>
+            <line number="81" hits="8" branch="False"/>
+            <line number="82" hits="8" branch="False"/>
+            <line number="85" hits="8" branch="False"/>
+            <line number="86" hits="8" branch="False"/>
             <line number="88" hits="8" branch="True" condition-coverage="50% (1/2)">
               <conditions>
-                <condition number="34" type="jump" coverage="50%" />
+                <condition number="34" type="jump" coverage="50%"/>
               </conditions>
             </line>
-            <line number="89" hits="0" branch="False" />
-            <line number="90" hits="0" branch="False" />
-            <line number="91" hits="0" branch="False" />
-            <line number="92" hits="0" branch="False" />
+            <line number="89" hits="0" branch="False"/>
+            <line number="90" hits="0" branch="False"/>
+            <line number="91" hits="0" branch="False"/>
+            <line number="92" hits="0" branch="False"/>
             <line number="93" hits="16" branch="True" condition-coverage="50% (1/2)">
               <conditions>
-                <condition number="86" type="jump" coverage="50%" />
+                <condition number="86" type="jump" coverage="50%"/>
               </conditions>
             </line>
-            <line number="97" hits="8" branch="False" />
-            <line number="98" hits="8" branch="False" />
-            <line number="99" hits="8" branch="False" />
-            <line number="100" hits="8" branch="False" />
-            <line number="101" hits="8" branch="False" />
-            <line number="102" hits="0" branch="False" />
-            <line number="103" hits="0" branch="False" />
-            <line number="104" hits="0" branch="False" />
-            <line number="105" hits="8" branch="False" />
-            <line number="22" hits="8" branch="False" />
-            <line number="23" hits="8" branch="False" />
-            <line number="24" hits="8" branch="False" />
-            <line number="25" hits="8" branch="False" />
-            <line number="26" hits="8" branch="False" />
+            <line number="97" hits="8" branch="False"/>
+            <line number="98" hits="8" branch="False"/>
+            <line number="99" hits="8" branch="False"/>
+            <line number="100" hits="8" branch="False"/>
+            <line number="101" hits="8" branch="False"/>
+            <line number="102" hits="0" branch="False"/>
+            <line number="103" hits="0" branch="False"/>
+            <line number="104" hits="0" branch="False"/>
+            <line number="105" hits="8" branch="False"/>
+            <line number="22" hits="8" branch="False"/>
+            <line number="23" hits="8" branch="False"/>
+            <line number="24" hits="8" branch="False"/>
+            <line number="25" hits="8" branch="False"/>
+            <line number="26" hits="8" branch="False"/>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.PipeRunner/&lt;RunPipeAsync&gt;d__3" filename="PipeRunner.cs" line-rate="1" branch-rate="1" complexity="1">
+        <class name="Resharper.CodeInspections.BitbucketPipe.PipeRunner/&lt;RunPipeAsync&gt;d__3"
+               filename="PipeRunner.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
             <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="29" hits="8" branch="False" />
-                <line number="30" hits="8" branch="False" />
-                <line number="31" hits="8" branch="False" />
-                <line number="32" hits="8" branch="False" />
-                <line number="34" hits="8" branch="False" />
-                <line number="35" hits="8" branch="False" />
-                <line number="36" hits="8" branch="False" />
-                <line number="37" hits="8" branch="False" />
-                <line number="38" hits="8" branch="False" />
-                <line number="40" hits="8" branch="False" />
-                <line number="41" hits="8" branch="False" />
-                <line number="42" hits="8" branch="False" />
-                <line number="43" hits="8" branch="False" />
+                <line number="29" hits="8" branch="False"/>
+                <line number="30" hits="8" branch="False"/>
+                <line number="31" hits="8" branch="False"/>
+                <line number="32" hits="8" branch="False"/>
+                <line number="34" hits="8" branch="False"/>
+                <line number="35" hits="8" branch="False"/>
+                <line number="36" hits="8" branch="False"/>
+                <line number="37" hits="8" branch="False"/>
+                <line number="38" hits="8" branch="False"/>
+                <line number="40" hits="8" branch="False"/>
+                <line number="41" hits="8" branch="False"/>
+                <line number="42" hits="8" branch="False"/>
+                <line number="43" hits="8" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="29" hits="8" branch="False" />
-            <line number="30" hits="8" branch="False" />
-            <line number="31" hits="8" branch="False" />
-            <line number="32" hits="8" branch="False" />
-            <line number="34" hits="8" branch="False" />
-            <line number="35" hits="8" branch="False" />
-            <line number="36" hits="8" branch="False" />
-            <line number="37" hits="8" branch="False" />
-            <line number="38" hits="8" branch="False" />
-            <line number="40" hits="8" branch="False" />
-            <line number="41" hits="8" branch="False" />
-            <line number="42" hits="8" branch="False" />
-            <line number="43" hits="8" branch="False" />
+            <line number="29" hits="8" branch="False"/>
+            <line number="30" hits="8" branch="False"/>
+            <line number="31" hits="8" branch="False"/>
+            <line number="32" hits="8" branch="False"/>
+            <line number="34" hits="8" branch="False"/>
+            <line number="35" hits="8" branch="False"/>
+            <line number="36" hits="8" branch="False"/>
+            <line number="37" hits="8" branch="False"/>
+            <line number="38" hits="8" branch="False"/>
+            <line number="40" hits="8" branch="False"/>
+            <line number="41" hits="8" branch="False"/>
+            <line number="42" hits="8" branch="False"/>
+            <line number="43" hits="8" branch="False"/>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.RequiredEnvironmentVariableNotFoundException" filename="RequiredEnvironmentVariableNotFoundException.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Resharper.CodeInspections.BitbucketPipe.RequiredEnvironmentVariableNotFoundException"
+               filename="RequiredEnvironmentVariableNotFoundException.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name=".ctor" signature="(System.String)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
-                <line number="8" hits="0" branch="False" />
-                <line number="9" hits="0" branch="False" />
-                <line number="10" hits="0" branch="False" />
+                <line number="8" hits="0" branch="False"/>
+                <line number="9" hits="0" branch="False"/>
+                <line number="10" hits="0" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="8" hits="0" branch="False" />
-            <line number="9" hits="0" branch="False" />
-            <line number="10" hits="0" branch="False" />
+            <line number="8" hits="0" branch="False"/>
+            <line number="9" hits="0" branch="False"/>
+            <line number="10" hits="0" branch="False"/>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.Utils.BitbucketEnvironmentInfo" filename="Utils\BitbucketEnvironmentInfo.cs" line-rate="1" branch-rate="1" complexity="6">
+        <class name="Resharper.CodeInspections.BitbucketPipe.Utils.BitbucketEnvironmentInfo"
+               filename="Utils\BitbucketEnvironmentInfo.cs" line-rate="1" branch-rate="1" complexity="6">
           <methods>
             <method name="get_Workspace" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="17" hits="59" branch="False" />
+                <line number="17" hits="59" branch="False"/>
               </lines>
             </method>
             <method name="get_RepoSlug" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="18" hits="59" branch="False" />
+                <line number="18" hits="59" branch="False"/>
               </lines>
             </method>
             <method name="get_CommitHash" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="19" hits="52" branch="False" />
+                <line number="19" hits="52" branch="False"/>
               </lines>
             </method>
             <method name="get_CloneDir" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="20" hits="20" branch="False" />
+                <line number="20" hits="20" branch="False"/>
               </lines>
             </method>
-            <method name=".ctor" signature="(Resharper.CodeInspections.BitbucketPipe.Utils.IEnvironmentVariableProvider)" line-rate="1" branch-rate="1" complexity="2">
+            <method name=".ctor"
+                    signature="(Resharper.CodeInspections.BitbucketPipe.Utils.IEnvironmentVariableProvider)"
+                    line-rate="1" branch-rate="1" complexity="2">
               <lines>
-                <line number="5" hits="20" branch="False" />
-                <line number="6" hits="20" branch="False" />
+                <line number="5" hits="20" branch="False"/>
+                <line number="6" hits="20" branch="False"/>
                 <line number="7" hits="32" branch="True" condition-coverage="100% (2/2)">
                   <conditions>
-                    <condition number="47" type="jump" coverage="100%" />
+                    <condition number="47" type="jump" coverage="100%"/>
                   </conditions>
                 </line>
-                <line number="8" hits="12" branch="False" />
-                <line number="11" hits="8" branch="False" />
-                <line number="12" hits="8" branch="False" />
-                <line number="13" hits="8" branch="False" />
-                <line number="14" hits="8" branch="False" />
-                <line number="15" hits="20" branch="False" />
+                <line number="8" hits="12" branch="False"/>
+                <line number="11" hits="8" branch="False"/>
+                <line number="12" hits="8" branch="False"/>
+                <line number="13" hits="8" branch="False"/>
+                <line number="14" hits="8" branch="False"/>
+                <line number="15" hits="20" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="17" hits="59" branch="False" />
-            <line number="18" hits="59" branch="False" />
-            <line number="19" hits="52" branch="False" />
-            <line number="20" hits="20" branch="False" />
-            <line number="5" hits="20" branch="False" />
-            <line number="6" hits="20" branch="False" />
+            <line number="17" hits="59" branch="False"/>
+            <line number="18" hits="59" branch="False"/>
+            <line number="19" hits="52" branch="False"/>
+            <line number="20" hits="20" branch="False"/>
+            <line number="5" hits="20" branch="False"/>
+            <line number="6" hits="20" branch="False"/>
             <line number="7" hits="32" branch="True" condition-coverage="100% (2/2)">
               <conditions>
-                <condition number="47" type="jump" coverage="100%" />
+                <condition number="47" type="jump" coverage="100%"/>
               </conditions>
             </line>
-            <line number="8" hits="12" branch="False" />
-            <line number="11" hits="8" branch="False" />
-            <line number="12" hits="8" branch="False" />
-            <line number="13" hits="8" branch="False" />
-            <line number="14" hits="8" branch="False" />
-            <line number="15" hits="20" branch="False" />
+            <line number="8" hits="12" branch="False"/>
+            <line number="11" hits="8" branch="False"/>
+            <line number="12" hits="8" branch="False"/>
+            <line number="13" hits="8" branch="False"/>
+            <line number="14" hits="8" branch="False"/>
+            <line number="15" hits="20" branch="False"/>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.Utils.EnvironmentVariableProvider" filename="Utils\EnvironmentVariableProvider.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Resharper.CodeInspections.BitbucketPipe.Utils.EnvironmentVariableProvider"
+               filename="Utils\EnvironmentVariableProvider.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
-            <method name="GetEnvironmentVariable" signature="(System.String)" line-rate="0" branch-rate="1" complexity="1">
+            <method name="GetEnvironmentVariable" signature="(System.String)" line-rate="0" branch-rate="1"
+                    complexity="1">
               <lines>
-                <line number="7" hits="0" branch="False" />
+                <line number="7" hits="0" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="7" hits="0" branch="False" />
+            <line number="7" hits="0" branch="False"/>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.Utils.IEnvironmentVariableProvider" filename="Utils\IEnvironmentVariableProvider.cs" line-rate="1" branch-rate="0.75" complexity="4">
+        <class name="Resharper.CodeInspections.BitbucketPipe.Utils.IEnvironmentVariableProvider"
+               filename="Utils\IEnvironmentVariableProvider.cs" line-rate="1" branch-rate="0.75" complexity="4">
           <methods>
-            <method name="GetRequiredEnvironmentVariable" signature="(System.String)" line-rate="1" branch-rate="0.5" complexity="2">
+            <method name="GetRequiredEnvironmentVariable" signature="(System.String)" line-rate="1" branch-rate="0.5"
+                    complexity="2">
               <lines>
                 <line number="8" hits="8" branch="True" condition-coverage="50% (1/2)">
                   <conditions>
-                    <condition number="8" type="jump" coverage="50%" />
+                    <condition number="8" type="jump" coverage="50%"/>
                   </conditions>
                 </line>
-                <line number="9" hits="8" branch="False" />
+                <line number="9" hits="8" branch="False"/>
               </lines>
             </method>
-            <method name="GetEnvironmentVariableOrDefault" signature="(System.String,System.String)" line-rate="1" branch-rate="1" complexity="2">
+            <method name="GetEnvironmentVariableOrDefault" signature="(System.String,System.String)" line-rate="1"
+                    branch-rate="1" complexity="2">
               <lines>
                 <line number="12" hits="24" branch="True" condition-coverage="100% (2/2)">
                   <conditions>
-                    <condition number="8" type="jump" coverage="100%" />
+                    <condition number="8" type="jump" coverage="100%"/>
                   </conditions>
                 </line>
               </lines>
@@ -575,296 +600,310 @@
           <lines>
             <line number="8" hits="8" branch="True" condition-coverage="50% (1/2)">
               <conditions>
-                <condition number="8" type="jump" coverage="50%" />
+                <condition number="8" type="jump" coverage="50%"/>
               </conditions>
             </line>
-            <line number="9" hits="8" branch="False" />
+            <line number="9" hits="8" branch="False"/>
             <line number="12" hits="24" branch="True" condition-coverage="100% (2/2)">
               <conditions>
-                <condition number="8" type="jump" coverage="100%" />
+                <condition number="8" type="jump" coverage="100%"/>
               </conditions>
             </line>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.Utils.PipeEnvironment" filename="Utils\PipeEnvironment.cs" line-rate="0.909" branch-rate="1" complexity="4">
+        <class name="Resharper.CodeInspections.BitbucketPipe.Utils.PipeEnvironment" filename="Utils\PipeEnvironment.cs"
+               line-rate="0.909" branch-rate="1" complexity="4">
           <methods>
             <method name="get_IsDebugMode" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
-                <line number="16" hits="0" branch="False" />
+                <line number="16" hits="0" branch="False"/>
               </lines>
             </method>
             <method name="get_EnvironmentName" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="18" hits="8" branch="False" />
+                <line number="18" hits="8" branch="False"/>
               </lines>
             </method>
             <method name="get_IsDevelopment" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="20" hits="8" branch="False" />
+                <line number="20" hits="8" branch="False"/>
               </lines>
             </method>
-            <method name=".ctor" signature="(Resharper.CodeInspections.BitbucketPipe.Utils.IEnvironmentVariableProvider)" line-rate="1" branch-rate="1" complexity="1">
+            <method name=".ctor"
+                    signature="(Resharper.CodeInspections.BitbucketPipe.Utils.IEnvironmentVariableProvider)"
+                    line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="7" hits="8" branch="False" />
-                <line number="8" hits="8" branch="False" />
-                <line number="9" hits="8" branch="False" />
-                <line number="10" hits="8" branch="False" />
-                <line number="11" hits="8" branch="False" />
-                <line number="12" hits="8" branch="False" />
-                <line number="13" hits="8" branch="False" />
-                <line number="14" hits="8" branch="False" />
+                <line number="7" hits="8" branch="False"/>
+                <line number="8" hits="8" branch="False"/>
+                <line number="9" hits="8" branch="False"/>
+                <line number="10" hits="8" branch="False"/>
+                <line number="11" hits="8" branch="False"/>
+                <line number="12" hits="8" branch="False"/>
+                <line number="13" hits="8" branch="False"/>
+                <line number="14" hits="8" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="16" hits="0" branch="False" />
-            <line number="18" hits="8" branch="False" />
-            <line number="20" hits="8" branch="False" />
-            <line number="7" hits="8" branch="False" />
-            <line number="8" hits="8" branch="False" />
-            <line number="9" hits="8" branch="False" />
-            <line number="10" hits="8" branch="False" />
-            <line number="11" hits="8" branch="False" />
-            <line number="12" hits="8" branch="False" />
-            <line number="13" hits="8" branch="False" />
-            <line number="14" hits="8" branch="False" />
+            <line number="16" hits="0" branch="False"/>
+            <line number="18" hits="8" branch="False"/>
+            <line number="20" hits="8" branch="False"/>
+            <line number="7" hits="8" branch="False"/>
+            <line number="8" hits="8" branch="False"/>
+            <line number="9" hits="8" branch="False"/>
+            <line number="10" hits="8" branch="False"/>
+            <line number="11" hits="8" branch="False"/>
+            <line number="12" hits="8" branch="False"/>
+            <line number="13" hits="8" branch="False"/>
+            <line number="14" hits="8" branch="False"/>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.Utils.PipeUtils" filename="Utils\PipeUtils.cs" line-rate="1" branch-rate="1" complexity="3">
+        <class name="Resharper.CodeInspections.BitbucketPipe.Utils.PipeUtils" filename="Utils\PipeUtils.cs"
+               line-rate="1" branch-rate="1" complexity="3">
           <methods>
             <method name="GetFoundIssuesString" signature="(System.Int32)" line-rate="1" branch-rate="1" complexity="2">
               <lines>
                 <line number="6" hits="25" branch="True" condition-coverage="100% (2/2)">
                   <conditions>
-                    <condition number="2" type="jump" coverage="100%" />
+                    <condition number="2" type="jump" coverage="100%"/>
                   </conditions>
                 </line>
               </lines>
             </method>
-            <method name="GetFoundIssuesString" signature="(System.Int32,System.String)" line-rate="1" branch-rate="1" complexity="1">
+            <method name="GetFoundIssuesString" signature="(System.Int32,System.String)" line-rate="1" branch-rate="1"
+                    complexity="1">
               <lines>
-                <line number="9" hits="14" branch="False" />
+                <line number="9" hits="14" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
             <line number="6" hits="25" branch="True" condition-coverage="100% (2/2)">
               <conditions>
-                <condition number="2" type="jump" coverage="100%" />
+                <condition number="2" type="jump" coverage="100%"/>
               </conditions>
             </line>
-            <line number="9" hits="14" branch="False" />
+            <line number="9" hits="14" branch="False"/>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.Options.BitbucketAuthenticationOptions" filename="Options\BitbucketAuthenticationOptions.cs" line-rate="1" branch-rate="1" complexity="4">
+        <class name="Resharper.CodeInspections.BitbucketPipe.Options.BitbucketAuthenticationOptions"
+               filename="Options\BitbucketAuthenticationOptions.cs" line-rate="1" branch-rate="1" complexity="4">
           <methods>
             <method name="get_Username" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="5" hits="71" branch="False" />
+                <line number="5" hits="71" branch="False"/>
               </lines>
             </method>
             <method name="get_AppPassword" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="6" hits="57" branch="False" />
+                <line number="6" hits="57" branch="False"/>
               </lines>
             </method>
             <method name="get_UseAuthentication" signature="()" line-rate="1" branch-rate="1" complexity="2">
               <lines>
                 <line number="8" hits="41" branch="True" condition-coverage="100% (2/2)">
                   <conditions>
-                    <condition number="11" type="jump" coverage="100%" />
+                    <condition number="11" type="jump" coverage="100%"/>
                   </conditions>
                 </line>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="5" hits="71" branch="False" />
-            <line number="6" hits="57" branch="False" />
+            <line number="5" hits="71" branch="False"/>
+            <line number="6" hits="57" branch="False"/>
             <line number="8" hits="41" branch="True" condition-coverage="100% (2/2)">
               <conditions>
-                <condition number="11" type="jump" coverage="100%" />
+                <condition number="11" type="jump" coverage="100%"/>
               </conditions>
             </line>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.Options.PipeOptions" filename="Options\PipeOptions.cs" line-rate="1" branch-rate="1" complexity="2">
+        <class name="Resharper.CodeInspections.BitbucketPipe.Options.PipeOptions" filename="Options\PipeOptions.cs"
+               line-rate="1" branch-rate="1" complexity="2">
           <methods>
             <method name="get_CreateBuildStatus" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="5" hits="46" branch="False" />
+                <line number="5" hits="46" branch="False"/>
               </lines>
             </method>
             <method name="get_InspectionsXmlPathOrPattern" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="6" hits="60" branch="False" />
+                <line number="6" hits="60" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="5" hits="46" branch="False" />
-            <line number="6" hits="60" branch="False" />
+            <line number="5" hits="46" branch="False"/>
+            <line number="6" hits="60" branch="False"/>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.Model.ReSharper.Information" filename="Model\ReSharper\Information.cs" line-rate="1" branch-rate="1" complexity="1">
+        <class name="Resharper.CodeInspections.BitbucketPipe.Model.ReSharper.Information"
+               filename="Model\ReSharper\Information.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
             <method name="get_Solution" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="9" hits="52" branch="False" />
+                <line number="9" hits="52" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="9" hits="52" branch="False" />
+            <line number="9" hits="52" branch="False"/>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.Model.ReSharper.Issue" filename="Model\ReSharper\Issue.cs" line-rate="1" branch-rate="1" complexity="5">
+        <class name="Resharper.CodeInspections.BitbucketPipe.Model.ReSharper.Issue" filename="Model\ReSharper\Issue.cs"
+               line-rate="1" branch-rate="1" complexity="5">
           <methods>
             <method name="get_TypeId" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="9" hits="88" branch="False" />
+                <line number="9" hits="88" branch="False"/>
               </lines>
             </method>
             <method name="get_File" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="12" hits="88" branch="False" />
+                <line number="12" hits="88" branch="False"/>
               </lines>
             </method>
             <method name="get_Offset" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="15" hits="72" branch="False" />
+                <line number="15" hits="72" branch="False"/>
               </lines>
             </method>
             <method name="get_Line" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="18" hits="43" branch="False" />
+                <line number="18" hits="43" branch="False"/>
               </lines>
             </method>
             <method name="get_Message" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="21" hits="88" branch="False" />
+                <line number="21" hits="88" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="9" hits="88" branch="False" />
-            <line number="12" hits="88" branch="False" />
-            <line number="15" hits="72" branch="False" />
-            <line number="18" hits="43" branch="False" />
-            <line number="21" hits="88" branch="False" />
+            <line number="9" hits="88" branch="False"/>
+            <line number="12" hits="88" branch="False"/>
+            <line number="15" hits="72" branch="False"/>
+            <line number="18" hits="43" branch="False"/>
+            <line number="21" hits="88" branch="False"/>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.Model.ReSharper.Issues" filename="Model\ReSharper\Issues.cs" line-rate="1" branch-rate="1" complexity="1">
+        <class name="Resharper.CodeInspections.BitbucketPipe.Model.ReSharper.Issues"
+               filename="Model\ReSharper\Issues.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
             <method name="get_Projects" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="10" hits="148" branch="False" />
+                <line number="10" hits="148" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="10" hits="148" branch="False" />
+            <line number="10" hits="148" branch="False"/>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.Model.ReSharper.IssueType" filename="Model\ReSharper\IssueType.cs" line-rate="1" branch-rate="1" complexity="6">
+        <class name="Resharper.CodeInspections.BitbucketPipe.Model.ReSharper.IssueType"
+               filename="Model\ReSharper\IssueType.cs" line-rate="1" branch-rate="1" complexity="6">
           <methods>
             <method name="get_Id" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="9" hits="66" branch="False" />
+                <line number="9" hits="66" branch="False"/>
               </lines>
             </method>
             <method name="get_Category" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="12" hits="54" branch="False" />
+                <line number="12" hits="54" branch="False"/>
               </lines>
             </method>
             <method name="get_CategoryId" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="15" hits="54" branch="False" />
+                <line number="15" hits="54" branch="False"/>
               </lines>
             </method>
             <method name="get_Description" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="18" hits="70" branch="False" />
+                <line number="18" hits="70" branch="False"/>
               </lines>
             </method>
             <method name="get_Severity" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="21" hits="54" branch="False" />
+                <line number="21" hits="54" branch="False"/>
               </lines>
             </method>
             <method name="get_WikiUrl" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="24" hits="59" branch="False" />
+                <line number="24" hits="59" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="9" hits="66" branch="False" />
-            <line number="12" hits="54" branch="False" />
-            <line number="15" hits="54" branch="False" />
-            <line number="18" hits="70" branch="False" />
-            <line number="21" hits="54" branch="False" />
-            <line number="24" hits="59" branch="False" />
+            <line number="9" hits="66" branch="False"/>
+            <line number="12" hits="54" branch="False"/>
+            <line number="15" hits="54" branch="False"/>
+            <line number="18" hits="70" branch="False"/>
+            <line number="21" hits="54" branch="False"/>
+            <line number="24" hits="59" branch="False"/>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.Model.ReSharper.IssueTypes" filename="Model\ReSharper\IssueTypes.cs" line-rate="1" branch-rate="1" complexity="1">
+        <class name="Resharper.CodeInspections.BitbucketPipe.Model.ReSharper.IssueTypes"
+               filename="Model\ReSharper\IssueTypes.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
             <method name="get_Types" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="10" hits="62" branch="False" />
+                <line number="10" hits="62" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="10" hits="62" branch="False" />
+            <line number="10" hits="62" branch="False"/>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.Model.ReSharper.Project" filename="Model\ReSharper\Project.cs" line-rate="1" branch-rate="1" complexity="2">
+        <class name="Resharper.CodeInspections.BitbucketPipe.Model.ReSharper.Project"
+               filename="Model\ReSharper\Project.cs" line-rate="1" branch-rate="1" complexity="2">
           <methods>
             <method name="get_Issues" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="10" hits="125" branch="False" />
+                <line number="10" hits="125" branch="False"/>
               </lines>
             </method>
             <method name="get_Name" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="13" hits="9" branch="False" />
+                <line number="13" hits="9" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="10" hits="125" branch="False" />
-            <line number="13" hits="9" branch="False" />
+            <line number="10" hits="125" branch="False"/>
+            <line number="13" hits="9" branch="False"/>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.Model.ReSharper.Report" filename="Model\ReSharper\Report.cs" line-rate="1" branch-rate="0.5" complexity="10">
+        <class name="Resharper.CodeInspections.BitbucketPipe.Model.ReSharper.Report"
+               filename="Model\ReSharper\Report.cs" line-rate="1" branch-rate="0.5" complexity="10">
           <methods>
             <method name="get_Information" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="16" hits="52" branch="False" />
+                <line number="16" hits="52" branch="False"/>
               </lines>
             </method>
             <method name="get_IssueTypes" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="19" hits="43" branch="False" />
+                <line number="19" hits="43" branch="False"/>
               </lines>
             </method>
             <method name="get_Issues" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="22" hits="129" branch="False" />
+                <line number="22" hits="129" branch="False"/>
               </lines>
             </method>
             <method name="get_TotalIssues" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="25" hits="48" branch="False" />
+                <line number="25" hits="48" branch="False"/>
               </lines>
             </method>
             <method name="get_HasAnyIssues" signature="()" line-rate="1" branch-rate="0.5" complexity="2">
               <lines>
                 <line number="28" hits="26" branch="True" condition-coverage="50% (1/2)">
                   <conditions>
-                    <condition number="12" type="jump" coverage="50%" />
+                    <condition number="12" type="jump" coverage="50%"/>
                   </conditions>
                 </line>
               </lines>
@@ -873,537 +912,555 @@
               <lines>
                 <line number="32" hits="163" branch="True" condition-coverage="50% (2/4)">
                   <conditions>
-                    <condition number="12" type="jump" coverage="50%" />
-                    <condition number="96" type="jump" coverage="50%" />
+                    <condition number="12" type="jump" coverage="50%"/>
+                    <condition number="96" type="jump" coverage="50%"/>
                   </conditions>
                 </line>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="16" hits="52" branch="False" />
-            <line number="19" hits="43" branch="False" />
-            <line number="22" hits="129" branch="False" />
-            <line number="25" hits="48" branch="False" />
+            <line number="16" hits="52" branch="False"/>
+            <line number="19" hits="43" branch="False"/>
+            <line number="22" hits="129" branch="False"/>
+            <line number="25" hits="48" branch="False"/>
             <line number="28" hits="26" branch="True" condition-coverage="50% (1/2)">
               <conditions>
-                <condition number="12" type="jump" coverage="50%" />
+                <condition number="12" type="jump" coverage="50%"/>
               </conditions>
             </line>
             <line number="32" hits="163" branch="True" condition-coverage="50% (2/4)">
               <conditions>
-                <condition number="12" type="jump" coverage="50%" />
-                <condition number="96" type="jump" coverage="50%" />
+                <condition number="12" type="jump" coverage="50%"/>
+                <condition number="96" type="jump" coverage="50%"/>
               </conditions>
             </line>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.Model.ReSharper.Report/&lt;CreateFromFileAsync&gt;d__18" filename="Model\ReSharper\Report.cs" line-rate="0.8665999999999999" branch-rate="0.5" complexity="12">
+        <class name="Resharper.CodeInspections.BitbucketPipe.Model.ReSharper.Report/&lt;CreateFromFileAsync&gt;d__18"
+               filename="Model\ReSharper\Report.cs" line-rate="0.8665999999999999" branch-rate="0.5" complexity="12">
           <methods>
             <method name="MoveNext" signature="()" line-rate="0.8665999999999999" branch-rate="0.5" complexity="12">
               <lines>
-                <line number="35" hits="19" branch="False" />
-                <line number="36" hits="19" branch="False" />
-                <line number="37" hits="19" branch="False" />
-                <line number="39" hits="19" branch="False" />
+                <line number="35" hits="19" branch="False"/>
+                <line number="36" hits="19" branch="False"/>
+                <line number="37" hits="19" branch="False"/>
+                <line number="39" hits="19" branch="False"/>
                 <line number="40" hits="19" branch="True" condition-coverage="50% (1/2)">
                   <conditions>
-                    <condition number="95" type="jump" coverage="50%" />
+                    <condition number="95" type="jump" coverage="50%"/>
                   </conditions>
                 </line>
-                <line number="41" hits="0" branch="False" />
-                <line number="42" hits="0" branch="False" />
-                <line number="45" hits="19" branch="False" />
-                <line number="47" hits="19" branch="False" />
-                <line number="48" hits="19" branch="False" />
+                <line number="41" hits="0" branch="False"/>
+                <line number="42" hits="0" branch="False"/>
+                <line number="45" hits="19" branch="False"/>
+                <line number="47" hits="19" branch="False"/>
+                <line number="48" hits="19" branch="False"/>
                 <line number="49" hits="19" branch="True" condition-coverage="50% (1/2)">
                   <conditions>
-                    <condition number="233" type="jump" coverage="50%" />
+                    <condition number="233" type="jump" coverage="50%"/>
                   </conditions>
                 </line>
-                <line number="50" hits="19" branch="False" />
-                <line number="51" hits="19" branch="False" />
+                <line number="50" hits="19" branch="False"/>
+                <line number="51" hits="19" branch="False"/>
                 <line number="52" hits="19" branch="True" condition-coverage="50% (4/8)">
                   <conditions>
-                    <condition number="312" type="jump" coverage="100%" />
-                    <condition number="431" type="jump" coverage="50%" />
-                    <condition number="443" type="jump" coverage="0%" />
-                    <condition number="471" type="jump" coverage="50%" />
+                    <condition number="312" type="jump" coverage="100%"/>
+                    <condition number="431" type="jump" coverage="50%"/>
+                    <condition number="443" type="jump" coverage="0%"/>
+                    <condition number="471" type="jump" coverage="50%"/>
                   </conditions>
                 </line>
-                <line number="53" hits="19" branch="False" />
+                <line number="53" hits="19" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="35" hits="19" branch="False" />
-            <line number="36" hits="19" branch="False" />
-            <line number="37" hits="19" branch="False" />
-            <line number="39" hits="19" branch="False" />
+            <line number="35" hits="19" branch="False"/>
+            <line number="36" hits="19" branch="False"/>
+            <line number="37" hits="19" branch="False"/>
+            <line number="39" hits="19" branch="False"/>
             <line number="40" hits="19" branch="True" condition-coverage="50% (1/2)">
               <conditions>
-                <condition number="95" type="jump" coverage="50%" />
+                <condition number="95" type="jump" coverage="50%"/>
               </conditions>
             </line>
-            <line number="41" hits="0" branch="False" />
-            <line number="42" hits="0" branch="False" />
-            <line number="45" hits="19" branch="False" />
-            <line number="47" hits="19" branch="False" />
-            <line number="48" hits="19" branch="False" />
+            <line number="41" hits="0" branch="False"/>
+            <line number="42" hits="0" branch="False"/>
+            <line number="45" hits="19" branch="False"/>
+            <line number="47" hits="19" branch="False"/>
+            <line number="48" hits="19" branch="False"/>
             <line number="49" hits="19" branch="True" condition-coverage="50% (1/2)">
               <conditions>
-                <condition number="233" type="jump" coverage="50%" />
+                <condition number="233" type="jump" coverage="50%"/>
               </conditions>
             </line>
-            <line number="50" hits="19" branch="False" />
-            <line number="51" hits="19" branch="False" />
+            <line number="50" hits="19" branch="False"/>
+            <line number="51" hits="19" branch="False"/>
             <line number="52" hits="19" branch="True" condition-coverage="50% (4/8)">
               <conditions>
-                <condition number="312" type="jump" coverage="100%" />
-                <condition number="431" type="jump" coverage="50%" />
-                <condition number="443" type="jump" coverage="0%" />
-                <condition number="471" type="jump" coverage="50%" />
+                <condition number="312" type="jump" coverage="100%"/>
+                <condition number="431" type="jump" coverage="50%"/>
+                <condition number="443" type="jump" coverage="0%"/>
+                <condition number="471" type="jump" coverage="50%"/>
               </conditions>
             </line>
-            <line number="53" hits="19" branch="False" />
+            <line number="53" hits="19" branch="False"/>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.Model.Bitbucket.Report.PipelineReport" filename="Model\Bitbucket\Report\PipelineReport.cs" line-rate="1" branch-rate="1" complexity="14">
+        <class name="Resharper.CodeInspections.BitbucketPipe.Model.Bitbucket.Report.PipelineReport"
+               filename="Model\Bitbucket\Report\PipelineReport.cs" line-rate="1" branch-rate="1" complexity="14">
           <methods>
             <method name="get_Uuid" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="13" hits="10" branch="False" />
+                <line number="13" hits="10" branch="False"/>
               </lines>
             </method>
             <method name="get_Title" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="14" hits="24" branch="False" />
+                <line number="14" hits="24" branch="False"/>
               </lines>
             </method>
             <method name="get_Details" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="15" hits="26" branch="False" />
+                <line number="15" hits="26" branch="False"/>
               </lines>
             </method>
             <method name="get_ExternalId" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="16" hits="51" branch="False" />
+                <line number="16" hits="51" branch="False"/>
               </lines>
             </method>
             <method name="get_Reporter" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="17" hits="24" branch="False" />
+                <line number="17" hits="24" branch="False"/>
               </lines>
             </method>
             <method name="get_Link" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="18" hits="10" branch="False" />
+                <line number="18" hits="10" branch="False"/>
               </lines>
             </method>
             <method name="get_ReportType" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="19" hits="24" branch="False" />
+                <line number="19" hits="24" branch="False"/>
               </lines>
             </method>
             <method name="get_Result" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="20" hits="38" branch="False" />
+                <line number="20" hits="38" branch="False"/>
               </lines>
             </method>
             <method name="get_Data" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="21" hits="28" branch="False" />
+                <line number="21" hits="28" branch="False"/>
               </lines>
             </method>
             <method name="get_CreatedOn" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="22" hits="10" branch="False" />
+                <line number="22" hits="10" branch="False"/>
               </lines>
             </method>
             <method name="get_UpdatedOn" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="23" hits="10" branch="False" />
+                <line number="23" hits="10" branch="False"/>
               </lines>
             </method>
             <method name="get_TotalIssues" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="26" hits="28" branch="False" />
+                <line number="26" hits="28" branch="False"/>
               </lines>
             </method>
-            <method name="CreateFromIssuesReport" signature="(Resharper.CodeInspections.BitbucketPipe.Model.ReSharper.Report)" line-rate="1" branch-rate="1" complexity="2">
+            <method name="CreateFromIssuesReport"
+                    signature="(Resharper.CodeInspections.BitbucketPipe.Model.ReSharper.Report)" line-rate="1"
+                    branch-rate="1" complexity="2">
               <lines>
-                <line number="29" hits="14" branch="False" />
+                <line number="29" hits="14" branch="False"/>
                 <line number="30" hits="14" branch="True" condition-coverage="100% (2/2)">
                   <conditions>
-                    <condition number="86" type="jump" coverage="100%" />
+                    <condition number="86" type="jump" coverage="100%"/>
                   </conditions>
                 </line>
-                <line number="31" hits="14" branch="False" />
-                <line number="32" hits="14" branch="False" />
-                <line number="33" hits="14" branch="False" />
-                <line number="34" hits="14" branch="False" />
-                <line number="35" hits="14" branch="False" />
-                <line number="36" hits="14" branch="False" />
-                <line number="37" hits="14" branch="False" />
-                <line number="38" hits="14" branch="False" />
-                <line number="39" hits="14" branch="False" />
-                <line number="41" hits="14" branch="False" />
-                <line number="42" hits="14" branch="False" />
+                <line number="31" hits="14" branch="False"/>
+                <line number="32" hits="14" branch="False"/>
+                <line number="33" hits="14" branch="False"/>
+                <line number="34" hits="14" branch="False"/>
+                <line number="35" hits="14" branch="False"/>
+                <line number="36" hits="14" branch="False"/>
+                <line number="37" hits="14" branch="False"/>
+                <line number="38" hits="14" branch="False"/>
+                <line number="39" hits="14" branch="False"/>
+                <line number="41" hits="14" branch="False"/>
+                <line number="42" hits="14" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="13" hits="10" branch="False" />
-            <line number="14" hits="24" branch="False" />
-            <line number="15" hits="26" branch="False" />
-            <line number="16" hits="51" branch="False" />
-            <line number="17" hits="24" branch="False" />
-            <line number="18" hits="10" branch="False" />
-            <line number="19" hits="24" branch="False" />
-            <line number="20" hits="38" branch="False" />
-            <line number="21" hits="28" branch="False" />
-            <line number="22" hits="10" branch="False" />
-            <line number="23" hits="10" branch="False" />
-            <line number="26" hits="28" branch="False" />
-            <line number="29" hits="14" branch="False" />
+            <line number="13" hits="10" branch="False"/>
+            <line number="14" hits="24" branch="False"/>
+            <line number="15" hits="26" branch="False"/>
+            <line number="16" hits="51" branch="False"/>
+            <line number="17" hits="24" branch="False"/>
+            <line number="18" hits="10" branch="False"/>
+            <line number="19" hits="24" branch="False"/>
+            <line number="20" hits="38" branch="False"/>
+            <line number="21" hits="28" branch="False"/>
+            <line number="22" hits="10" branch="False"/>
+            <line number="23" hits="10" branch="False"/>
+            <line number="26" hits="28" branch="False"/>
+            <line number="29" hits="14" branch="False"/>
             <line number="30" hits="14" branch="True" condition-coverage="100% (2/2)">
               <conditions>
-                <condition number="86" type="jump" coverage="100%" />
+                <condition number="86" type="jump" coverage="100%"/>
               </conditions>
             </line>
-            <line number="31" hits="14" branch="False" />
-            <line number="32" hits="14" branch="False" />
-            <line number="33" hits="14" branch="False" />
-            <line number="34" hits="14" branch="False" />
-            <line number="35" hits="14" branch="False" />
-            <line number="36" hits="14" branch="False" />
-            <line number="37" hits="14" branch="False" />
-            <line number="38" hits="14" branch="False" />
-            <line number="39" hits="14" branch="False" />
-            <line number="41" hits="14" branch="False" />
-            <line number="42" hits="14" branch="False" />
+            <line number="31" hits="14" branch="False"/>
+            <line number="32" hits="14" branch="False"/>
+            <line number="33" hits="14" branch="False"/>
+            <line number="34" hits="14" branch="False"/>
+            <line number="35" hits="14" branch="False"/>
+            <line number="36" hits="14" branch="False"/>
+            <line number="37" hits="14" branch="False"/>
+            <line number="38" hits="14" branch="False"/>
+            <line number="39" hits="14" branch="False"/>
+            <line number="41" hits="14" branch="False"/>
+            <line number="42" hits="14" branch="False"/>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.Model.Bitbucket.CommitStatuses.BuildStatus" filename="Model\Bitbucket\CommitStatuses\BuildStatus.cs" line-rate="0.92" branch-rate="0.5" complexity="11">
+        <class name="Resharper.CodeInspections.BitbucketPipe.Model.Bitbucket.CommitStatuses.BuildStatus"
+               filename="Model\Bitbucket\CommitStatuses\BuildStatus.cs" line-rate="0.92" branch-rate="0.5"
+               complexity="11">
           <methods>
             <method name="get_Key" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="21" hits="18" branch="False" />
+                <line number="21" hits="18" branch="False"/>
               </lines>
             </method>
             <method name="get_Name" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="22" hits="18" branch="False" />
+                <line number="22" hits="18" branch="False"/>
               </lines>
             </method>
             <method name="get_State" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="23" hits="20" branch="False" />
+                <line number="23" hits="20" branch="False"/>
               </lines>
             </method>
             <method name="get_Description" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="24" hits="20" branch="False" />
+                <line number="24" hits="20" branch="False"/>
               </lines>
             </method>
             <method name="get_Url" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="25" hits="18" branch="False" />
+                <line number="25" hits="18" branch="False"/>
               </lines>
             </method>
             <method name="get_RefName" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="29" hits="7" branch="False" />
+                <line number="29" hits="7" branch="False"/>
               </lines>
             </method>
-            <method name="CreateFromPipelineReport" signature="(Resharper.CodeInspections.BitbucketPipe.Model.Bitbucket.Report.PipelineReport,System.String,System.String)" line-rate="0.8181" branch-rate="0.5" complexity="4">
+            <method name="CreateFromPipelineReport"
+                    signature="(Resharper.CodeInspections.BitbucketPipe.Model.Bitbucket.Report.PipelineReport,System.String,System.String)"
+                    line-rate="0.8181" branch-rate="0.5" complexity="4">
               <lines>
-                <line number="32" hits="11" branch="False" />
+                <line number="32" hits="11" branch="False"/>
                 <line number="35" hits="11" branch="True" condition-coverage="50% (2/4)">
                   <conditions>
-                    <condition number="13" type="switch" coverage="50%" />
+                    <condition number="13" type="switch" coverage="50%"/>
                   </conditions>
                 </line>
-                <line number="36" hits="11" branch="False" />
-                <line number="37" hits="5" branch="False" />
-                <line number="38" hits="6" branch="False" />
-                <line number="39" hits="0" branch="False" />
-                <line number="40" hits="0" branch="False" />
-                <line number="41" hits="11" branch="False" />
-                <line number="43" hits="11" branch="False" />
-                <line number="45" hits="11" branch="False" />
-                <line number="46" hits="11" branch="False" />
+                <line number="36" hits="11" branch="False"/>
+                <line number="37" hits="5" branch="False"/>
+                <line number="38" hits="6" branch="False"/>
+                <line number="39" hits="0" branch="False"/>
+                <line number="40" hits="0" branch="False"/>
+                <line number="41" hits="11" branch="False"/>
+                <line number="43" hits="11" branch="False"/>
+                <line number="45" hits="11" branch="False"/>
+                <line number="46" hits="11" branch="False"/>
               </lines>
             </method>
-            <method name=".ctor" signature="(System.String,System.String,Resharper.CodeInspections.BitbucketPipe.Model.Bitbucket.CommitStatuses.State,System.String,System.String,System.String)" line-rate="1" branch-rate="1" complexity="1">
+            <method name=".ctor"
+                    signature="(System.String,System.String,Resharper.CodeInspections.BitbucketPipe.Model.Bitbucket.CommitStatuses.State,System.String,System.String,System.String)"
+                    line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="12" hits="11" branch="False" />
-                <line number="13" hits="11" branch="False" />
-                <line number="14" hits="11" branch="False" />
-                <line number="15" hits="11" branch="False" />
-                <line number="16" hits="11" branch="False" />
-                <line number="17" hits="11" branch="False" />
-                <line number="18" hits="11" branch="False" />
-                <line number="19" hits="11" branch="False" />
+                <line number="12" hits="11" branch="False"/>
+                <line number="13" hits="11" branch="False"/>
+                <line number="14" hits="11" branch="False"/>
+                <line number="15" hits="11" branch="False"/>
+                <line number="16" hits="11" branch="False"/>
+                <line number="17" hits="11" branch="False"/>
+                <line number="18" hits="11" branch="False"/>
+                <line number="19" hits="11" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="21" hits="18" branch="False" />
-            <line number="22" hits="18" branch="False" />
-            <line number="23" hits="20" branch="False" />
-            <line number="24" hits="20" branch="False" />
-            <line number="25" hits="18" branch="False" />
-            <line number="29" hits="7" branch="False" />
-            <line number="32" hits="11" branch="False" />
+            <line number="21" hits="18" branch="False"/>
+            <line number="22" hits="18" branch="False"/>
+            <line number="23" hits="20" branch="False"/>
+            <line number="24" hits="20" branch="False"/>
+            <line number="25" hits="18" branch="False"/>
+            <line number="29" hits="7" branch="False"/>
+            <line number="32" hits="11" branch="False"/>
             <line number="35" hits="11" branch="True" condition-coverage="50% (2/4)">
               <conditions>
-                <condition number="13" type="switch" coverage="50%" />
+                <condition number="13" type="switch" coverage="50%"/>
               </conditions>
             </line>
-            <line number="36" hits="11" branch="False" />
-            <line number="37" hits="5" branch="False" />
-            <line number="38" hits="6" branch="False" />
-            <line number="39" hits="0" branch="False" />
-            <line number="40" hits="0" branch="False" />
-            <line number="41" hits="11" branch="False" />
-            <line number="43" hits="11" branch="False" />
-            <line number="45" hits="11" branch="False" />
-            <line number="46" hits="11" branch="False" />
-            <line number="12" hits="11" branch="False" />
-            <line number="13" hits="11" branch="False" />
-            <line number="14" hits="11" branch="False" />
-            <line number="15" hits="11" branch="False" />
-            <line number="16" hits="11" branch="False" />
-            <line number="17" hits="11" branch="False" />
-            <line number="18" hits="11" branch="False" />
-            <line number="19" hits="11" branch="False" />
+            <line number="36" hits="11" branch="False"/>
+            <line number="37" hits="5" branch="False"/>
+            <line number="38" hits="6" branch="False"/>
+            <line number="39" hits="0" branch="False"/>
+            <line number="40" hits="0" branch="False"/>
+            <line number="41" hits="11" branch="False"/>
+            <line number="43" hits="11" branch="False"/>
+            <line number="45" hits="11" branch="False"/>
+            <line number="46" hits="11" branch="False"/>
+            <line number="12" hits="11" branch="False"/>
+            <line number="13" hits="11" branch="False"/>
+            <line number="14" hits="11" branch="False"/>
+            <line number="15" hits="11" branch="False"/>
+            <line number="16" hits="11" branch="False"/>
+            <line number="17" hits="11" branch="False"/>
+            <line number="18" hits="11" branch="False"/>
+            <line number="19" hits="11" branch="False"/>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.Model.Bitbucket.CodeAnnotations.Annotation" filename="Model\Bitbucket\CodeAnnotations\Annotation.cs" line-rate="1" branch-rate="1" complexity="12">
+        <class name="Resharper.CodeInspections.BitbucketPipe.Model.Bitbucket.CodeAnnotations.Annotation"
+               filename="Model\Bitbucket\CodeAnnotations\Annotation.cs" line-rate="1" branch-rate="1" complexity="12">
           <methods>
             <method name="get_ExternalId" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="8" hits="234" branch="False" />
+                <line number="8" hits="234" branch="False"/>
               </lines>
             </method>
             <method name="get_Uuid" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="9" hits="214" branch="False" />
+                <line number="9" hits="214" branch="False"/>
               </lines>
             </method>
             <method name="get_AnnotationType" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="10" hits="234" branch="False" />
+                <line number="10" hits="234" branch="False"/>
               </lines>
             </method>
             <method name="get_Path" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="11" hits="252" branch="False" />
+                <line number="11" hits="252" branch="False"/>
               </lines>
             </method>
             <method name="get_Line" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="12" hits="234" branch="False" />
+                <line number="12" hits="234" branch="False"/>
               </lines>
             </method>
             <method name="get_Summary" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="13" hits="234" branch="False" />
+                <line number="13" hits="234" branch="False"/>
               </lines>
             </method>
             <method name="get_Details" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="14" hits="234" branch="False" />
+                <line number="14" hits="234" branch="False"/>
               </lines>
             </method>
             <method name="get_Result" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="15" hits="230" branch="False" />
+                <line number="15" hits="230" branch="False"/>
               </lines>
             </method>
             <method name="get_Severity" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="16" hits="214" branch="False" />
+                <line number="16" hits="214" branch="False"/>
               </lines>
             </method>
             <method name="get_Link" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="17" hits="214" branch="False" />
+                <line number="17" hits="214" branch="False"/>
               </lines>
             </method>
             <method name="get_CreatedOn" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="18" hits="214" branch="False" />
+                <line number="18" hits="214" branch="False"/>
               </lines>
             </method>
             <method name="get_UpdatedOn" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="19" hits="214" branch="False" />
+                <line number="19" hits="214" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="8" hits="234" branch="False" />
-            <line number="9" hits="214" branch="False" />
-            <line number="10" hits="234" branch="False" />
-            <line number="11" hits="252" branch="False" />
-            <line number="12" hits="234" branch="False" />
-            <line number="13" hits="234" branch="False" />
-            <line number="14" hits="234" branch="False" />
-            <line number="15" hits="230" branch="False" />
-            <line number="16" hits="214" branch="False" />
-            <line number="17" hits="214" branch="False" />
-            <line number="18" hits="214" branch="False" />
-            <line number="19" hits="214" branch="False" />
+            <line number="8" hits="234" branch="False"/>
+            <line number="9" hits="214" branch="False"/>
+            <line number="10" hits="234" branch="False"/>
+            <line number="11" hits="252" branch="False"/>
+            <line number="12" hits="234" branch="False"/>
+            <line number="13" hits="234" branch="False"/>
+            <line number="14" hits="234" branch="False"/>
+            <line number="15" hits="230" branch="False"/>
+            <line number="16" hits="214" branch="False"/>
+            <line number="17" hits="214" branch="False"/>
+            <line number="18" hits="214" branch="False"/>
+            <line number="19" hits="214" branch="False"/>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.ModelCreators.AnnotationsCreator" filename="ModelCreators\AnnotationsCreator.cs" line-rate="1" branch-rate="1" complexity="7">
+        <class name="Resharper.CodeInspections.BitbucketPipe.ModelCreators.AnnotationsCreator"
+               filename="ModelCreators\AnnotationsCreator.cs" line-rate="1" branch-rate="1" complexity="7">
           <methods>
             <method name="GetRelativePathPart" signature="()" line-rate="1" branch-rate="1" complexity="6">
               <lines>
-                <line number="52" hits="16" branch="False" />
-                <line number="53" hits="16" branch="False" />
+                <line number="52" hits="16" branch="False"/>
+                <line number="53" hits="16" branch="False"/>
                 <line number="54" hits="16" branch="True" condition-coverage="100% (4/4)">
                   <conditions>
-                    <condition number="14" type="jump" coverage="100%" />
-                    <condition number="26" type="jump" coverage="100%" />
+                    <condition number="14" type="jump" coverage="100%"/>
+                    <condition number="26" type="jump" coverage="100%"/>
                   </conditions>
                 </line>
-                <line number="57" hits="16" branch="False" />
+                <line number="57" hits="16" branch="False"/>
                 <line number="59" hits="32" branch="True" condition-coverage="100% (2/2)">
                   <conditions>
-                    <condition number="52" type="jump" coverage="100%" />
+                    <condition number="52" type="jump" coverage="100%"/>
                   </conditions>
                 </line>
-                <line number="60" hits="16" branch="False" />
-                <line number="61" hits="16" branch="False" />
-                <line number="63" hits="16" branch="False" />
-                <line number="64" hits="16" branch="False" />
-                <line number="66" hits="16" branch="False" />
-                <line number="67" hits="16" branch="False" />
+                <line number="60" hits="16" branch="False"/>
+                <line number="61" hits="16" branch="False"/>
+                <line number="63" hits="16" branch="False"/>
+                <line number="64" hits="16" branch="False"/>
+                <line number="66" hits="16" branch="False"/>
+                <line number="67" hits="16" branch="False"/>
               </lines>
             </method>
-            <method name=".ctor" signature="(Resharper.CodeInspections.BitbucketPipe.Utils.BitbucketEnvironmentInfo)" line-rate="1" branch-rate="1" complexity="1">
+            <method name=".ctor" signature="(Resharper.CodeInspections.BitbucketPipe.Utils.BitbucketEnvironmentInfo)"
+                    line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="16" hits="20" branch="False" />
+                <line number="16" hits="20" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="52" hits="16" branch="False" />
-            <line number="53" hits="16" branch="False" />
+            <line number="52" hits="16" branch="False"/>
+            <line number="53" hits="16" branch="False"/>
             <line number="54" hits="16" branch="True" condition-coverage="100% (4/4)">
               <conditions>
-                <condition number="14" type="jump" coverage="100%" />
-                <condition number="26" type="jump" coverage="100%" />
+                <condition number="14" type="jump" coverage="100%"/>
+                <condition number="26" type="jump" coverage="100%"/>
               </conditions>
             </line>
-            <line number="57" hits="16" branch="False" />
+            <line number="57" hits="16" branch="False"/>
             <line number="59" hits="32" branch="True" condition-coverage="100% (2/2)">
               <conditions>
-                <condition number="52" type="jump" coverage="100%" />
+                <condition number="52" type="jump" coverage="100%"/>
               </conditions>
             </line>
-            <line number="60" hits="16" branch="False" />
-            <line number="61" hits="16" branch="False" />
-            <line number="63" hits="16" branch="False" />
-            <line number="64" hits="16" branch="False" />
-            <line number="66" hits="16" branch="False" />
-            <line number="67" hits="16" branch="False" />
-            <line number="16" hits="20" branch="False" />
+            <line number="60" hits="16" branch="False"/>
+            <line number="61" hits="16" branch="False"/>
+            <line number="63" hits="16" branch="False"/>
+            <line number="64" hits="16" branch="False"/>
+            <line number="66" hits="16" branch="False"/>
+            <line number="67" hits="16" branch="False"/>
+            <line number="16" hits="20" branch="False"/>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.ModelCreators.AnnotationsCreator/&lt;&gt;c" filename="ModelCreators\AnnotationsCreator.cs" line-rate="1" branch-rate="1" complexity="1">
+        <class name="Resharper.CodeInspections.BitbucketPipe.ModelCreators.AnnotationsCreator/&lt;&gt;c"
+               filename="ModelCreators\AnnotationsCreator.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
-            <method name="&lt;CreateAnnotationsFromIssuesReport&gt;b__2_0" signature="(Resharper.CodeInspections.BitbucketPipe.Model.ReSharper.IssueType)" line-rate="1" branch-rate="1" complexity="1">
+            <method name="&lt;CreateAnnotationsFromIssuesReport&gt;b__2_0"
+                    signature="(Resharper.CodeInspections.BitbucketPipe.Model.ReSharper.IssueType)" line-rate="1"
+                    branch-rate="1" complexity="1">
               <lines>
-                <line number="24" hits="28" branch="False" />
+                <line number="24" hits="28" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="24" hits="28" branch="False" />
+            <line number="24" hits="28" branch="False"/>
           </lines>
         </class>
-        <class name="Resharper.CodeInspections.BitbucketPipe.ModelCreators.AnnotationsCreator/&lt;CreateAnnotationsFromIssuesReport&gt;d__2" filename="ModelCreators\AnnotationsCreator.cs" line-rate="1" branch-rate="0.8332999999999999" complexity="6">
+        <class
+          name="Resharper.CodeInspections.BitbucketPipe.ModelCreators.AnnotationsCreator/&lt;CreateAnnotationsFromIssuesReport&gt;d__2"
+          filename="ModelCreators\AnnotationsCreator.cs" line-rate="1" branch-rate="0.8332999999999999" complexity="6">
           <methods>
             <method name="MoveNext" signature="()" line-rate="1" branch-rate="0.8332999999999999" complexity="6">
               <lines>
-                <line number="19" hits="10" branch="False" />
+                <line number="19" hits="10" branch="False"/>
                 <line number="20" hits="16" branch="True" condition-coverage="100% (2/2)">
                   <conditions>
-                    <condition number="51" type="jump" coverage="100%" />
+                    <condition number="51" type="jump" coverage="100%"/>
                   </conditions>
                 </line>
-                <line number="21" hits="6" branch="False" />
+                <line number="21" hits="6" branch="False"/>
                 <line number="26" hits="56" branch="True" condition-coverage="100% (2/2)">
                   <conditions>
-                    <condition number="549" type="jump" coverage="100%" />
+                    <condition number="549" type="jump" coverage="100%"/>
                   </conditions>
                 </line>
-                <line number="27" hits="16" branch="False" />
-                <line number="28" hits="16" branch="False" />
+                <line number="27" hits="16" branch="False"/>
+                <line number="28" hits="16" branch="False"/>
                 <line number="29" hits="16" branch="True" condition-coverage="50% (1/2)">
                   <conditions>
-                    <condition number="242" type="jump" coverage="50%" />
+                    <condition number="242" type="jump" coverage="50%"/>
                   </conditions>
                 </line>
-                <line number="30" hits="16" branch="False" />
-                <line number="31" hits="16" branch="False" />
-                <line number="33" hits="16" branch="False" />
-                <line number="36" hits="16" branch="False" />
-                <line number="38" hits="16" branch="False" />
-                <line number="39" hits="16" branch="False" />
-                <line number="40" hits="16" branch="False" />
-                <line number="41" hits="16" branch="False" />
-                <line number="42" hits="16" branch="False" />
-                <line number="43" hits="16" branch="False" />
-                <line number="44" hits="16" branch="False" />
-                <line number="45" hits="16" branch="False" />
-                <line number="46" hits="16" branch="False" />
-                <line number="47" hits="16" branch="False" />
-                <line number="48" hits="16" branch="False" />
-                <line number="49" hits="4" branch="False" />
+                <line number="30" hits="16" branch="False"/>
+                <line number="31" hits="16" branch="False"/>
+                <line number="33" hits="16" branch="False"/>
+                <line number="36" hits="16" branch="False"/>
+                <line number="38" hits="16" branch="False"/>
+                <line number="39" hits="16" branch="False"/>
+                <line number="40" hits="16" branch="False"/>
+                <line number="41" hits="16" branch="False"/>
+                <line number="42" hits="16" branch="False"/>
+                <line number="43" hits="16" branch="False"/>
+                <line number="44" hits="16" branch="False"/>
+                <line number="45" hits="16" branch="False"/>
+                <line number="46" hits="16" branch="False"/>
+                <line number="47" hits="16" branch="False"/>
+                <line number="48" hits="16" branch="False"/>
+                <line number="49" hits="4" branch="False"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="19" hits="10" branch="False" />
+            <line number="19" hits="10" branch="False"/>
             <line number="20" hits="16" branch="True" condition-coverage="100% (2/2)">
               <conditions>
-                <condition number="51" type="jump" coverage="100%" />
+                <condition number="51" type="jump" coverage="100%"/>
               </conditions>
             </line>
-            <line number="21" hits="6" branch="False" />
+            <line number="21" hits="6" branch="False"/>
             <line number="26" hits="56" branch="True" condition-coverage="100% (2/2)">
               <conditions>
-                <condition number="549" type="jump" coverage="100%" />
+                <condition number="549" type="jump" coverage="100%"/>
               </conditions>
             </line>
-            <line number="27" hits="16" branch="False" />
-            <line number="28" hits="16" branch="False" />
+            <line number="27" hits="16" branch="False"/>
+            <line number="28" hits="16" branch="False"/>
             <line number="29" hits="16" branch="True" condition-coverage="50% (1/2)">
               <conditions>
-                <condition number="242" type="jump" coverage="50%" />
+                <condition number="242" type="jump" coverage="50%"/>
               </conditions>
             </line>
-            <line number="30" hits="16" branch="False" />
-            <line number="31" hits="16" branch="False" />
-            <line number="33" hits="16" branch="False" />
-            <line number="36" hits="16" branch="False" />
-            <line number="38" hits="16" branch="False" />
-            <line number="39" hits="16" branch="False" />
-            <line number="40" hits="16" branch="False" />
-            <line number="41" hits="16" branch="False" />
-            <line number="42" hits="16" branch="False" />
-            <line number="43" hits="16" branch="False" />
-            <line number="44" hits="16" branch="False" />
-            <line number="45" hits="16" branch="False" />
-            <line number="46" hits="16" branch="False" />
-            <line number="47" hits="16" branch="False" />
-            <line number="48" hits="16" branch="False" />
-            <line number="49" hits="4" branch="False" />
+            <line number="30" hits="16" branch="False"/>
+            <line number="31" hits="16" branch="False"/>
+            <line number="33" hits="16" branch="False"/>
+            <line number="36" hits="16" branch="False"/>
+            <line number="38" hits="16" branch="False"/>
+            <line number="39" hits="16" branch="False"/>
+            <line number="40" hits="16" branch="False"/>
+            <line number="41" hits="16" branch="False"/>
+            <line number="42" hits="16" branch="False"/>
+            <line number="43" hits="16" branch="False"/>
+            <line number="44" hits="16" branch="False"/>
+            <line number="45" hits="16" branch="False"/>
+            <line number="46" hits="16" branch="False"/>
+            <line number="47" hits="16" branch="False"/>
+            <line number="48" hits="16" branch="False"/>
+            <line number="49" hits="4" branch="False"/>
           </lines>
         </class>
       </classes>

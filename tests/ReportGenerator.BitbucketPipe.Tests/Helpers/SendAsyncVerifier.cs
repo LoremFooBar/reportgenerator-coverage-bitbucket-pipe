@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 using Moq;
 using Moq.Protected;
 
-namespace ReportGenerator.BitbucketPipe.Tests.Helpers
+namespace ReportGenerator.BitbucketPipe.Tests.Helpers;
+
+public static class SendAsyncVerifier
 {
-    public static class SendAsyncVerifier
-    {
-        public static void VerifySendAsyncCall(this Mock<HttpMessageHandler> messageHandler, Times times,
-            Expression<Func<HttpRequestMessage, bool>> requestMatch) =>
-            messageHandler.Protected()
-                .Verify<Task<HttpResponseMessage>>("SendAsync", times, ItExpr.Is(requestMatch),
-                    ItExpr.IsAny<CancellationToken>());
-    }
+    public static void VerifySendAsyncCall(this Mock<HttpMessageHandler> messageHandler, Times times,
+        Expression<Func<HttpRequestMessage, bool>> requestMatch) =>
+        messageHandler.Protected()
+            .Verify<Task<HttpResponseMessage>>("SendAsync", times, ItExpr.Is(requestMatch),
+                ItExpr.IsAny<CancellationToken>());
 }

@@ -5,35 +5,34 @@ using ReportGenerator.BitbucketPipe.Tests.BDD;
 using ReportGenerator.BitbucketPipe.Tests.Helpers;
 using ReportGenerator.BitbucketPipe.Utils;
 
-namespace ReportGenerator.BitbucketPipe.Tests.OptionsConfigurationTests
+namespace ReportGenerator.BitbucketPipe.Tests.OptionsConfigurationTests;
+
+public class When_Configuring_BitbucketOptions_Without_Build_Status_Name : SpecificationBase
 {
-    public class When_Configuring_BitbucketOptions_Without_Build_Status_Name : SpecificationBase
+    private IEnvironmentVariableProvider _environmentVariableProvider;
+    private BitbucketOptions _options;
+
+    protected override void Given()
     {
-        private BitbucketOptions _options;
-        private IEnvironmentVariableProvider _environmentVariableProvider;
+        base.Given();
+        _options = new BitbucketOptions();
 
-        protected override void Given()
+        _environmentVariableProvider = TestEnvironment.CreateMockEnvironment(new Dictionary<EnvironmentVariable, string>
         {
-            base.Given();
-            _options = new BitbucketOptions();
+            [EnvironmentVariable.PipelineReportTitle] = "My Code Coverage",
+        });
+    }
 
-            _environmentVariableProvider = TestEnvironment.CreateMockEnvironment(new Dictionary<EnvironmentVariable, string>
-            {
-                [EnvironmentVariable.PipelineReportTitle] = "My Code Coverage"
-            });
-        }
+    protected override void When()
+    {
+        base.When();
+        BitbucketOptions.Configure(_options, _environmentVariableProvider);
+    }
 
-        protected override void When()
-        {
-            base.When();
-            BitbucketOptions.Configure(_options, _environmentVariableProvider);
-        }
-
-        [Then]
-        public void It_Should_Set_Build_Status_Name_To_Same_Value_As_Report_Title()
-        {
-            _options.ReportTitle.Should().Be("My Code Coverage");
-            _options.BuildStatusName.Should().Be("My Code Coverage");
-        }
+    [Then]
+    public void It_Should_Set_Build_Status_Name_To_Same_Value_As_Report_Title()
+    {
+        _options.ReportTitle.Should().Be("My Code Coverage");
+        _options.BuildStatusName.Should().Be("My Code Coverage");
     }
 }

@@ -16,14 +16,6 @@ namespace ReportGenerator.BitbucketPipe
     [ExcludeFromCodeCoverage]
     public class JsonSnakeCaseNamingPolicy : JsonNamingPolicy
     {
-        private enum SnakeCaseState
-        {
-            Start,
-            Lower,
-            Upper,
-            NewWord
-        }
-
         public override string ConvertName(string name)
         {
             if (string.IsNullOrEmpty(name)) {
@@ -45,8 +37,10 @@ namespace ReportGenerator.BitbucketPipe
                     switch (state) {
                         case SnakeCaseState.Upper:
                             bool hasNext = (i + 1 < nameSpan.Length);
+
                             if (i > 0 && hasNext) {
                                 char nextChar = nameSpan[i + 1];
+
                                 if (!char.IsUpper(nextChar) && nextChar != '_') {
                                     sb.Append('_');
                                 }
@@ -56,6 +50,7 @@ namespace ReportGenerator.BitbucketPipe
                         case SnakeCaseState.Lower:
                         case SnakeCaseState.NewWord:
                             sb.Append('_');
+
                             break;
                     }
 
@@ -77,6 +72,14 @@ namespace ReportGenerator.BitbucketPipe
             }
 
             return sb.ToString();
+        }
+
+        private enum SnakeCaseState
+        {
+            Start,
+            Lower,
+            Upper,
+            NewWord,
         }
     }
 }

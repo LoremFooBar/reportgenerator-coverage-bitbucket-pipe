@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace ReportGenerator.BitbucketPipe.Utils
+namespace ReportGenerator.BitbucketPipe.Utils;
+
+public class EnvironmentVariableProvider : IEnvironmentVariableProvider
 {
-    public class EnvironmentVariableProvider : IEnvironmentVariableProvider
-    {
-        public string? GetEnvironmentVariable(string variableName) => Environment.GetEnvironmentVariable(variableName);
-    }
+    public string? GetEnvironmentVariable(string variableName) => Environment.GetEnvironmentVariable(variableName);
 }

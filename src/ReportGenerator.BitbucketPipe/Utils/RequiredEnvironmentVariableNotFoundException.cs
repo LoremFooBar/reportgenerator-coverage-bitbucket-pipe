@@ -1,12 +1,9 @@
 ﻿using System;
 
-namespace ReportGenerator.BitbucketPipe.Utils
+namespace ReportGenerator.BitbucketPipe.Utils;
+
+public class RequiredEnvironmentVariableNotFoundException : Exception
 {
-    public class RequiredEnvironmentVariableNotFoundException : Exception
-    {
-        public RequiredEnvironmentVariableNotFoundException(string variableName) :
-            base($"Required environment variable {variableName} not found")
-        {
-        }
-    }
+    public RequiredEnvironmentVariableNotFoundException(string variableName) :
+        base($"Required environment variable {variableName} not found") { }
 }
