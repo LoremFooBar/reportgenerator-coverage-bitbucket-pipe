@@ -30,7 +30,7 @@ definitions:
           - apt-get update && apt-get install -y unzip
           - |-
             curl -o $ZIP_FILE_NAME -L \
-              https://github.com/LoremFooBar/ReportGenerator.AzureBlobHistoryStorage/releases/download/v1.1.0/netcoreapp3.1.zip
+              https://github.com/LoremFooBar/ReportGenerator.AzureBlobHistoryStorage/releases/download/v1.2.0/netcoreapp3.1.zip
           - unzip $ZIP_FILE_NAME -d $PLUGIN_TARGET_DIR
 
           # generate coverage report
@@ -41,13 +41,14 @@ definitions:
               LINE_COVERAGE_MINIMUM: "90"
               BRANCH_COVERAGE_MINIMUM: "78"
               PUBLISHED_REPORT_URL: "$COVERAGE_REPORTS_BLOB_CONTAINER_URL/$BITBUCKET_REPO_SLUG/$BITBUCKET_COMMIT/index.htm"
-              EXTRA_ARGS: [ '"-plugins:$PLUGIN_TARGET_DIR/ReportGenerator.AzureBlobHistoryStorage.dll"',
-                            '"-tag:Build #${BITBUCKET_BUILD_NUMBER} | Commit ${BITBUCKET_COMMIT:0:8}"',
-                            '"-title:${BITBUCKET_REPO_SLUG^} | Build #${BITBUCKET_BUILD_NUMBER} | Commit ${BITBUCKET_COMMIT:0:8}"',
-                            '"-historycontainerurl:${COVERAGE_HISTORY_BLOB_CONTAINER_URL}"',
-                            '"-writesastoken:${COVERAGE_HISTORY_BLOB_WRITE_SAS}"',
-                            '"-repositoryname:${BITBUCKET_REPO_SLUG}"',
-                            '"-debug:true"' ] #debug:true for history plugin
+              EXTRA_ARGS: [
+                '"-plugins:$PLUGIN_TARGET_DIR/ReportGenerator.AzureBlobHistoryStorage.dll"',
+                '"-tag:Build #${BITBUCKET_BUILD_NUMBER} | Commit ${BITBUCKET_COMMIT:0:8}"',
+                '"-title:${BITBUCKET_REPO_SLUG^} | Build #${BITBUCKET_BUILD_NUMBER} | Commit ${BITBUCKET_COMMIT:0:8}"'
+              ]
+              HISTORYCONTAINERURL: $COVERAGE_HISTORY_BLOB_CONTAINER_URL
+              WRITESASTOKEN: $COVERAGE_HISTORY_BLOB_WRITE_SAS
+              REPOSITORYNAME: $BITBUCKET_REPO_SLUG
               DEBUG: "true"
 
           # upload coverage report
