@@ -56,7 +56,7 @@ definitions:
             variables:
               SOURCE: "coverage-report/*"
               DESTINATION: "$COVERAGE_REPORTS_BLOB_CONTAINER_URL/$BITBUCKET_REPO_SLUG/$BITBUCKET_COMMIT"
-              DESTINATION_SAS_TOKEN: $COVERAGE_REPORT_BLOB_WRITE_SAS
+              DESTINATION_SAS_TOKEN: ?$COVERAGE_REPORT_BLOB_WRITE_SAS
               DEBUG: "true"
 
 pipelines:
