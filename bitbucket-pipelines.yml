@@ -12,7 +12,7 @@ definitions:
           - dotnet jb inspectcode --config=inspectcode.config
 
           # create resharper inspections report
-          - pipe: docker://lazyboy1/resharper-inspections-bitbucket-pipe:0.3
+          - pipe: docker://loremfoobar/resharper-inspections-bitbucket-pipe:0.5.0
             variables:
               INSPECTIONS_XML_PATH: "inspect.xml"
               BITBUCKET_USERNAME: $LFB_BB_USERNAME
