@@ -11,7 +11,7 @@ your `bitbucket-pipelines.yml` file:
 
 ```yaml
 script:
-  - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:0.7.0
+  - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:0.8.0
     variables:
       # BITBUCKET_USERNAME: "<string>" # Optional
       # BITBUCKET_APP_PASSWORD: "<string>" # Optional
@@ -80,7 +80,7 @@ Basic example using secure variables for username and app password:
 
 ```yaml
 script:
-  - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:0.7.0
+  - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:0.8.0
     variables:
       BITBUCKET_USERNAME: $USERNAME
       BITBUCKET_APP_PASSWORD: $APP_PASSWORD
@@ -92,7 +92,7 @@ Example with published report URL:
 
 ```yaml
 script:
-  - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:0.7.0
+  - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:0.8.0
     variables:
       BITBUCKET_USERNAME: $USERNAME
       BITBUCKET_APP_PASSWORD: $APP_PASSWORD
@@ -105,7 +105,7 @@ Example with extra arguments:
 
 ```yaml
 script:
-  - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:0.7.0
+  - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:0.8.0
     variables:
       BITBUCKET_USERNAME: $USERNAME
       BITBUCKET_APP_PASSWORD: $APP_PASSWORD
@@ -121,7 +121,7 @@ Example with build status creation temporarily disabled:
 
 ```yaml
 script:
-  - pipe: docker://loremfoobar~~~~/reportgenerator-coverage-bitbucket-pipe:0.7.0
+  - pipe: docker://loremfoobar~~~~/reportgenerator-coverage-bitbucket-pipe:0.8.0
     variables:
       BITBUCKET_USERNAME: $USERNAME
       BITBUCKET_APP_PASSWORD: $APP_PASSWORD

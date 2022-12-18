@@ -1,9 +1,9 @@
 name: ReportGenerator Coverage Report
-image: loremfoobar/reportgenerator-coverage-bitbucket-pipe:0.7.0
+image: loremfoobar/reportgenerator-coverage-bitbucket-pipe:0.8.0
 description: Generate coverage report and a build status based on coverage requirements
 category: Testing
 maintainer:
-  name: Amit E
+  name: LoremFooBar
   website: "https://github.com/LoremFooBar"
 tags:
   - bitbucket-pipelines
