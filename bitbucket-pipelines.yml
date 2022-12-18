@@ -34,7 +34,7 @@ definitions:
           - unzip $ZIP_FILE_NAME -d $PLUGIN_TARGET_DIR
 
           # generate coverage report
-          - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:0.8.0-dev001
+          - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:0.8.0
             variables:
               BITBUCKET_USERNAME: $LFB_BB_USERNAME
               BITBUCKET_APP_PASSWORD: $LFB_READ_BB_APP_PASSWORD
