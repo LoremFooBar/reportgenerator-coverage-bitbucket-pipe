@@ -12,7 +12,6 @@ ProjectSection(SolutionItems) = preProject
 	pipe.yml = pipe.yml
 	README.md = README.md
 	CONTRIBUTING.md = CONTRIBUTING.md
-	global.json = global.json
 	.dockerignore = .dockerignore
 	bitbucket-pipelines.yml = bitbucket-pipelines.yml
 	LICENSE = LICENSE

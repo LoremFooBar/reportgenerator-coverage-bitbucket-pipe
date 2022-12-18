@@ -2,7 +2,7 @@ definitions:
   steps:
     - step: &build-and-test
         name: Build and test
-        image: mcr.microsoft.com/dotnet/sdk:6.0
+        image: mcr.microsoft.com/dotnet/sdk:7.0
         caches:
           - dotnetcore
         script:
