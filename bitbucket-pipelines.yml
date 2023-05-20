@@ -52,7 +52,7 @@ definitions:
               DEBUG: "true"
 
           # upload coverage report
-          - pipe: atlassian/azure-storage-deploy:1.0.2
+          - pipe: atlassian/azure-storage-deploy:1.1.0
             variables:
               SOURCE: "coverage-report/*"
               DESTINATION: "$COVERAGE_REPORTS_BLOB_CONTAINER_URL/$BITBUCKET_REPO_SLUG/$BITBUCKET_COMMIT"
