@@ -80,8 +80,8 @@
       },
       "JetBrains.Annotations": {
         "type": "Transitive",
-        "resolved": "2022.3.1",
-        "contentHash": "11nsS3+lFICGkztVs9PP2NRItxf9fF+qD6xEW/T0YGto52zj07wseUeBdMAU1ah9HNVTDZyRC1u4NWdtJScwhw=="
+        "resolved": "2023.2.0",
+        "contentHash": "dvO//8aLmLRsCVVgoc/7qBqi2/y4BTyRcg20LCBWtK4n6E9Um06Zp7jF1n0hOE+yqBHwcrDzAjWvCaM3qH8flg=="
       },
       "Macross.Json.Extensions": {
         "type": "Transitive",
@@ -405,7 +405,7 @@
         "type": "Project",
         "dependencies": {
           "IdentityModel": "[6.0.0, )",
-          "JetBrains.Annotations": "[2022.3.1, )",
+          "JetBrains.Annotations": "[2023.2.0, )",
           "Macross.Json.Extensions": "[3.0.0, )",
           "Microsoft.Extensions.DependencyInjection": "[7.0.0, )",
           "Microsoft.Extensions.Http": "[7.0.0, )",
