@@ -31,11 +31,11 @@ public class BitbucketClientSpecificationBase : SpecificationBase
         BitbucketClient = new BitbucketClient(
             new HttpClient(_bitbucketClientMock.HttpMessageHandlerMock.Object),
             NullLogger<BitbucketClient>.Instance,
-            Mock.Of<IOptions<PublishReportOptions>>(_ => _.Value == new PublishReportOptions()),
-            Mock.Of<IOptions<CoverageRequirementsOptions>>(_ => _.Value == requirementsOptions),
-            Mock.Of<IOptions<BitbucketOptions>>(_ => _.Value == bitbucketOptions),
-            Mock.Of<IOptions<PipeOptions>>(_ => _.Value == pipeOptions),
-            Mock.Of<IOptions<BitbucketAuthenticationOptions>>(_ => _.Value == authOptions),
+            Mock.Of<IOptions<PublishReportOptions>>(o => o.Value == new PublishReportOptions()),
+            Mock.Of<IOptions<CoverageRequirementsOptions>>(o => o.Value == requirementsOptions),
+            Mock.Of<IOptions<BitbucketOptions>>(o => o.Value == bitbucketOptions),
+            Mock.Of<IOptions<PipeOptions>>(o => o.Value == pipeOptions),
+            Mock.Of<IOptions<BitbucketAuthenticationOptions>>(o => o.Value == authOptions),
             TestEnvironment.EnvironmentInfo);
     }
 }

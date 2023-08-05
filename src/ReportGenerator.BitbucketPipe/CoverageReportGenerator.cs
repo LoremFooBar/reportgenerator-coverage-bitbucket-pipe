@@ -123,8 +123,8 @@ public class CoverageReportGenerator
         var summaryEnumerator = summaryElement.EnumerateObject().ToImmutableList();
 
         // ReSharper disable  StringLiteralTypo
-        var lineCoverageJsonProperty = summaryEnumerator.FirstOrDefault(_ => _.NameEquals("linecoverage"));
-        var branchCoverageJsonProperty = summaryEnumerator.FirstOrDefault(_ => _.NameEquals("branchcoverage"));
+        var lineCoverageJsonProperty = summaryEnumerator.FirstOrDefault(p => p.NameEquals("linecoverage"));
+        var branchCoverageJsonProperty = summaryEnumerator.FirstOrDefault(p => p.NameEquals("branchcoverage"));
 
         // ReSharper restore  StringLiteralTypo
 
