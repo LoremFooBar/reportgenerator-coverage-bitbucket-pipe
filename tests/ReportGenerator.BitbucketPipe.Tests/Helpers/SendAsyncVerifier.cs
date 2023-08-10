@@ -2,17 +2,20 @@
 using System.Linq.Expressions;
 using System.Net.Http;
 using System.Threading;
-using System.Threading.Tasks;
-using Moq;
-using Moq.Protected;
+using NSubstitute;
+using NSubstitute.ReceivedExtensions;
 
 namespace ReportGenerator.BitbucketPipe.Tests.Helpers;
 
 public static class SendAsyncVerifier
 {
-    public static void VerifySendAsyncCall(this Mock<HttpMessageHandler> messageHandler, Times times,
-        Expression<Func<HttpRequestMessage, bool>> requestMatch) =>
-        messageHandler.Protected()
-            .Verify<Task<HttpResponseMessage>>("SendAsync", times, ItExpr.Is(requestMatch),
-                ItExpr.IsAny<CancellationToken>());
+    public static void VerifySendCall(this MockHttpMessageHandler messageHandler, int requiresNumberOfCalls,
+        Expression<Predicate<HttpRequestMessage>> requestMatch) => messageHandler.Received(requiresNumberOfCalls)
+        .MockSend(Arg.Is(requestMatch), Arg.Any<CancellationToken>());
+
+    public static void VerifySendCall(this MockHttpMessageHandler messageHandler, Quantity requiresQuantityOfCalls,
+        Expression<Predicate<HttpRequestMessage>> requestMatch)
+    {
+        messageHandler.Received(requiresQuantityOfCalls).MockSend(Arg.Is(requestMatch), Arg.Any<CancellationToken>());
+    }
 }

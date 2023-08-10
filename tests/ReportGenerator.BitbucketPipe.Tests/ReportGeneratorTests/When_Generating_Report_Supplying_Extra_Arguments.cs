@@ -3,10 +3,11 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
-using Moq;
+using NSubstitute;
 using ReportGenerator.BitbucketPipe.Model;
 using ReportGenerator.BitbucketPipe.Options;
 using ReportGenerator.BitbucketPipe.Tests.BDD;
+using ReportGenerator.BitbucketPipe.Tests.Helpers;
 using ReportGenerator.BitbucketPipe.Utils;
 
 namespace ReportGenerator.BitbucketPipe.Tests.ReportGeneratorTests;
@@ -27,16 +28,14 @@ public class When_Generating_Report_Supplying_Extra_Arguments : SpecificationBas
             ReportTypes = "JsonSummary;Html",
             ExtraArguments = new[] { $"-fileFilters:+*{Path.DirectorySeparatorChar}BitbucketClient.cs" },
         };
-        var reportGeneratorOptions =
-            Mock.Of<IOptions<ReportGeneratorOptions>>(options => options.Value == _reportGeneratorOptions);
+        var reportGeneratorOptions = new OptionsWrapper<ReportGeneratorOptions>(_reportGeneratorOptions);
 
-        var environmentVariableProviderMock = new Mock<IEnvironmentVariableProvider> { CallBase = true };
-        environmentVariableProviderMock
-            .Setup(provider => provider.GetEnvironmentVariable(It.IsAny<string>()))
+        var environmentVariableProviderMock = Substitute.ForPartsOf<DefaultEnvironmentVariableProvider>();
+        environmentVariableProviderMock.GetEnvironmentVariable(Arg.Any<string>())
             .Returns((string)null);
 
         _coverageReportGenerator = new CoverageReportGenerator(NullLogger<CoverageReportGenerator>.Instance,
-            reportGeneratorOptions, new PipeEnvironment(environmentVariableProviderMock.Object));
+            reportGeneratorOptions, new PipeEnvironment(environmentVariableProviderMock));
     }
 
     protected override async Task WhenAsync()

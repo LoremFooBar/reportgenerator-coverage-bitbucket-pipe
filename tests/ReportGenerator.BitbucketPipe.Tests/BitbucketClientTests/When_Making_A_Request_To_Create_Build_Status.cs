@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Moq;
 using ReportGenerator.BitbucketPipe.Model;
 using ReportGenerator.BitbucketPipe.Tests.BDD;
 using ReportGenerator.BitbucketPipe.Tests.Helpers;
@@ -21,7 +20,7 @@ public class When_Making_A_Request_To_Create_Build_Status : BitbucketClientSpeci
     [Then]
     public void It_Should_Make_One_Post_Call_To_Create_Build_Status()
     {
-        HttpMessageHandlerMock.VerifySendAsyncCall(Times.Once(), request =>
+        HttpMessageHandlerMock.VerifySendCall(1, request =>
             request.Method == HttpMethod.Post &&
             request.RequestUri.PathAndQuery.EndsWith("workspace/repo-slug/commit/222be690/statuses/build",
                 StringComparison.Ordinal));

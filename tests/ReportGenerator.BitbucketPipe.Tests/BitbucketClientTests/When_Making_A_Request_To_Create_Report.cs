@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Moq;
+using NSubstitute.ReceivedExtensions;
 using ReportGenerator.BitbucketPipe.Model;
 using ReportGenerator.BitbucketPipe.Tests.BDD;
 using ReportGenerator.BitbucketPipe.Tests.Helpers;
@@ -21,7 +21,7 @@ public class When_Making_A_Request_To_Create_Report : BitbucketClientSpecificati
     [Then]
     public void It_Should_Make_One_Put_Call_To_Create_Report()
     {
-        HttpMessageHandlerMock.VerifySendAsyncCall(Times.Once(), request =>
+        HttpMessageHandlerMock.VerifySendCall(1, request =>
             request.Method == HttpMethod.Put &&
             request.RequestUri.PathAndQuery.EndsWith(
                 "workspace/repo-slug/commit/222be690/reports/code-coverage", StringComparison.Ordinal));
@@ -30,7 +30,7 @@ public class When_Making_A_Request_To_Create_Report : BitbucketClientSpecificati
     [Then]
     public void It_Should_Serialize_Report_Using_Snake_Case()
     {
-        HttpMessageHandlerMock.VerifySendAsyncCall(Times.AtLeastOnce(),
+        HttpMessageHandlerMock.VerifySendCall(Quantity.AtLeastOne(),
             request => request.Content.ReadAsStringAsync().Result.Contains("\"report_type\":"));
     }
 }

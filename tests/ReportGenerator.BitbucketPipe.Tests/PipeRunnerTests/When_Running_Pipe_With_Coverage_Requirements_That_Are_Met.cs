@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Moq;
+using NSubstitute;
 using ReportGenerator.BitbucketPipe.Options;
 using ReportGenerator.BitbucketPipe.Tests.BDD;
 using ReportGenerator.BitbucketPipe.Tests.Helpers;
@@ -13,7 +14,7 @@ namespace ReportGenerator.BitbucketPipe.Tests.PipeRunnerTests;
 
 public class When_Running_Pipe_With_Coverage_Requirements_That_Are_Met : SpecificationBase
 {
-    private Mock<HttpMessageHandler> _messageHandlerMock;
+    private MockHttpMessageHandler _messageHandlerMock;
     private TestPipeRunner _pipeRunner;
 
     protected override void Given()
@@ -54,15 +55,16 @@ public class When_Running_Pipe_With_Coverage_Requirements_That_Are_Met : Specifi
     [Then]
     public void It_Should_Create_Bitbucket_Report_With_Passed_Status()
     {
-        _messageHandlerMock.VerifySendAsyncCall(Times.Once(), request =>
-            request.RequestUri.PathAndQuery.EndsWith("reports/code-coverage", StringComparison.Ordinal) &&
-            request.Content.ReadAsStringAsync().Result.Contains("\"result\":\"PASSED\""));
+        _messageHandlerMock.Received(1).MockSend(Arg.Is<HttpRequestMessage>(request =>
+                request.RequestUri.PathAndQuery.EndsWith("reports/code-coverage", StringComparison.Ordinal) &&
+                request.Content.ReadAsStringAsync().Result.Contains("\"result\":\"PASSED\"")),
+            Arg.Any<CancellationToken>());
     }
 
     [Then]
     public void It_Should_Create_Build_Status_With_Successful_Status()
     {
-        _messageHandlerMock.VerifySendAsyncCall(Times.Once(), request =>
+        _messageHandlerMock.VerifySendCall(1, request =>
             request.RequestUri.PathAndQuery.EndsWith("statuses/build", StringComparison.Ordinal) &&
             request.Content.ReadAsStringAsync().Result.Contains("\"state\":\"SUCCESSFUL\""));
     }

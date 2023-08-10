@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Net.Http;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Moq;
 using ReportGenerator.BitbucketPipe.Options;
 using ReportGenerator.BitbucketPipe.Tests.BDD;
 using ReportGenerator.BitbucketPipe.Tests.Helpers;
@@ -13,7 +11,7 @@ namespace ReportGenerator.BitbucketPipe.Tests.PipeRunnerTests;
 
 public class When_Running_Pipe_Without_Providing_Bitbucket_Credentials : SpecificationBase
 {
-    private Mock<HttpMessageHandler> _messageHandlerMock;
+    private MockHttpMessageHandler _messageHandlerMock;
     private TestPipeRunner _pipeRunner;
 
     protected override void Given()
@@ -49,14 +47,14 @@ public class When_Running_Pipe_Without_Providing_Bitbucket_Credentials : Specifi
     [Then]
     public void It_Should_Create_Bitbucket_Report()
     {
-        _messageHandlerMock.VerifySendAsyncCall(Times.Once(), request =>
+        _messageHandlerMock.VerifySendCall(1, request =>
             request.RequestUri.PathAndQuery.EndsWith("reports/code-coverage", StringComparison.Ordinal));
     }
 
     [Then]
     public void It_Should_Not_Create_Build_Status_With_Successful_Status()
     {
-        _messageHandlerMock.VerifySendAsyncCall(Times.Never(), request =>
+        _messageHandlerMock.VerifySendCall(0, request =>
             request.RequestUri.PathAndQuery.EndsWith("statuses/build", StringComparison.Ordinal));
     }
 }

@@ -1,8 +1,14 @@
-﻿using System.Collections.Generic;
-using Moq;
+﻿using System;
+using System.Collections.Generic;
+using NSubstitute;
 using ReportGenerator.BitbucketPipe.Utils;
 
 namespace ReportGenerator.BitbucketPipe.Tests.Helpers;
+
+public abstract class DefaultEnvironmentVariableProvider : IEnvironmentVariableProvider
+{
+    public virtual string GetEnvironmentVariable(string variableName) => throw new NotImplementedException();
+}
 
 public static class TestEnvironment
 {
@@ -22,10 +28,10 @@ public static class TestEnvironment
             environment.TryAdd(EnvironmentVariable.BitbucketRepoSlug, "repo-slug");
         }
 
-        var envVarMock = new Mock<IEnvironmentVariableProvider> { CallBase = true };
-        envVarMock.Setup(provider => provider.GetEnvironmentVariable(It.IsAny<string>()))
-            .Returns((string varName) => environment.GetValueOrDefault(varName));
+        var envVarProvider = Substitute.ForPartsOf<DefaultEnvironmentVariableProvider>();
+        envVarProvider.GetEnvironmentVariable(Arg.Any<string>())
+            .Returns(x => environment.GetValueOrDefault(x.ArgAt<string>(0)));
 
-        return envVarMock.Object;
+        return envVarProvider;
     }
 }

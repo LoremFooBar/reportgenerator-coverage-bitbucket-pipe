@@ -1,7 +1,8 @@
 ﻿using FluentAssertions;
-using Moq;
+using NSubstitute;
 using ReportGenerator.BitbucketPipe.Options;
 using ReportGenerator.BitbucketPipe.Tests.BDD;
+using ReportGenerator.BitbucketPipe.Tests.Helpers;
 using ReportGenerator.BitbucketPipe.Utils;
 
 namespace ReportGenerator.BitbucketPipe.Tests.OptionsConfigurationTests;
@@ -15,11 +16,17 @@ public class When_Configuring_BitbucketOptions : SpecificationBase
     {
         base.Given();
         _options = new BitbucketOptions();
-        _environmentVariableProvider = Mock.Of<IEnvironmentVariableProvider>(provider =>
-            provider.GetEnvironmentVariable(It.Is<string>(s => s == EnvironmentVariable.BuildStatusName)) ==
-            "My Coverage Status" &&
-            provider.GetEnvironmentVariable(It.Is<string>(s => s == EnvironmentVariable.PipelineReportTitle)) ==
-            "My Coverage Report");
+        _environmentVariableProvider = Substitute.ForPartsOf<DefaultEnvironmentVariableProvider>();
+
+        _environmentVariableProvider.GetEnvironmentVariable(Arg.Any<string>()).Returns(
+            x =>
+            {
+                string varName = (string)x[0];
+
+                return varName == EnvironmentVariable.BuildStatusName ? "My Coverage Status" :
+                    varName == EnvironmentVariable.PipelineReportTitle ? "My Coverage Report" :
+                    "";
+            });
     }
 
     protected override void When()

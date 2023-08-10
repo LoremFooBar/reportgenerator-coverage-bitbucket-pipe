@@ -26,7 +26,7 @@ public class TestPipeRunner : PipeRunner
             services.FirstOrDefault(service => service.ServiceType == typeof(BitbucketClient));
         services.Remove(bitbucketClientService);
         services.AddHttpClient<BitbucketClient>()
-            .ConfigurePrimaryHttpMessageHandler(() => _bitbucketClientMock.HttpMessageHandlerMock.Object);
+            .ConfigurePrimaryHttpMessageHandler(() => _bitbucketClientMock.HttpMessageHandlerMock);
 
         // add mock IEnvironmentVariablesProvider
         var environmentVariableProviderService =
