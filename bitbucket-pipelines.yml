@@ -38,8 +38,8 @@ definitions:
             variables:
               BITBUCKET_USERNAME: $LFB_BB_USERNAME
               BITBUCKET_APP_PASSWORD: $LFB_READ_BB_APP_PASSWORD
-              LINE_COVERAGE_MINIMUM: "90"
-              BRANCH_COVERAGE_MINIMUM: "78"
+              LINE_COVERAGE_MINIMUM: "95"
+              BRANCH_COVERAGE_MINIMUM: "90"
               PUBLISHED_REPORT_URL: "$COVERAGE_REPORTS_BLOB_CONTAINER_URL/$BITBUCKET_REPO_SLUG/$BITBUCKET_COMMIT/index.htm"
               EXTRA_ARGS: [
                 '"-plugins:$PLUGIN_TARGET_DIR/ReportGenerator.AzureBlobHistoryStorage.dll"',
