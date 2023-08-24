@@ -59,6 +59,17 @@ definitions:
               DESTINATION_SAS_TOKEN: ?$COVERAGE_REPORT_BLOB_WRITE_SAS
               DEBUG: "true"
 
+    - step: &release
+        name: Release
+        image: atlassian/default-image:4
+        services:
+          - docker
+        script:
+          - echo $DOCKERHUB_ACCESS_TOKEN | docker login -u $DOCKERHUB_USERNAME --password-stdin
+          - export image_tag=${BITBUCKET_TAG:1}
+          - docker build -t $IMAGE_NAME:$image_tag .
+          - docker push $IMAGE_NAME:$image_tag
+
 pipelines:
   pull-requests:
     "**":
@@ -66,3 +77,6 @@ pipelines:
   branches:
     main:
       - step: *build-and-test
+  tags:
+    "v*.*.*":
+      - step: *release
