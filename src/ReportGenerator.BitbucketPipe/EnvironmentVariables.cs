@@ -19,6 +19,7 @@ public readonly struct EnvironmentVariable
     public static EnvironmentVariable BranchCoverageMinimum { get; } = new("BRANCH_COVERAGE_MINIMUM");
     public static EnvironmentVariable BuildStatusName { get; } = new("BUILD_STATUS_NAME");
     public static EnvironmentVariable CreateBuildStatus { get; } = new("CREATE_BUILD_STATUS");
+    public static EnvironmentVariable FailWhenMinimumNotMet { get; } = new("FAIL_WHEN_MINIMUM_NOT_MET");
     public static EnvironmentVariable PipelineReportTitle { get; } = new("PIPELINE_REPORT_TITLE");
     public static EnvironmentVariable PublishedReportUrl { get; } = new("PUBLISHED_REPORT_URL");
     public static EnvironmentVariable Reports { get; } = new("REPORTS");

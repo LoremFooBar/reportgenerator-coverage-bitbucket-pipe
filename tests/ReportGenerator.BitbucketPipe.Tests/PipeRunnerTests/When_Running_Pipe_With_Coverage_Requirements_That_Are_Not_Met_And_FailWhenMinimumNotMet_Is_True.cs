@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
 using FluentAssertions;
-using ReportGenerator.BitbucketPipe.Options;
 using ReportGenerator.BitbucketPipe.Tests.BDD;
 using ReportGenerator.BitbucketPipe.Tests.Helpers;
 
 namespace ReportGenerator.BitbucketPipe.Tests.PipeRunnerTests;
 
-public class When_Running_Pipe_With_Coverage_Requirements_That_Are_Not_Met : SpecificationBase
+public class
+    When_Running_Pipe_With_Coverage_Requirements_That_Are_Not_Met_And_FailWhenMinimumNotMet_Is_True : SpecificationBase
 {
     private ExitCode _exitCode;
     private MockHttpMessageHandler _messageHandlerMock;
@@ -27,6 +26,8 @@ public class When_Running_Pipe_With_Coverage_Requirements_That_Are_Not_Met : Spe
             [EnvironmentVariable.BitbucketUsername] = "user",
             [EnvironmentVariable.BitbucketAppPassword] = "pass",
 
+            [EnvironmentVariable.FailWhenMinimumNotMet] = "true",
+
             [EnvironmentVariable.Reports] = "**/example.cobertura.xml",
         });
 
@@ -39,15 +40,6 @@ public class When_Running_Pipe_With_Coverage_Requirements_That_Are_Not_Met : Spe
     {
         await base.WhenAsync();
         _exitCode = await _pipeRunner.RunPipeAsync();
-    }
-
-    [Then]
-    public void It_Should_Create_Report_In_Destination_Directory()
-    {
-        var directory = new DirectoryInfo(ReportGeneratorOptions.DefaultDestinationPath);
-        directory.Exists.Should().BeTrue();
-        directory.GetFiles("*.htm*").Should().NotBeEmpty();
-        directory.GetFiles("Summary*.json").Should().NotBeEmpty();
     }
 
     [Then]
@@ -67,8 +59,8 @@ public class When_Running_Pipe_With_Coverage_Requirements_That_Are_Not_Met : Spe
     }
 
     [Then]
-    public void It_Should_Return_Exit_Code_0()
+    public void It_Should_Return_Exit_Code_12()
     {
-        _exitCode.Code.Should().Be(0);
+        _exitCode.Code.Should().Be(12);
     }
 }

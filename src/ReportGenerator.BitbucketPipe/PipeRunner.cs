@@ -1,8 +1,11 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using IdentityModel.Client;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using ReportGenerator.BitbucketPipe.Model;
 using ReportGenerator.BitbucketPipe.Options;
 using ReportGenerator.BitbucketPipe.Utils;
 using Serilog;
@@ -20,7 +23,7 @@ public class PipeRunner
         _pipeEnvironment = new PipeEnvironment(_environmentVariableProvider);
     }
 
-    public async Task RunPipeAsync()
+    public async Task<ExitCode> RunPipeAsync()
     {
         var services = ConfigureServices();
         var serviceProvider = services.BuildServiceProvider();
@@ -31,6 +34,21 @@ public class PipeRunner
         var bitbucketClient = serviceProvider.GetRequiredService<BitbucketClient>();
         await bitbucketClient.CreateCommitBuildStatusAsync(coverageSummary);
         await bitbucketClient.CreateReportAsync(coverageSummary);
+
+        return GetExitCode(serviceProvider, coverageSummary);
+    }
+
+    private static ExitCode GetExitCode(IServiceProvider serviceProvider, CoverageSummary coverageSummary)
+    {
+        if (!serviceProvider.GetRequiredService<IOptions<PipeOptions>>().Value.FailWhenMinimumNotMet)
+            return ExitCode.Success;
+
+        var coverageRequirementsOptions =
+            serviceProvider.GetRequiredService<IOptions<CoverageRequirementsOptions>>().Value;
+
+        return RequirementsChecker.CoverageMeetsRequirements(coverageRequirementsOptions, coverageSummary)
+            ? ExitCode.Success
+            : ExitCode.MinimumNotMet;
     }
 
     protected virtual IServiceCollection ConfigureServices()

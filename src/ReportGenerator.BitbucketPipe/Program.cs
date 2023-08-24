@@ -10,13 +10,13 @@ namespace ReportGenerator.BitbucketPipe;
 internal static class Program
 {
     // ReSharper disable once InconsistentNaming
-    private static async Task Main()
+    private static async Task<int> Main()
     {
         bool isDebugMode = new PipeEnvironment(new EnvironmentVariableProvider()).IsDebugMode;
         Log.Logger = LoggerInitializer.CreateLogger(isDebugMode);
         Log.Debug("DEBUG={IsDebug}", isDebugMode);
         Log.Debug("Workdir={Workdir}", Environment.CurrentDirectory);
 
-        await new PipeRunner(new EnvironmentVariableProvider()).RunPipeAsync();
+        return await new PipeRunner(new EnvironmentVariableProvider()).RunPipeAsync();
     }
 }

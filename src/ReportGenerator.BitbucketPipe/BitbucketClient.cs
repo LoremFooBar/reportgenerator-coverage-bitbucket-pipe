@@ -69,7 +69,7 @@ public class BitbucketClient
         _logger.LogDebug("Coverage requirements: {@CoverageRequirements}", _requirementsOptions);
         _logger.LogDebug("Coverage summary: {@CoverageSummary}", summary);
 
-        bool meetsRequirements = CoverageMeetsRequirements(summary);
+        bool meetsRequirements = RequirementsChecker.CoverageMeetsRequirements(_requirementsOptions, summary);
 
         _logger.LogDebug("Coverage meets requirements? {MeetsRequirements}", meetsRequirements);
 
@@ -96,7 +96,9 @@ public class BitbucketClient
             Link = _publishOptions.ReportUrl,
             ExternalId = "code-coverage",
             ReportType = ReportType.Coverage,
-            Result = CoverageMeetsRequirements(summary) ? Result.Passed : Result.Failed,
+            Result = RequirementsChecker.CoverageMeetsRequirements(_requirementsOptions, summary)
+                ? Result.Passed
+                : Result.Failed,
             Data =
             {
                 new ReportDataItem
@@ -120,10 +122,6 @@ public class BitbucketClient
             CreateStringContent(serializedReport));
         await VerifyResponseAsync(response);
     }
-
-    private bool CoverageMeetsRequirements(CoverageSummary summary) =>
-        _requirementsOptions.BranchCoveragePercentageMinimum <= summary.BranchCoveragePercentage &&
-        _requirementsOptions.LineCoveragePercentageMinimum <= summary.LineCoveragePercentage;
 
     private static string Serialize(object obj)
     {
