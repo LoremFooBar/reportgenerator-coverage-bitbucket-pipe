@@ -1,8 +1,10 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using ReportGenerator.BitbucketPipe.Utils;
 
 namespace ReportGenerator.BitbucketPipe.Options;
 
+[Serializable]
 public class ReportGeneratorOptions
 {
     public const string DefaultDestinationPath = "coverage-report";

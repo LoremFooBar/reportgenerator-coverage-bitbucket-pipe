@@ -1,7 +1,9 @@
-﻿using ReportGenerator.BitbucketPipe.Utils;
+﻿using System;
+using ReportGenerator.BitbucketPipe.Utils;
 
 namespace ReportGenerator.BitbucketPipe.Options;
 
+[Serializable]
 public class BitbucketOptions
 {
     public string ReportTitle { get; set; } = null!;

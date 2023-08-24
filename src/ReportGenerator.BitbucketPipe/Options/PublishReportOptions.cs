@@ -3,9 +3,10 @@ using ReportGenerator.BitbucketPipe.Utils;
 
 namespace ReportGenerator.BitbucketPipe.Options;
 
+[Serializable]
 public class PublishReportOptions
 {
-    public Uri? ReportUrl { get; private set; }
+    public Uri? ReportUrl { get; set; }
 
     public static void Configure(PublishReportOptions options, IEnvironmentVariableProvider envVariableProvider)
     {

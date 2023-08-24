@@ -1,7 +1,9 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ReportGenerator.BitbucketPipe.Options;
 
+[Serializable]
 public class BitbucketAuthenticationOptions
 {
     public string? Username { get; set; }

@@ -3,6 +3,7 @@ using ReportGenerator.BitbucketPipe.Utils;
 
 namespace ReportGenerator.BitbucketPipe.Options;
 
+[Serializable]
 public class PipeOptions
 {
     public bool CreateBuildStatus { get; set; }
