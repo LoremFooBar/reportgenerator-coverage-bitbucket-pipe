@@ -28,6 +28,17 @@ public class When_Making_A_Request_To_Create_Report : BitbucketClientSpecificati
     }
 
     [Then]
+    public void It_Should_Include_Actual_Coverage_And_Minimum_Requirements()
+    {
+        // todo find another way to test this?
+        HttpMessageHandlerMock.VerifySendCall(1,
+            request => request.Content.ReadAsStringAsync().Result.Contains("\"Line Coverage\"") &&
+                       request.Content.ReadAsStringAsync().Result.Contains("\"Branch Coverage\"") &&
+                       request.Content.ReadAsStringAsync().Result.Contains("\"Line Coverage Minimum\"") &&
+                       request.Content.ReadAsStringAsync().Result.Contains("\"Branch Coverage Minimum\""));
+    }
+
+    [Then]
     public void It_Should_Serialize_Report_Using_Snake_Case()
     {
         HttpMessageHandlerMock.VerifySendCall(Quantity.AtLeastOne(),

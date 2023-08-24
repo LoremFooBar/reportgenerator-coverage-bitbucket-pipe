@@ -111,6 +111,16 @@ public class BitbucketClient
                     Title = "Branch Coverage", Type = ReportDataType.Percentage,
                     Value = summary.BranchCoveragePercentage,
                 },
+                new ReportDataItem
+                {
+                    Title = "Line Coverage Minimum", Type = ReportDataType.Percentage,
+                    Value = _requirementsOptions.LineCoveragePercentageMinimum,
+                },
+                new ReportDataItem
+                {
+                    Title = "Branch Coverage Minimum", Type = ReportDataType.Percentage,
+                    Value = _requirementsOptions.BranchCoveragePercentageMinimum,
+                },
             },
         };
 
