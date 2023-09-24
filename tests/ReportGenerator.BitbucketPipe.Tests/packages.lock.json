@@ -296,8 +296,8 @@
       },
       "ReportGenerator.Core": {
         "type": "Transitive",
-        "resolved": "5.1.24",
-        "contentHash": "kofu32ZWhB2tHcJfWLKRUCxdsgi4AhEBS6xTSenBlaGmTyIAoLazQNWKLv1dm+560LV32XaZKPAhy0wapQRq3w==",
+        "resolved": "5.1.25",
+        "contentHash": "+hY78+R1o4jS29wjlg96xXsvH2qMpfEiIBgkGId5dqAxfBiZSfguCu1+MIAzbVDzbJq6KLB95HqBETdteorGRg==",
         "dependencies": {
           "DotNetConfig": "1.0.6",
           "McMaster.NETCore.Plugins": "1.4.0",
@@ -415,7 +415,7 @@
           "Macross.Json.Extensions": "[3.0.0, )",
           "Microsoft.Extensions.DependencyInjection": "[7.0.0, )",
           "Microsoft.Extensions.Http": "[7.0.0, )",
-          "ReportGenerator.Core": "[5.1.24, )",
+          "ReportGenerator.Core": "[5.1.25, )",
           "Serilog.Extensions.Logging": "[7.0.0, )",
           "Serilog.Sinks.Console": "[4.1.0, )"
         }
