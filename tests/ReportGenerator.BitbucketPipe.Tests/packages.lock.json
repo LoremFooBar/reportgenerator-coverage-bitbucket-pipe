@@ -132,8 +132,8 @@
       },
       "Microsoft.Extensions.Configuration.Binder": {
         "type": "Transitive",
-        "resolved": "8.0.0",
-        "contentHash": "mBMoXLsr5s1y2zOHWmKsE9veDcx8h1x/c3rz4baEdQKTeDcmQAPNbB54Pi/lhFO3K431eEq6PFbMgLaa6PHFfA==",
+        "resolved": "8.0.1",
+        "contentHash": "2UKFJnLiBt7Od6nCnTqP9rTIUNhzmn9Hv1l2FchyKbz8xieB9ULwZTbQZMw+M24Qw3F5dzzH1U9PPleN0LNLOQ==",
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "8.0.0"
         }
@@ -296,13 +296,13 @@
       },
       "ReportGenerator.Core": {
         "type": "Transitive",
-        "resolved": "5.2.0",
-        "contentHash": "R9bg80IjApnGNVxFusy57zrw0rauHR/lQs+7nePPnreTGl8a8SIYh2L67UlhnF9ONb2YCb5aefBqKMSVBh70yw==",
+        "resolved": "5.2.1",
+        "contentHash": "HTeoW21yJLpJdUb7Yev0H29DzYbcCy5wYaEvcM3JbNdp0FqWPZvidAJqVAu+hYti/W6RYjGokFqhsHJDyAt/CQ==",
         "dependencies": {
           "DotNetConfig": "1.0.6",
           "McMaster.NETCore.Plugins": "1.4.0",
           "Microsoft.Extensions.Configuration": "8.0.0",
-          "Microsoft.Extensions.Configuration.Binder": "8.0.0",
+          "Microsoft.Extensions.Configuration.Binder": "8.0.1",
           "Microsoft.Extensions.Configuration.CommandLine": "8.0.0",
           "Microsoft.Extensions.Configuration.Json": "8.0.0"
         }
@@ -378,7 +378,7 @@
           "Macross.Json.Extensions": "[3.0.0, )",
           "Microsoft.Extensions.DependencyInjection": "[7.0.0, )",
           "Microsoft.Extensions.Http": "[7.0.0, )",
-          "ReportGenerator.Core": "[5.2.0, )",
+          "ReportGenerator.Core": "[5.2.1, )",
           "Serilog.Extensions.Logging": "[7.0.0, )",
           "Serilog.Sinks.Console": "[4.1.0, )"
         }
