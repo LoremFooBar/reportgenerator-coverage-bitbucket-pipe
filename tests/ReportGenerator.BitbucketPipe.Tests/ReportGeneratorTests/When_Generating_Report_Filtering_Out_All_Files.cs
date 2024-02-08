@@ -26,7 +26,7 @@ public class When_Generating_Report_Filtering_Out_All_Files : SpecificationBase
             Reports =
                 $"ExampleCoverageTestResults{Path.DirectorySeparatorChar}*{Path.DirectorySeparatorChar}example.cobertura.xml",
             ReportTypes = "JsonSummary;Html",
-            ExtraArguments = new[] { "-fileFilters:+IDoNotExist.cs" },
+            ExtraArguments = ["-fileFilters:+IDoNotExist.cs"],
         };
         var reportGeneratorOptions = new OptionsWrapper<ReportGeneratorOptions>(_reportGeneratorOptions);
 

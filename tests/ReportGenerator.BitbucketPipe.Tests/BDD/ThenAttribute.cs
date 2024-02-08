@@ -2,4 +2,4 @@
 
 namespace ReportGenerator.BitbucketPipe.Tests.BDD;
 
-public class ThenAttribute : TestAttribute { }
+public class ThenAttribute : TestAttribute;

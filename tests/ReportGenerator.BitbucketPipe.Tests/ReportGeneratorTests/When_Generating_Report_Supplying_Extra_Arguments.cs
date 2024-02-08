@@ -26,7 +26,7 @@ public class When_Generating_Report_Supplying_Extra_Arguments : SpecificationBas
             Reports =
                 $"ExampleCoverageTestResults{Path.DirectorySeparatorChar}*{Path.DirectorySeparatorChar}example.cobertura.xml",
             ReportTypes = "JsonSummary;Html",
-            ExtraArguments = new[] { $"-fileFilters:+*{Path.DirectorySeparatorChar}BitbucketClient.cs" },
+            ExtraArguments = [$"-fileFilters:+*{Path.DirectorySeparatorChar}BitbucketClient.cs"],
         };
         var reportGeneratorOptions = new OptionsWrapper<ReportGeneratorOptions>(_reportGeneratorOptions);
 

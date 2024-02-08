@@ -2,4 +2,4 @@
 
 namespace ReportGenerator.BitbucketPipe;
 
-public class ReportGenerationFailedException : Exception { }
+public class ReportGenerationFailedException : Exception;
