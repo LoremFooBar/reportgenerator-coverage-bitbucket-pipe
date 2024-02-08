@@ -30,11 +30,13 @@ definitions:
           - apt-get update && apt-get install -y unzip
           - |-
             curl -o $ZIP_FILE_NAME -L \
-              https://github.com/LoremFooBar/ReportGenerator.AzureBlobHistoryStorage/releases/download/v1.2.0/netcoreapp3.1.zip
+              https://github.com/LoremFooBar/ReportGenerator.AzureBlobHistoryStorage/releases/download/v3.0.0/net8.0.zip
           - unzip $ZIP_FILE_NAME -d $PLUGIN_TARGET_DIR
 
+          - export COMMIT_IDS=$(git log --format="%H" -n 50 | tr '\n' ',')
+
           # generate coverage report
-          - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:0.8.1
+          - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:1.0.0
             variables:
               BITBUCKET_USERNAME: $LFB_BB_USERNAME
               BITBUCKET_APP_PASSWORD: $LFB_READ_BB_APP_PASSWORD
@@ -49,6 +51,7 @@ definitions:
               HISTORYCONTAINERURL: $COVERAGE_HISTORY_BLOB_CONTAINER_URL
               WRITESASTOKEN: $COVERAGE_HISTORY_BLOB_WRITE_SAS
               REPOSITORYNAME: $BITBUCKET_REPO_SLUG
+              COMMITIDS: $COMMIT_IDS
               DEBUG: "true"
 
           # upload coverage report
