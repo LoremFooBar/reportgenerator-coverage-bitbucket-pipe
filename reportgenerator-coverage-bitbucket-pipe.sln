@@ -26,6 +26,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportGenerator.BitbucketPi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit", "Unit", "{145F0A3B-574F-4BE3-8ACC-D2E441849D1B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{71BC3863-3ACF-4302-9FF4-4D352ABCC590}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\docker-build.ps1 = scripts\docker-build.ps1
+		scripts\docker-push.ps1 = scripts\docker-push.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,5 +51,6 @@ Global
 		{6AFCBF3C-2251-4BD4-AB78-9536F26564D0} = {159AB7B9-379B-4D45-8A7D-417D63EC2BFA}
 		{145F0A3B-574F-4BE3-8ACC-D2E441849D1B} = {C3DBC274-CBD2-4CBA-8D12-1C9F974C8ADB}
 		{8643BE55-B74B-489F-9050-BB36CF4A5AB8} = {145F0A3B-574F-4BE3-8ACC-D2E441849D1B}
+		{71BC3863-3ACF-4302-9FF4-4D352ABCC590} = {D06BA7D8-B399-4DD2-98DF-2A68A380BA05}
 	EndGlobalSection
 EndGlobal
