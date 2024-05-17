@@ -11,10 +11,10 @@ definitions:
           - dotnet build --no-restore
           - dotnet jb inspectcode --config=inspectcode.config
 
-          # create resharper inspections report
-          - pipe: docker://loremfoobar/resharper-inspections-bitbucket-pipe:1.1.0
+          # create pipeline report based on sarif file
+          - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.1.0
             variables:
-              INSPECTIONS_XML_PATH: "inspect.xml"
+              SARIF_FILE_PATH: "inspect.sarif"
               BITBUCKET_USERNAME: $LFB_BB_USERNAME
               BITBUCKET_APP_PASSWORD: $LFB_READ_BB_APP_PASSWORD
               DEBUG: "true"

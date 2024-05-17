@@ -45,6 +45,7 @@ UpgradeLog.htm
 
 # results file of `jb inspectcode`
 inspect.xml
+inspect.sarif
 example-inspect.xml
 
 # environment-specific app settings
