@@ -3,8 +3,6 @@ definitions:
     - step: &build-and-test
         name: Build and test
         image: mcr.microsoft.com/dotnet/sdk:8.0
-        caches:
-          - dotnetcore
         script:
           - dotnet tool restore
           - dotnet restore --locked-mode
