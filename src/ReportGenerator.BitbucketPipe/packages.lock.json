@@ -45,9 +45,9 @@
       },
       "ReportGenerator.Core": {
         "type": "Direct",
-        "requested": "[5.2.5, )",
-        "resolved": "5.2.5",
-        "contentHash": "X73MyG3ndLmdamqw1g7v4MvRKlQgYu5tOAPu823ZdvEBRxaYUcIHSt03JEmvaQK8c2xdmvv9BOd9pyty2y/osQ==",
+        "requested": "[5.3.5, )",
+        "resolved": "5.3.5",
+        "contentHash": "9oMrWLyaBEOCqE2nbeqXKNvHR4tTkpQydGJ1PWArP2nIVgVNws57AFBy14/fh/d/7Z1YBUNIwiydAe4VfOcDfA==",
         "dependencies": {
           "DotNetConfig": "1.0.6",
           "McMaster.NETCore.Plugins": "1.4.0",
