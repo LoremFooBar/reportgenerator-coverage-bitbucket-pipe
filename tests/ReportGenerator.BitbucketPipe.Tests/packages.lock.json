@@ -78,8 +78,8 @@
       },
       "IdentityModel": {
         "type": "Transitive",
-        "resolved": "6.2.0",
-        "contentHash": "4AXZ6Tp+DNwrSSeBziiX/231i8ZpD77A9nEMyc68gLSCWG0kgWsIBeFquYcBebiIPkfB7GEXzCYuuLeR1QZJIQ=="
+        "resolved": "7.0.0",
+        "contentHash": "to99aLL5Gev1GOb2gUao/UZXT/uXMyjEmHPNrf/vJI2HBD1LMCTeC4SBCe/cqMIB12V9v+eSieq7ff0lju9pOQ=="
       },
       "JetBrains.Annotations": {
         "type": "Transitive",
@@ -392,7 +392,7 @@
       "reportgenerator.bitbucketpipe": {
         "type": "Project",
         "dependencies": {
-          "IdentityModel": "[6.2.0, )",
+          "IdentityModel": "[7.0.0, )",
           "JetBrains.Annotations": "[2023.3.0, )",
           "Macross.Json.Extensions": "[3.0.0, )",
           "Microsoft.Extensions.DependencyInjection": "[8.0.0, )",
