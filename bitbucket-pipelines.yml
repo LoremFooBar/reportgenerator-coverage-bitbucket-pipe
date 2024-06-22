@@ -34,7 +34,7 @@ definitions:
           - export COMMIT_IDS=$(git log --format="%H" -n 50 | tr '\n' ',')
 
           # generate coverage report
-          - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:1.0.0
+          - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:1.0.1
             variables:
               BITBUCKET_USERNAME: $LFB_BB_USERNAME
               BITBUCKET_APP_PASSWORD: $LFB_READ_BB_APP_PASSWORD
