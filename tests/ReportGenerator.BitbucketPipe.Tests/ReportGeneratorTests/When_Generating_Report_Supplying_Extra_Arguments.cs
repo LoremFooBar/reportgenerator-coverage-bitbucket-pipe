@@ -48,7 +48,7 @@ public class When_Generating_Report_Supplying_Extra_Arguments : SpecificationBas
     public void It_Should_Correctly_Parse_Coverage_Summary_Taking_In_Account_Extra_Arguments()
     {
         _coverageSummary.Should().NotBeNull();
-        _coverageSummary.BranchCoveragePercentage.Should().BeGreaterOrEqualTo(92.7);
+        _coverageSummary.BranchCoveragePercentage.Should().BeGreaterThanOrEqualTo(92.7);
         _coverageSummary.LineCoveragePercentage.Should().BeGreaterThan(96.2);
     }
 }

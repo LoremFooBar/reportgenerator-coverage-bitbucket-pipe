@@ -47,8 +47,8 @@ public class When_Generating_Report : SpecificationBase
     public void It_Should_Correctly_Parse_Coverage_Summary()
     {
         _coverageSummary.Should().NotBeNull();
-        _coverageSummary.BranchCoveragePercentage.Should().BeGreaterOrEqualTo(75);
-        _coverageSummary.LineCoveragePercentage.Should().BeGreaterOrEqualTo(92.7);
+        _coverageSummary.BranchCoveragePercentage.Should().BeGreaterThanOrEqualTo(75);
+        _coverageSummary.LineCoveragePercentage.Should().BeGreaterThanOrEqualTo(92.7);
     }
 
     protected override void CleanUp()
