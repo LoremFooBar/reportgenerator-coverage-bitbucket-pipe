@@ -20,8 +20,7 @@
   <Folder Name="/src/">
     <Project Path="src\ReportGenerator.BitbucketPipe\ReportGenerator.BitbucketPipe.csproj" Type="Classic C#" />
   </Folder>
-  <Folder Name="/tests/" />
-  <Folder Name="/tests/Unit/">
+  <Folder Name="/tests/">
     <Project Path="tests\ReportGenerator.BitbucketPipe.Tests\ReportGenerator.BitbucketPipe.Tests.csproj" Type="Classic C#" />
   </Folder>
 </Solution>
