@@ -5,7 +5,7 @@ namespace ReportGenerator.BitbucketPipe;
 
 [SuppressMessage("ReSharper", "ReplaceAutoPropertyWithComputedProperty")]
 [DebuggerDisplay("{" + nameof(_name) + "}")]
-public readonly struct EnvironmentVariable
+public readonly record struct EnvironmentVariable
 {
     private EnvironmentVariable(string name) => _name = name;
 

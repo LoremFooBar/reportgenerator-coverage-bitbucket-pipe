@@ -18,15 +18,14 @@ public class When_Configuring_BitbucketOptions : SpecificationBase
         _options = new BitbucketOptions();
         _environmentVariableProvider = Substitute.ForPartsOf<DefaultEnvironmentVariableProvider>();
 
-        _environmentVariableProvider.GetEnvironmentVariable(Arg.Any<string>()).Returns(
-            x =>
-            {
-                string varName = (string)x[0];
+        _environmentVariableProvider.GetEnvironmentVariable(Arg.Any<string>()).Returns(x =>
+        {
+            string varName = (string)x[0];
 
-                return varName == EnvironmentVariable.BuildStatusName ? "My Coverage Status" :
-                    varName == EnvironmentVariable.PipelineReportTitle ? "My Coverage Report" :
-                    "";
-            });
+            return varName == EnvironmentVariable.BuildStatusName ? "My Coverage Status" :
+                varName == EnvironmentVariable.PipelineReportTitle ? "My Coverage Report" :
+                "";
+        });
     }
 
     protected override void When()
