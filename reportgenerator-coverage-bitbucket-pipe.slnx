@@ -1,0 +1,27 @@
+﻿<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="Dockerfile" />
+    <File Path="inspectcode.config" />
+    <File Path="pipe.yml" />
+    <File Path="README.md" />
+    <File Path="CONTRIBUTING.md" />
+    <File Path=".dockerignore" />
+    <File Path="bitbucket-pipelines.yml" />
+    <File Path="LICENSE" />
+    <File Path=".config\dotnet-tools.json" />
+  </Folder>
+  <Folder Name="/Solution Items/scripts/">
+    <File Path="scripts\docker-build.ps1" />
+    <File Path="scripts\docker-push.ps1" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src\ReportGenerator.BitbucketPipe\ReportGenerator.BitbucketPipe.csproj" Type="Classic C#" />
+  </Folder>
+  <Folder Name="/tests/" />
+  <Folder Name="/tests/Unit/">
+    <Project Path="tests\ReportGenerator.BitbucketPipe.Tests\ReportGenerator.BitbucketPipe.Tests.csproj" Type="Classic C#" />
+  </Folder>
+</Solution>
