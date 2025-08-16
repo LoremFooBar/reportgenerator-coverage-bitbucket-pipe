@@ -10,7 +10,7 @@ definitions:
           - dotnet jb inspectcode --config=inspectcode.config
 
           # create pipeline report based on sarif file
-          - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.1.0
+          - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.1.1
             variables:
               SARIF_FILE_PATH: "inspect.sarif"
               BITBUCKET_USERNAME: $LFB_BB_USERNAME
