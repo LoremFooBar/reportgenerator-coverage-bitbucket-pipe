@@ -12,15 +12,16 @@
     <File Path="bitbucket-pipelines.yml" />
     <File Path="LICENSE" />
     <File Path=".config\dotnet-tools.json" />
+    <File Path="taskfile.yml" />
   </Folder>
   <Folder Name="/Solution Items/scripts/">
     <File Path="scripts\docker-build.ps1" />
     <File Path="scripts\docker-push.ps1" />
   </Folder>
   <Folder Name="/src/">
-    <Project Path="src\ReportGenerator.BitbucketPipe\ReportGenerator.BitbucketPipe.csproj" Type="Classic C#" />
+    <Project Path="src\ReportGenerator.BitbucketPipe\ReportGenerator.BitbucketPipe.csproj" Type="C#" />
   </Folder>
   <Folder Name="/tests/">
-    <Project Path="tests\ReportGenerator.BitbucketPipe.Tests\ReportGenerator.BitbucketPipe.Tests.csproj" Type="Classic C#" />
+    <Project Path="tests\ReportGenerator.BitbucketPipe.Tests\ReportGenerator.BitbucketPipe.Tests.csproj" Type="C#" />
   </Folder>
 </Solution>

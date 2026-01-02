@@ -1,0 +1,22 @@
+version: 3
+
+tasks:
+  docker-build-and-push:
+    requires: 
+      vars:
+        - VERSION
+    cmds:
+      - task: docker-build
+      - docker push loremfoobar/reportgenerator-coverage-bitbucket-pipe:{{.VERSION}}
+  docker-build:
+    requires:
+      vars:
+        - VERSION
+    cmds:
+      - docker build --rm -t loremfoobar/reportgenerator-coverage-bitbucket-pipe:{{.VERSION}} .
+  inspect-code:
+    cmds:
+      - dotnet tool restore
+      - dotnet restore --locked-mode
+      - dotnet build --no-restore
+      - dotnet jb inspectcode --config=inspectcode.config

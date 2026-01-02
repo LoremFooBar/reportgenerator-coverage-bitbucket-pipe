@@ -1,6 +1,6 @@
-﻿FROM mcr.microsoft.com/dotnet/sdk:9.0-alpine as build
+﻿FROM mcr.microsoft.com/dotnet/sdk:10.0-alpine AS build
 
-ENV PRROJECT_NAME "ReportGenerator.BitbucketPipe"
+ENV PRROJECT_NAME="ReportGenerator.BitbucketPipe"
 
 WORKDIR /source
 
@@ -14,7 +14,7 @@ COPY src/$PRROJECT_NAME/. ./
 RUN dotnet publish --no-restore -c release -o /app
 
 
-FROM mcr.microsoft.com/dotnet/runtime:9.0-alpine
+FROM mcr.microsoft.com/dotnet/runtime:10.0-alpine
 
 LABEL maintainer="@LoremFooBar"
 
