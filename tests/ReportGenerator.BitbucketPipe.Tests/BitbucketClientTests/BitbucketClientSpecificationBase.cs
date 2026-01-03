@@ -22,7 +22,6 @@ public class BitbucketClientSpecificationBase : SpecificationBase
         var bitbucketOptions = new BitbucketOptions
             { ReportTitle = "Code Coverage", BuildStatusName = "Code Coverage" };
         var pipeOptions = new PipeOptions { CreateBuildStatus = true };
-        var authOptions = new BitbucketAuthenticationOptions { Username = "user", AppPassword = "pass" };
 
         _bitbucketClientMock = new BitbucketClientMock();
 
@@ -33,7 +32,6 @@ public class BitbucketClientSpecificationBase : SpecificationBase
             new OptionsWrapper<CoverageRequirementsOptions>(requirementsOptions),
             new OptionsWrapper<BitbucketOptions>(bitbucketOptions),
             new OptionsWrapper<PipeOptions>(pipeOptions),
-            new OptionsWrapper<BitbucketAuthenticationOptions>(authOptions),
             TestEnvironment.EnvironmentInfo);
     }
 }

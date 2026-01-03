@@ -23,8 +23,8 @@ public class When_Running_Pipe_With_Coverage_Requirements_That_Are_Met : Specifi
 
         var environment = TestEnvironment.CreateMockEnvironment(new Dictionary<EnvironmentVariable, string>
         {
-            [EnvironmentVariable.BitbucketUsername] = "user",
-            [EnvironmentVariable.BitbucketAppPassword] = "pass",
+            [EnvironmentVariable.AccountEmail] = "test@example.com",
+            [EnvironmentVariable.ApiToken] = "token",
 
             [EnvironmentVariable.LineCoverageMinimum] = "50",
             [EnvironmentVariable.BranchCoverageMinimum] = "50",

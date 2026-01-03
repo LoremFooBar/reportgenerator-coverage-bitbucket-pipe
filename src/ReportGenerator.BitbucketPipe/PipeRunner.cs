@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Net;
-using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
-using IdentityModel.Client;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using ReportGenerator.BitbucketPipe.Model;
@@ -57,8 +56,9 @@ public class PipeRunner
 
         var authOptions = new BitbucketAuthenticationOptions
         {
-            Username = _environmentVariableProvider.GetEnvironmentVariable(EnvironmentVariable.BitbucketUsername),
-            AppPassword = _environmentVariableProvider.GetEnvironmentVariable(EnvironmentVariable.BitbucketAppPassword),
+            AccountEmail =
+                _environmentVariableProvider.GetRequiredEnvironmentVariable(EnvironmentVariable.AccountEmail),
+            ApiToken = _environmentVariableProvider.GetRequiredEnvironmentVariable(EnvironmentVariable.ApiToken),
         };
 
         SetupBitbucketClient(services, authOptions);
@@ -78,8 +78,8 @@ public class PipeRunner
             .Configure<PipeOptions>(options => PipeOptions.Configure(options, _environmentVariableProvider))
             .Configure<BitbucketAuthenticationOptions>(options =>
             {
-                options.Username = authOptions.Username;
-                options.AppPassword = authOptions.AppPassword;
+                options.AccountEmail = authOptions.AccountEmail;
+                options.ApiToken = authOptions.ApiToken;
             })
             .AddSingleton(_pipeEnvironment)
             .AddSingleton<BitbucketEnvironmentInfo>();
@@ -87,25 +87,18 @@ public class PipeRunner
         return services;
     }
 
-    private void SetupBitbucketClient(IServiceCollection services, BitbucketAuthenticationOptions authOptions)
+    private static void SetupBitbucketClient(IServiceCollection services, BitbucketAuthenticationOptions authOptions)
     {
         var httpClientBuilder = services.AddHttpClient<BitbucketClient>();
 
-        if (authOptions.UseAuthentication) {
-            Log.Debug("Authenticating using app password");
-            httpClientBuilder.ConfigureHttpClient(client =>
-                client.SetBasicAuthentication(authOptions.Username, authOptions.AppPassword));
-        }
-        else if (!_pipeEnvironment.IsDevelopment) {
-            // set proxy for pipe when running in pipelines
-            const string proxyUrl = "http://host.docker.internal:29418";
-
-            Log.Debug("Using proxy {Proxy}", proxyUrl);
-            Log.Information("Not using authentication - can't create build status");
-            httpClientBuilder.ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
-                { Proxy = new WebProxy(proxyUrl) });
-        }
-        else
-            Log.Error("Could not authenticate to Bitbucket!");
+        Log.Debug("Authenticating using API token and email");
+        httpClientBuilder.ConfigureHttpClient(client =>
+        {
+            string authenticationString = $"{authOptions.AccountEmail}:{authOptions.ApiToken}";
+            string base64EncodedAuthenticationString =
+                Convert.ToBase64String(Encoding.ASCII.GetBytes(authenticationString));
+            client.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Basic", base64EncodedAuthenticationString);
+        });
     }
 }

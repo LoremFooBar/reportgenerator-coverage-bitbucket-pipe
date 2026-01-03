@@ -11,3 +11,26 @@ tags:
   - test
   - code-coverage
   - test-coverage
+variables:
+  - name: ACCOUNT_EMAIL
+  - name: API_TOKEN
+  - name: PIPELINE_REPORT_TITLE
+    default: "Code Coverage"
+  - name: BUILD_STATUS_NAME
+    default: "Code Coverage"
+  - name: CREATE_BUILD_STATUS
+    default: "true"
+  - name: FAIL_WHEN_MINIMUM_NOT_MET
+    default: "false"
+  - name: REPORTS
+    default: "**/coverage*.xml"
+  - name: REPORT_TYPES
+    default: "JsonSummary;Html"
+  - name: LINE_COVERAGE_MINIMUM
+    default: "0"
+  - name: BRANCH_COVERAGE_MINIMUM
+    default: "0"
+  - name: PUBLISHED_REPORT_URL
+  - name: EXTRA_ARGS
+  - name: DEBUG
+    default: "false"

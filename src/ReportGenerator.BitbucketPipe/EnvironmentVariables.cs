@@ -13,8 +13,8 @@ public readonly record struct EnvironmentVariable
     public static implicit operator string(EnvironmentVariable variable) => variable._name;
     public static implicit operator EnvironmentVariable(string name) => new(name);
 
-    public static EnvironmentVariable BitbucketUsername { get; } = new("BITBUCKET_USERNAME");
-    public static EnvironmentVariable BitbucketAppPassword { get; } = new("BITBUCKET_APP_PASSWORD");
+    public static EnvironmentVariable ApiToken { get; } = new("API_TOKEN");
+    public static EnvironmentVariable AccountEmail { get; } = new("ACCOUNT_EMAIL");
     public static EnvironmentVariable LineCoverageMinimum { get; } = new("LINE_COVERAGE_MINIMUM");
     public static EnvironmentVariable BranchCoverageMinimum { get; } = new("BRANCH_COVERAGE_MINIMUM");
     public static EnvironmentVariable BuildStatusName { get; } = new("BUILD_STATUS_NAME");
@@ -27,7 +27,6 @@ public readonly record struct EnvironmentVariable
     public static EnvironmentVariable ExtraArgs { get; } = new("EXTRA_ARGS");
     public static EnvironmentVariable ExtraArgsCount { get; } = new("EXTRA_ARGS_COUNT");
     public static EnvironmentVariable Debug { get; } = new("DEBUG");
-    public static EnvironmentVariable NetCoreEnvironment { get; } = new("NETCORE_ENVIRONMENT");
 
     public static EnvironmentVariable BitbucketCommit { get; } = new("BITBUCKET_COMMIT");
     public static EnvironmentVariable BitbucketWorkspace { get; } = new("BITBUCKET_WORKSPACE");

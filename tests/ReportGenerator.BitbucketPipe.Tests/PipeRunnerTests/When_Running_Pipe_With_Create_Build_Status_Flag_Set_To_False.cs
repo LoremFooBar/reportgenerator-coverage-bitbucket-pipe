@@ -20,9 +20,9 @@ public class When_Running_Pipe_With_Create_Build_Status_Flag_Set_To_False : Spec
 
         var environment = TestEnvironment.CreateMockEnvironment(new Dictionary<EnvironmentVariable, string>
         {
+            [EnvironmentVariable.AccountEmail] = "test@example.com",
+            [EnvironmentVariable.ApiToken] = "token",
             [EnvironmentVariable.CreateBuildStatus] = "false",
-            [EnvironmentVariable.BitbucketUsername] = "user",
-            [EnvironmentVariable.BitbucketAppPassword] = "pass",
             [EnvironmentVariable.Reports] = "**/example.cobertura.xml",
         });
 

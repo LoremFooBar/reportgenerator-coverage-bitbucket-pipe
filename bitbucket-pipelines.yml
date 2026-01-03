@@ -13,8 +13,8 @@ definitions:
           - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.1.1
             variables:
               SARIF_FILE_PATH: "inspect.sarif"
-              BITBUCKET_USERNAME: $LFB_BB_USERNAME
-              BITBUCKET_APP_PASSWORD: $LFB_READ_BB_APP_PASSWORD
+              ACCOUNT_EMAIL: $LFB_BB_EMAIL
+              API_TOKEN: $LFB_BB_TOKEN
               DEBUG: "true"
 
           - |-
@@ -34,10 +34,10 @@ definitions:
           - export COMMIT_IDS=$(git log --format="%H" -n 50 | tr '\n' ',')
 
           # generate coverage report
-          - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:1.0.2
+          - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:2.0.0-dev001
             variables:
-              BITBUCKET_USERNAME: $LFB_BB_USERNAME
-              BITBUCKET_APP_PASSWORD: $LFB_READ_BB_APP_PASSWORD
+              ACCOUNT_EMAIL: $LFB_BB_EMAIL
+              API_TOKEN: $LFB_API_TOKEN_REPO_READ
               LINE_COVERAGE_MINIMUM: "95"
               BRANCH_COVERAGE_MINIMUM: "90"
               PUBLISHED_REPORT_URL: "$COVERAGE_REPORTS_BLOB_CONTAINER_URL/$BITBUCKET_REPO_SLUG/$BITBUCKET_COMMIT/index.htm"

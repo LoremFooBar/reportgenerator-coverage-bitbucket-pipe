@@ -18,7 +18,6 @@ namespace ReportGenerator.BitbucketPipe;
 
 public class BitbucketClient
 {
-    private readonly BitbucketAuthenticationOptions _authOptions;
     private readonly BitbucketOptions _bitbucketOptions;
     private readonly BitbucketEnvironmentInfo _environmentInfo;
     private readonly HttpClient _httpClient;
@@ -30,11 +29,10 @@ public class BitbucketClient
     public BitbucketClient(HttpClient client, ILogger<BitbucketClient> logger,
         IOptions<PublishReportOptions> publishOptions, IOptions<CoverageRequirementsOptions> requirementsOptions,
         IOptions<BitbucketOptions> bitbucketOptions, IOptions<PipeOptions> pipeOptions,
-        IOptions<BitbucketAuthenticationOptions> authOptions, BitbucketEnvironmentInfo environmentInfo)
+        BitbucketEnvironmentInfo environmentInfo)
     {
         _httpClient = client;
         _logger = logger;
-        _authOptions = authOptions.Value;
         _pipeOptions = pipeOptions.Value;
         _environmentInfo = environmentInfo;
         _bitbucketOptions = bitbucketOptions.Value;
@@ -59,12 +57,6 @@ public class BitbucketClient
     public async Task CreateCommitBuildStatusAsync(CoverageSummary summary)
     {
         if (!_pipeOptions.CreateBuildStatus) return;
-
-        if (!_authOptions.UseAuthentication) {
-            _logger.LogWarning("Will not create build status because authentication info was not provided");
-
-            return;
-        }
 
         _logger.LogDebug("Coverage requirements: {@CoverageRequirements}", _requirementsOptions);
         _logger.LogDebug("Coverage summary: {@CoverageSummary}", summary);

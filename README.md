@@ -13,8 +13,8 @@ your `bitbucket-pipelines.yml` file:
 script:
   - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:1.0.2
     variables:
-      # BITBUCKET_USERNAME: "<string>" # Optional
-      # BITBUCKET_APP_PASSWORD: "<string>" # Optional
+      ACCOUNT_EMAIL: "<string>" # Required
+      API_TOKEN: "<string>" # Required
       # LINE_COVERAGE_MINIMUM: "<int>" # Optional, default: 0
       # BRANCH_COVERAGE_MINIMUM: "<int>" # Optional, default: 0
       # PIPELINE_REPORT_TITLE: "<string>" # Optional, default: BUILD_STATUS_NAME if present, else "Code Coverage"
@@ -32,8 +32,8 @@ script:
 
 | Variable                  | Usage                                                                                                                                                                                          |
 |---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| BITBUCKET_USERNAME        | Bitbucket username, required to create build status. Note, that this should be an account name, not the email.                                                                                 |
-| BITBUCKET_APP_PASSWORD    | Bitbucket app password, required to create build status.                                                                                                                                       |
+| ACCOUNT_EMAIL             | (*) Atlassian account email, required for authentication.                                                                                                                                      |
+| API_TOKEN                 | (*) API token, required for authentication.                                                                                                                                                    |
 | PIPELINE_REPORT_TITLE     | Title of Pipeline report created by pipe. Default: BUILD_STATUS_NAME if present, else `"Code Coverage"`.                                                                                       |
 | BUILD_STATUS_NAME         | Name of build status created by pipe. Default: PIPELINE_REPORT_TITLE if present, else `"Code Coverage"`.                                                                                       |
 | CREATE_BUILD_STATUS       | Whether to create build status reflecting the provided coverage requirements. Default: `true`.                                                                                                 |
@@ -59,13 +59,12 @@ ReportGenerator, see
 [ReportGenerator Supported File Formats](https://github.com/danielpalme/ReportGenerator#supported-input-and-output-file-formats)
 .
 
-### App Password Required for Build Status
+### API Token and Email Required
 
-Build status will be created only if username and app password are provided.
-To have this pipe create build status, you need to
-[generate an app password](https://confluence.atlassian.com/bitbucket/app-passwords-828781300.html)
-.
-Only the Repositories Read permission is required.
+An API token and email are always required for this pipe to run.
+To have this pipe function correctly, you need to
+[create a scoped API token](https://support.atlassian.com/bitbucket-cloud/docs/create-an-api-token/).
+Only the scope `read:repository:bitbucket` is required.
 
 ## Uploading The Report
 
@@ -74,18 +73,18 @@ pipe to upload the report files to your preferred storage provider. If you
 provide the expected report URL in `PUBLISHED_REPORT_URL` variable, it will be
 used as the link for the build status and the Pipeline report for easy access.
 Depending on your storage provider, you may need to link directly to the
-`index.html` file in order to be able browse to it.
+`index.html` file to be able to browse to it.
 
 ## Examples
 
-Basic example using secure variables for username and app password:
+Basic example using secure variables for API token:
 
 ```yaml
 script:
   - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:1.0.2
     variables:
-      BITBUCKET_USERNAME: $USERNAME
-      BITBUCKET_APP_PASSWORD: $APP_PASSWORD
+      ACCOUNT_EMAIL: $ATLASSIAN_EMAIL
+      API_TOKEN: $API_TOKEN
       LINE_COVERAGE_MINIMUM: "80"
       BRANCH_COVERAGE_MINIMUM: "80"
 ```
@@ -96,8 +95,8 @@ Example with published report URL:
 script:
   - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:1.0.2
     variables:
-      BITBUCKET_USERNAME: $USERNAME
-      BITBUCKET_APP_PASSWORD: $APP_PASSWORD
+      ACCOUNT_EMAIL: $ATLASSIAN_EMAIL
+      API_TOKEN: $API_TOKEN
       LINE_COVERAGE_MINIMUM: "80"
       BRANCH_COVERAGE_MINIMUM: "80"
       PUBLISHED_REPORT_URL: "https://my-server.com/coverage/$BITBUCKET_REPO_SLUG/$BITBUCKET_COMMIT/index.html"
@@ -109,8 +108,8 @@ Example with extra arguments:
 script:
   - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:1.0.2
     variables:
-      BITBUCKET_USERNAME: $USERNAME
-      BITBUCKET_APP_PASSWORD: $APP_PASSWORD
+      ACCOUNT_EMAIL: $ATLASSIAN_EMAIL
+      API_TOKEN: $API_TOKEN
       LINE_COVERAGE_MINIMUM: "80"
       BRANCH_COVERAGE_MINIMUM: "80"
       REPORTS: "coverage/cobertura.xml"
@@ -125,8 +124,8 @@ Example with build status creation temporarily disabled:
 script:
   - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:1.0.2
     variables:
-      BITBUCKET_USERNAME: $USERNAME
-      BITBUCKET_APP_PASSWORD: $APP_PASSWORD
+      ACCOUNT_EMAIL: $ATLASSIAN_EMAIL
+      API_TOKEN: $API_TOKEN
       LINE_COVERAGE_MINIMUM: "80"
       BRANCH_COVERAGE_MINIMUM: "80"
       CREATE_BUILD_STATUS: "false"

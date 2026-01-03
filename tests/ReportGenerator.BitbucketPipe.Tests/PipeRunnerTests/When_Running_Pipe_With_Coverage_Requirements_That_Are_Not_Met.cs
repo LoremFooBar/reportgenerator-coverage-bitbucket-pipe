@@ -24,8 +24,8 @@ public class When_Running_Pipe_With_Coverage_Requirements_That_Are_Not_Met : Spe
             [EnvironmentVariable.BranchCoverageMinimum] = "95",
             [EnvironmentVariable.LineCoverageMinimum] = "95",
 
-            [EnvironmentVariable.BitbucketUsername] = "user",
-            [EnvironmentVariable.BitbucketAppPassword] = "pass",
+            [EnvironmentVariable.AccountEmail] = "test@example.com",
+            [EnvironmentVariable.ApiToken] = "token",
 
             [EnvironmentVariable.Reports] = "**/example.cobertura.xml",
         });

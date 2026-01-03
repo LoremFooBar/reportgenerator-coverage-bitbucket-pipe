@@ -23,8 +23,8 @@ public class
             [EnvironmentVariable.BranchCoverageMinimum] = "95",
             [EnvironmentVariable.LineCoverageMinimum] = "95",
 
-            [EnvironmentVariable.BitbucketUsername] = "user",
-            [EnvironmentVariable.BitbucketAppPassword] = "pass",
+            [EnvironmentVariable.AccountEmail] = "test@example.com",
+            [EnvironmentVariable.ApiToken] = "token",
 
             [EnvironmentVariable.FailWhenMinimumNotMet] = "true",
 

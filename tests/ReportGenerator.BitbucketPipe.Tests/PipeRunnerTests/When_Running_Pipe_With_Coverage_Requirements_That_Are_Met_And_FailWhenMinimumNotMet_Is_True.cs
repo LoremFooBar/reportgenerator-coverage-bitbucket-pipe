@@ -25,8 +25,8 @@ public class
 
         var environment = TestEnvironment.CreateMockEnvironment(new Dictionary<EnvironmentVariable, string>
         {
-            [EnvironmentVariable.BitbucketUsername] = "user",
-            [EnvironmentVariable.BitbucketAppPassword] = "pass",
+            [EnvironmentVariable.AccountEmail] = "test@example.com",
+            [EnvironmentVariable.ApiToken] = "token",
 
             [EnvironmentVariable.LineCoverageMinimum] = "50",
             [EnvironmentVariable.BranchCoverageMinimum] = "50",
