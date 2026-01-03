@@ -11,7 +11,7 @@ your `bitbucket-pipelines.yml` file:
 
 ```yaml
 script:
-  - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:1.0.2
+  - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:2.0.0
     variables:
       ACCOUNT_EMAIL: "<string>" # Required
       API_TOKEN: "<string>" # Required
@@ -81,7 +81,7 @@ Basic example using secure variables for API token:
 
 ```yaml
 script:
-  - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:1.0.2
+  - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:2.0.0
     variables:
       ACCOUNT_EMAIL: $ATLASSIAN_EMAIL
       API_TOKEN: $API_TOKEN
@@ -93,7 +93,7 @@ Example with published report URL:
 
 ```yaml
 script:
-  - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:1.0.2
+  - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:2.0.0
     variables:
       ACCOUNT_EMAIL: $ATLASSIAN_EMAIL
       API_TOKEN: $API_TOKEN
@@ -106,7 +106,7 @@ Example with extra arguments:
 
 ```yaml
 script:
-  - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:1.0.2
+  - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:2.0.0
     variables:
       ACCOUNT_EMAIL: $ATLASSIAN_EMAIL
       API_TOKEN: $API_TOKEN
@@ -122,7 +122,7 @@ Example with build status creation temporarily disabled:
 
 ```yaml
 script:
-  - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:1.0.2
+  - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:2.0.0
     variables:
       ACCOUNT_EMAIL: $ATLASSIAN_EMAIL
       API_TOKEN: $API_TOKEN
